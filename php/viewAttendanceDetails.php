@@ -77,6 +77,11 @@
 				padding:10px 14px; 
 				margin:15px 20px;
 			}
+			td.attend
+			{
+				border: 1px solid black;
+				padding: 5px 10px;
+			}
 		</style>
 		<script type="text/javascript">
 			var flag = 0;
@@ -165,8 +170,8 @@
 				&nbsp; &nbsp; <label class="heading"> &nbsp; &nbsp; Overall Attendance </label>
 			</div>
 
+			<!-- Overall Attendance -->
 			<div id="overall_attend" class="details">
-				<!-- Overall Attendance -->
 				Overall Attendance
 			</div>
 
@@ -177,9 +182,90 @@
 				&nbsp; &nbsp; <label class="heading"> &nbsp; &nbsp; Daily Attendance </label>
 			</div>
 
+			<?php 
+				$year = date("y");
+				$sem = $row[2][1];
+
+				$year = "20".$year;
+
+				$year = (int)$year;
+				$sem = (int)$sem;
+
+				if(($sem%2) == 0)
+				{
+					$year = $year - $sem/2;
+				}
+				else
+				{
+					$year = $year - ($sem-1)/2;
+				}
+
+				$var_sql1 = "SELECT start_date,end_date FROM hostel_academic_details WHERE academic_from = ".$year;
+				$result1 = mysql_query($var_sql1);
+				$row1 = mysql_fetch_array($result1);
+
+				$start_date = $row1[0];
+				$end_date = $row1[1];
+
+				$var_att = "SELECT si_no,status,";
+				$var_att .= "date FROM hostel_date_details where date='".$start_date."'";
+				$res_att = mysql_query($var_att);
+		
+				$flag = 0;
+				$row_att = mysql_fetch_array($res_att);
+				$si_no = $row_att[0];
+			?>
+
+			<!-- Daily Attendance -->
 			<div id="daily_attend" class="details">
-				<!-- Daily Attendance -->
-				Daily Attendance
+				<table style="width: 100%; text-align: center; border:2px solid black" class="attend">
+	
+					<tr>
+						<th> Date </th>
+						<th> Day </th>
+						<th> Status </th>
+						<th> Attendance </th>
+						<th> Reamrk </th>
+					</tr>
+
+				<?php 
+					while($flag==0)
+					{
+				?>
+					<tr>
+						<!-- Date -->
+						<td> <?php echo $row_att[2]; ?> </td>
+
+						<!-- Day -->
+						<td> 
+							<?php 
+								echo date('l',strtotime($row_att[2]));
+							?>
+						</td>
+
+						<!-- Status(H/C) -->
+						<td> <?php echo $si_no; ?> </td>
+
+						<!-- Attendance (P/A) -->
+						<td> <?php echo "yet to do" ?> </td>
+
+						<!-- Remark -->
+						<td> <?php echo "yet to do" ?></td>
+					</tr>
+				<?php
+						$si_no++;
+						$var_att = "SELECT si_no,status,";
+						$var_att .= "date FROM hostel_date_details WHERE si_no=".$si_no;
+
+						$res_att = mysql_query($var_att);
+						$row_att = mysql_fetch_array($res_att);
+
+						if($row_att[2] == $end_date)
+							$flag++;
+					}
+				?>
+	
+				</table>
 			</div>
 		</div>
 
