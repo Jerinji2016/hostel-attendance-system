@@ -27,7 +27,7 @@ function name_call()
 
 	var xhr = new XMLHttpRequest();
 	var x = "&course="+course+"&semester="+semester+"&branch="+branch;
-	xhr.open('GET','/hostel-attendance-details/php/studName.php?'+x,true);
+	xhr.open('GET','/hostel-attendance-system/php/studName.php?'+x,true);
 	xhr.onreadystatechange = function()
 	{
 	  	if(xhr.readyState==4 && xhr.status==200)
