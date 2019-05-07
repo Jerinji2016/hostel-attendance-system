@@ -1,0 +1,445 @@
+@charset "utf-8";
+/* CSS Document */
+.klub_mlnk
+{
+	list-style:none;
+	width:620px;
+	background-image:url(../img/trans_01.png);
+	margin:2px;
+	padding:4px;
+}
+
+.klub_slnk
+{
+	list-style:none;
+	width:580px;
+	background-image:url(../img/trans_01.png);
+	margin:2px;
+	padding:4px;
+}
+.klub_slnk li
+{
+	list-style:none;
+	width:530px;
+	background-image:url(../img/trans_1.png);
+	margin:2px;
+	padding:4px;
+}
+
+.klub_slnk li:hover
+{
+	list-style:none;
+	width:530px;
+	background-image:url(../img/trans_2.png);
+	margin:2px;
+	padding:4px;
+}
+
+.cms_lnk_tog
+{
+	cursor:pointer;
+	margin:5px;
+	font-size:18px !important;
+}
+.cms_slnk_tog
+{
+	display:none;
+}
+.klub_h2 {
+	color: #F30;
+	font-size: 18px;
+	margin: 7px 0px 5px 0px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+.klub_h3 {
+	color: #090;
+	font-size: 14px;
+	padding-left: 10px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+.klub_h4 {
+	color: #047;
+	font-size: 13px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+.klub_h5 {
+	color: #069;
+	font-size: 12px;
+	padding-left: 10px;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+.klub_input {
+	padding: 2px 3px;
+	margin:4px;
+	border: 1px solid #CCC;
+	border-radius: 1px !important;
+}
+.klub_selt {
+	padding: 2px;
+	font-size: 12px !important;
+	width: 218px;
+	border: 1px solid #CCC !important;
+	border-radius: 1px !important;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+input[type="file"] {
+	height: 30px;
+	line-height: 30px;
+}
+.klub_fileinput {
+	position: relative;
+	overflow: hidden;
+}
+.klub_fileinput input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	transform: translate(-300px, 0) scale(4);
+	font-size: 23px;
+	direction: ltr;
+	cursor: pointer;
+}
+.cms_btn_tile,.cms_btn_tilex,.cms_btn_tile_wdt {
+	cursor: pointer;
+	margin: 0px 4px;
+	padding: 0px;
+	float: left;
+	border:0;
+	text-align:left;
+}
+.cms_btn_tile div,.cms_btn_tilex div,.cms_btn_tile_wdt div {
+	margin-bottom: 4px;
+	padding: 7px 2px;
+	background-image: url(../img/trans_8.png);
+	color: #333;
+	width: 130px;
+	text-indent: 10px;
+}
+
+.cms_btn_tile_atv {
+	margin-bottom: 4px;
+	padding: 10px 7px;
+	background-image: url(../img/trans_5.png) !important;
+	cursor: default;
+	color: #FFF !important;
+}
+.cms_btn_tile div:hover,.cms_btn_tilex div:hover,.cms_btn_tile_wdt div:hover {
+	margin-bottom: 4px;
+	padding: 7px 2px;
+	background-image: url(../img/trans_7.png);
+	color: #333;
+}
+
+.cms_rep_title td
+{
+	background-image:url(../img/trans_01.png);
+	text-align:center;
+	padding:4px;
+	font-size:13px !important;
+	color:#333;
+	font-family:Segoe, "Segoe UI SemiBold", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.cms_rep_sub td
+{
+	background-image:url(../img/trans_1.png);
+	text-align:center;
+	padding:4px;
+	font-family:Segoe, "Segoe UI SemiBold", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.cms_rep_td
+{
+	background-image:url(../img/trans_01.png);
+	text-align:center;
+	padding:4px;
+	font-size:13px !important;
+	color:#333;
+	font-family:Segoe, "Segoe UI SemiBold", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+.cms_bdet_row_0
+{
+	background-image:url(../img/trans_1.png);
+	text-align:center;
+	padding:4px;
+	font-size:11px;
+	color:#555;	
+}
+.cms_bdet_row_1
+{
+	background-image:url(../img/trans_2.png);
+	text-align:center;
+	font-size:11px;
+	padding:4px;
+	color:#555;	
+}
+.cms_bdet_row_0:hover
+{
+	background-image:url(../img/trans_5.png);
+	color:#FFF;
+}
+.cms_bdet_row_1:hover
+{	
+	background-image:url(../img/trans_5.png);
+	color:#FFF;
+}
+.klub_tbar_container
+{
+	background-image:url(../img/trans_01.png); color:#CC4200; padding:7px 14px; margin:7px 20px;
+}
+.cms_lft_lst
+{
+	padding:7px; cursor:default; background-image:url(../img/trans_2.png); margin:4px 0px; width:410px;
+}
+.cms_usr_set
+{
+	width:28px; height:28px; background-image:url(../img/settings.png); margin:2px 7px 0px 0px; background-position:0px 1px; float:right;
+}
+.cms_usr_set:hover
+{
+	width:28px; height:28px; background-image:url(../img/settings.png); margin:2px 7px 0px 0px; background-position:0px 29px; float:right; cursor:pointer;
+}
+
+input[type="file"] {
+height: 30px;
+line-height: 30px;
+}
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer;
+}
+#cms_content
+{
+	width:986px; min-height:516px; 
+	border-left:1px solid #999; 
+	background-image:url(../img/logo.png); 
+	float:right; 
+	background-position:center top; 
+	background-repeat:no-repeat;
+}
+.klub_lnk_tog:hover
+{
+	background-color:#FFF !important;
+}
+
+/**
+ * angular-ui-notification - Angular.js service providing simple notifications using Bootstrap 3 styles with css transitions for animating
+ * @author Alex_Crack
+ * @version v0.0.11
+ * @link https://github.com/alexcrack/angular-ui-notification
+ * @license MIT
+ */
+
+@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-block-transitions {
+  transition:0s all!important;
+  -webkit-transition:0s all!important;
+}
+
+/* show the element during a show/hide animation when the
+ * animation is ongoing, but the .ng-hide class is active */
+.ng-hide-add-active, .ng-hide-remove {
+  display: block!important;
+}
+
+.ui-notification{position:fixed;z-index:9999;width:300px;cursor:pointer;-webkit-transition:all ease .5s;-o-transition:all ease .5s;transition:all ease .5s;color:#fff;background:#337ab7;box-shadow:5px 5px 10px rgba(0,0,0,.3)}.ui-notification.killed{-webkit-transition:opacity ease 1s;-o-transition:opacity ease 1s;transition:opacity ease 1s;opacity:0}.ui-notification>h3{font-size:14px;font-weight:700;display:block;margin:10px 10px 0;padding:0 0 5px;text-align:left;border-bottom:1px solid rgba(255,255,255,.3)}.ui-notification a{color:#fff}.ui-notification a:hover{text-decoration:underline}.ui-notification>.message{margin:10px}.ui-notification.warning{color:#fff;background:#f0ad4e}.ui-notification.error{color:#fff;background:#d9534f}.ui-notification.success{color:#fff;background:#5cb85c}.ui-notification.info{color:#fff;background:#5bc0de}.ui-notification:hover{opacity:.7}
+
+
+.btn-sm,
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.btn {
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+}
+.btn.uppercase {
+  text-transform: uppercase;
+}
+.btn.btn-flat {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-width: 1px;
+}
+.btn:active {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn:focus {
+  outline: none;
+}
+.btn.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn.btn-file > input[type='file'] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+.btn-default {
+  background-color: #f4f4f4;
+  color: #444;
+  border-color: #ddd;
+}
+.btn-default:hover,
+.btn-default:active,
+.btn-default.hover {
+  background-color: #e7e7e7 !important;
+}
+.btn-primary {
+  background-color: #3c8dbc;
+  border-color: #367fa9;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.hover {
+  background-color: #367fa9;
+}
+.btn-success {
+  background-color: #00a65a;
+  border-color: #008d4c;
+}
+.btn-success:hover,
+.btn-success:active,
+.btn-success.hover {
+  background-color: #008d4c;
+}
+.btn-info {
+  background-color: #00c0ef;
+  border-color: #00acd6;
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info.hover {
+  background-color: #00acd6;
+}
+.btn-danger {
+  background-color: #dd4b39;
+  border-color: #d73925;
+}
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger.hover {
+  background-color: #d73925;
+}
+.btn-warning {
+  background-color: #f39c12;
+  border-color: #e08e0b;
+}
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.hover {
+  background-color: #e08e0b;
+}
+.btn-outline {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.btn-link {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn[class*='bg-']:hover {
+  -webkit-box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
+}
+.btn-app {
+  border-radius: 3px;
+  position: relative;
+  padding: 15px 5px;
+  margin: 0 0 10px 10px;
+  min-width: 80px;
+  height: 60px;
+  text-align: center;
+  color: #666;
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  font-size: 12px;
+}
+.btn-app > .fa,
+.btn-app > .glyphicon,
+.btn-app > .ion {
+  font-size: 20px;
+  display: block;
+}
+.btn-app:hover {
+  background: #f4f4f4;
+  color: #444;
+  border-color: #aaa;
+}
+.btn-app:active,
+.btn-app:focus {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn-app > .badge {
+  position: absolute;
+  top: -3px;
+  right: -10px;
+  font-size: 10px;
+  font-weight: 400;
+}
+.btn.btn-xs{
+  font-family:Segoe, "Segoe UI Light", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}

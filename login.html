@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+	<head>
+		<title> Login - Hostel Attendance System </title>
+		<meta name="viewport">
+
+		<link href="css/login.css" rel="stylesheet" type="text/css">
+
+		<style type="text/css">
+			input::placeholder
+			{
+				color: #ADADAE;
+				font-size: 0.8em;
+				font-style: italic;
+			}
+
+			.alpha td
+			{
+				padding: 10px;
+			}
+			.beta td
+			{
+				padding: 5px;
+			}
+
+			tr
+			{
+				padding: 10px;
+			}
+			.shadow:hover
+			{
+			  box-shadow: 0 0 10px 5px #CCCCCC;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div style="width: 1000px; margin: 0px auto; margin-top: 130px; padding: 0px">
+			<div style="width: 400px; margin: 0px auto">
+				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
+							box-shadow: 0px 0px 15px #666;">
+					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
+						Login
+					</span>
+				</div>
+
+				<div style="color: #666; background-color: #F7F7F7; border-radius: 0px 0px 7px 7px; text-align: left; box-shadow: 0px 0px 15px #999;">
+					<div class="has_lgn_tl" id="has_login" style="border-left:0;">
+						Login
+					</div>
+					
+					<div class="has_lgn_tl atv" id="has_attend" style="border-right:0;">
+						View Attendance
+					</div>
+
+					<div class="clear" style="height:30px;"></div>
+
+					<!-- Division 1 -->
+					<div style="display: block"; class="has_lgn_tl_x" id="hasLogin">
+						<form action="php/login.php" method="POST">
+							<center>
+								<div style="padding: 20px; padding-left: 35px; padding-top: 40px"> 
+									<table class="alpha" style="font-size: 14px">
+										<tr>
+											<td> User ID </td>
+											<td> : </td>
+											<td> 
+												<input type="text" name="userid" placeholder="Username" class="shadow">
+											</td> 
+										</tr>
+										
+										<tr> 
+											<td> Password </td>
+											<td> : </td>
+											<td> 
+												<input type="password" name="password" placeholder="********" class="shadow">
+											</td>
+										</tr>
+
+										<tr>
+											<td> </td>
+											<td> </td>
+											<td>
+												<input type="submit" value="Login" class="shadow"> 
+											</td>
+										</tr>
+									</table>
+								</div>
+							</center>
+						</form>
+					</div>
+
+					<!-- Division 2 -->
+					<div style="display: none"; class="has_lgn_tl_x" id="hasAttend">
+						<center>
+							<form action="php/viewAttendanceDetails.php" method="POST" autocomplete="off">
+								<div style="padding: 20px; padding-left: 35px">
+									Enter Adm no : 
+									<input type="text" name="adm_no" id="adm_no" style="text-align: center; margin: 2px; width: 120px; padding: 4px 7px;" oninput="nameNeedFalse()" required>								
+									<input type="submit" value="GO">	
+								</div>
+						
+								<div>
+									============== OR ==============
+								</div>
+						
+								<div style="padding: 20px; padding-left: 35px">
+									<table style="font-size: 14px;" class="beta">
+										<tr height="30">
+											<td> Course </td>
+											<td> : </td>
+											<td> 
+												<select id="course" name="course" class="has_sel_fld" style="width: 100px; margin-left: 3px;" onchange="sem()">
+													<option value='BTECH'> B.Tech </option>
+													<option value='MTECH'> M.Tech </option>
+												</select>
+											</td>
+											<td> - </td>
+											<td>
+												<span id="sem_change">
+													<select id="semester" name="semester" class="has_sel_fld" style="width: 100px; margin-left: 3px;">
+														<option value=''>-select-</option>
+													</select>
+												</span> 
+											</td>
+										</tr>
+
+										<tr height="30">
+											<td> Branch </td>
+											<td> : </td>
+											<td colspan="3">
+												<select id="branch" name="branch" class="has_sel_fld" style="width: 240px; margin-left: 3px;" onchange="name_call()">
+													<option value="CSE"> Computer Science & Engg. </option>
+													<option value="ME">  Mechanical Engg. </option>
+													<option value="CE">  Civil Engg. </option>
+													<option value="EEE"> Electrical & Electronics Engg. </option>
+													<option value="ECE"> Electroniics and Communicatioin Engg. </option>
+												</select>
+											</td>
+										</tr>
+
+										<tr height="30">
+											<td> Name </td>
+											<td> : </td>
+											<td colspan="3">
+												<input type="text" id="s_name" name="s_name" placeholder="Student Name" style="width: 240px; margin-left: 3px;" oninput="admNeedFalse()" required>
+											</td>
+										</tr>
+
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>
+												<input type="submit" value="GO"> 
+											</td>
+										</tr>
+	<!-- Scripts -->
+<script src="js/autoCompete.js?v=1"> </script>
+<script src="js/sem.js?v=1.2"> </script>
+<script src="js/name_Array.js?v=1.2"> </script>
+
+<script type="text/javascript"> sem(); </script>
+
+									</table>
+								</div>
+							</form>
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	window.onload = function()
+	{
+		document.getElementById('has_login').addEventListener('click', loginVisible);
+		document.getElementById('has_attend').addEventListener('click', attendanceVisible);
+	}
+
+	function nameNeedFalse()
+	{
+		if(document.getElementById('adm_no').value != "")
+		{
+			document.getElementById('s_name').required = false;
+		}
+		else
+		{
+			document.getElementById('s_name').required = true;
+		}
+	}
+
+	function admNeedFalse()
+	{	
+		if(document.getElementById('s_name').value != "")
+		{
+			document.getElementById('adm_no').required = false;
+		}
+		else
+		{
+			document.getElementById('adm_no').required = true;
+		}
+	}
+
+	function loginVisible()
+	{
+		document.getElementById("has_login").className = "has_lgn_tl";
+		document.getElementById("hasLogin").style.display = "block";
+		
+		document.getElementById("has_attend").className = "has_lgn_tl atv";
+		document.getElementById("hasAttend").style.display = "none";
+	}
+
+	function attendanceVisible()
+	{
+		document.getElementById("has_login").className = "has_lgn_tl atv";
+		document.getElementById("hasLogin").style.display = "none";
+		
+		document.getElementById("has_attend").className = "has_lgn_tl";
+		document.getElementById("hasAttend").style.display = "block";
+		name_call();
+	}
+
+	function submitDetails()
+	{
+		var xhr = new XMLHttpRequest();
+
+		xhr.open('GET','php/viewAttendanceDetails.php',true);
+
+		xhr.onreadystatechange = function()
+		{
+			if(xhr.readyState==4 && xhr.status==200)
+			{
+				window.location = 'http://localhost/has/php/viewAttendanceDetails.php';
+			}
+		}
+	}
+</script>
