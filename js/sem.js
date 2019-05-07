@@ -5,7 +5,7 @@ function sem()
 		var x="&c="+course;
 		
 		var xhr=new XMLHttpRequest();
-		xhr.open("GET","/has/php/semester.php?"+x,true);
+		xhr.open("GET","/hostel-attendance-details/php/semester.php?"+x,true);
 		
 		xhr.onreadystatechange = function()
 		{
