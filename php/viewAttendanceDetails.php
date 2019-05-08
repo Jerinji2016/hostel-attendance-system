@@ -243,14 +243,22 @@
 						</td>
 
 				<!-- Status(H/C) -->
-						<td> <?php echo $row_att[1]; ?> </td>
+						<td> 
+							<?php 
+								if($row_att[1] == 1)
+									echo "<img src='../images/c.png' id='arrow_img3' alt='arrow' style='width: 30px; height: 25px;'>";
+								else 
+									echo "<img src='../images/x.png' id='arrow_img3' alt='arrow' style='width: 20px; height: 20px;'>";
+							?> 
+						</td>
 
 				<!-- Attendance (P/A) -->
 						<td> 
 							<?php 
 								if((int)$row_stu[0] == $si_no)
 								{
-									echo "<b>A</b>";
+									//echo "<b>A</b>";
+									echo "<img src='../images/a.png' id='arrow_img3' alt='arrow' style='width: 20px; height: 20px;'>";
 									echo "</td> <td>";
 				//Remarks
 									echo (string)$row_stu[1];
@@ -259,7 +267,7 @@
 								}
 								else
 								{
-									echo "P";
+									echo "<img src='../images/p.png' id='arrow_img3' alt='arrow' style='width: 20px; height: 20px;'>";
 									echo "</td> <td>";
 									echo "--";;
 									echo "</td>"; 
