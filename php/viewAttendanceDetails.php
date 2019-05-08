@@ -77,11 +77,6 @@
 				padding:10px 14px; 
 				margin:15px 20px;
 			}
-			td.attend
-			{
-				border: 1px solid black;
-				padding: 5px 10px;
-			}
 		</style>
 		<script type="text/javascript">
 			var flag = 0;
@@ -163,17 +158,17 @@
 				</table>
 			</div>
 
-			<div class="detail_head"> 
+			<!--div class="detail_head"> 
 				<div style="margin-left: 5px; float: left" id="click_arrow2"> 
 					<img src="../images/arrow.png" id="arrow_img2" alt="arrow" style="width: 20px; height: 20px;">
 				</div>
 				&nbsp; &nbsp; <label class="heading"> &nbsp; &nbsp; Overall Attendance </label>
 			</div>
 
-			<!-- Overall Attendance -->
+			<-- Overall Attendance >
 			<div id="overall_attend" class="details">
 				Overall Attendance
-			</div>
+			</div-->
 
 			<div class="detail_head"> 
 				<div style="margin-left: 5px; float: left" id="click_arrow3"> 
@@ -210,22 +205,26 @@
 				$var_att = "SELECT si_no,status,";
 				$var_att .= "date FROM hostel_date_details where date='".$start_date."'";
 				$res_att = mysql_query($var_att);
-		
-				$flag = 0;
 				$row_att = mysql_fetch_array($res_att);
+
+				$var_stu = "SELECT date_id,remarks FROM hostel_attendance_details WHERE adm_no=".$row[5]." AND status=1 ORDER BY date_id";
+				$res_stu = mysql_query($var_stu);
+				$row_stu = mysql_fetch_array($res_stu);
+
+				$flag = 0;
 				$si_no = $row_att[0];
 			?>
 
 			<!-- Daily Attendance -->
 			<div id="daily_attend" class="details">
-				<table style="width: 100%; text-align: center; border:2px solid black" class="attend">
+				<table style="width: 100%; text-align: center; border:2px solid black" border="1">
 	
 					<tr>
 						<th> Date </th>
 						<th> Day </th>
 						<th> Status </th>
 						<th> Attendance </th>
-						<th> Reamrk </th>
+						<th> Remark </th>
 					</tr>
 
 				<?php 
@@ -233,24 +232,40 @@
 					{
 				?>
 					<tr>
-						<!-- Date -->
+				<!-- Date -->
 						<td> <?php echo $row_att[2]; ?> </td>
-
-						<!-- Day -->
+	
+				<!-- Day -->
 						<td> 
 							<?php 
 								echo date('l',strtotime($row_att[2]));
 							?>
 						</td>
 
-						<!-- Status(H/C) -->
-						<td> <?php echo $si_no; ?> </td>
+				<!-- Status(H/C) -->
+						<td> <?php echo $row_att[1]; ?> </td>
 
-						<!-- Attendance (P/A) -->
-						<td> <?php echo "yet to do" ?> </td>
-
-						<!-- Remark -->
-						<td> <?php echo "yet to do" ?></td>
+				<!-- Attendance (P/A) -->
+						<td> 
+							<?php 
+								if((int)$row_stu[0] == $si_no)
+								{
+									echo "<b>A</b>";
+									echo "</td> <td>";
+				//Remarks
+									echo (string)$row_stu[1];
+									echo "</td>";
+									$row_stu = mysql_fetch_array($res_stu);
+								}
+								else
+								{
+									echo "P";
+									echo "</td> <td>";
+									echo "--";;
+									echo "</td>"; 
+								}
+							?> 
+						</td>
 					</tr>
 				<?php
 						$si_no++;
@@ -306,7 +321,7 @@
 		}
 	}
 
-	function divAllAtnd()
+	/*function divAllAtnd()
 	{	
 		console.log("here");
 		if(flag != 1)
@@ -321,7 +336,7 @@
 			flag--;
 			document.getElementById('arrow_img2').classList.remove('rotate90');	
 		}
-	}
+	}*/
 
 	function divDailyAtnd()
 	{	
