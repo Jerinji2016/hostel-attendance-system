@@ -1,7 +1,4 @@
 <?php 
-	include 'session.php';
-?>
-<?php 
 	if(!empty($_POST['course']))
 	{
 		$adm_no = $_POST['adm_no'];
