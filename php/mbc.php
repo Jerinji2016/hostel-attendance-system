@@ -248,4 +248,18 @@
 		document.getElementById("has_lgn_1").className = "has_lgn_tl";
 		document.getElementById("has_lgn_1_x").style.display = "block";
 	}
+
+	function drop_appear(id)
+	{
+		var check_id = document.getElementById("check"+id);
+		var drop_id = document.getElementById("drop"+id);
+		if(check_id.checked)
+		{
+			drop_id.style.display = "inline";
+		}
+		else
+		{
+			drop_id.style.display = "none";
+		}
+	}
 </script>

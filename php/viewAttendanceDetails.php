@@ -117,7 +117,8 @@
 			<div id="student_det" class="details">
 				<table width="1000">
 					<tr>
-						<td rowspan="3" style="border: 1px solid black;"> P </td>
+						<td rowspan="3" style="border: 1px solid black;"> Photo </td>
+						
 						<td> Name </td>
 						<td> : </td>
 						<td>
