@@ -1,4 +1,4 @@
-<?php
+	<?php
 	$a["course"] = $_GET['course'];
 	$a["semester"] = $_GET['semester'];
 	$a["branch"] = $_GET['branch'];
@@ -49,6 +49,14 @@
 			<span style="color:#09F; font-size: 18px; font-family: Arial Black;">
 				Student Info
 			</span>
+			<div style="color:#DEE3EF">
+				<?php
+					echo " Course : ".$a['course']."&nbsp; &nbsp; &nbsp; &nbsp;";
+					echo " Branch : ".$a['semester']." - ".$a['branch']."&nbsp; &nbsp; &nbsp; &nbsp;";
+					if($a['name'] != "")	
+						echo "Floor No : ".$a['name'];
+				?>
+			</div>
 		</div>
 
 		<form action="../php/attendance_student.php" method="POST">
@@ -66,7 +74,8 @@
 						<?php 
 							include 'dbConnect.php';
 
-							$sl_no = 0;
+							$sl_no = 1;
+							$log_count = 1;
 
 							$res = mysql_query($var_sql);
 							while($row = mysql_fetch_array($res))
@@ -94,9 +103,10 @@
 							</td>
 
 							<!-- Absent -->
-							<td> 
+							<td align="left" style="width: 125px"> 
 								<?php
-									echo "<input type='checkbox' name='log[]' value=".$row[1].">";
+									echo "<input type='checkbox' id='check".$log_count."' name='log[]' value=".$row[1]." onchange='drop_appear(".$log_count.")'>";
+									include 'option.php';
 								?>
 							</td>
 

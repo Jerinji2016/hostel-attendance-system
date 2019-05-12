@@ -53,8 +53,7 @@
 					<div style="display: block"; class="has_lgn_tl_x" id="has_lgn_1_x">
 						<form id="hostel_form" method="post" enctype="multipart/form-data" action="">
 							<div style="padding: 20px; padding-left: 35px;"> 
-								<center>
-								<table style="font-size: 14px">
+								<table style="font-size: 14px" align="center">
 									<tr height="30">
 										<td> Hostel </td>
 										<td> : </td>
@@ -96,8 +95,13 @@
 											<input type="button" value="Go" class="btn btn-primary" style="width:auto; padding:3px 10px;" onclick="hostelGetDetails()"> 
 										</td> 
 									</tr>
-
-								</table></center>
+									<center>
+										<?php date_default_timezone_set("Asia/Kolkata"); ?>
+										<label> &nbsp; &nbsp; Date : </label> 
+										<input type="date" id="myDate" value="<?php echo date('Y-m-d'); ?>">
+										<br> <br>
+									</center>
+								</table>
 							</div>
 						</form>
 					</div>

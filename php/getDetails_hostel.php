@@ -65,12 +65,11 @@
 					}
 				?>
 			</div>
-
 		</div>
 		<form action="../php/attendance_hostel.php" method="POST">
 			<center>
 				<div style="color: #666; background-color: #F7F7F7; border-radius: 0px 0px 7px 7px; text-align: left; box-shadow: 0px 0px 15px #999;"> 
-					<table style="width: 100%; text-align: center;" class="beta">
+					<table style="width: 100%; text-align: center;" class="beta" border="1">
 						<tr style="border: 2px solid black; border-collapse: collapse;">
 							<th> Sl No.</th>	
 							<th> Room No. </th>	

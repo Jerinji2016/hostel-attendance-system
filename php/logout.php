@@ -3,7 +3,7 @@
 
 	session_start();
 	if(session_destroy())
-	{ // Destroying All Sessions
+	{
 		//Default UTC timezone so this is required to set to Indian time
 		date_default_timezone_set("Asia/Kolkata");
 		
