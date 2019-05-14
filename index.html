@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hostel Attendance System</title>  <!-- -->
+        <meta charset="utf-8">
+        <style>
+            *{
+				padding: 0;
+				margin: 0;
+                font-family: Helvetica;
+                color: #232528;
+			}
+			.index-bg-image{
+				background-image: url(images/index-bg.jpg);
+				background-position: center;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-size: cover;
+				height: 600px;
+				align-items: center;
+			}
+            h1{
+                display: inline;
+                font-size: 50px;
+				color: aliceblue;
+            }
+            h1:after {
+                width: 0px;
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: middle;
+                transition: .2s linear;
+            }
+            h1:nth-child(1):after {
+                content: 'ostel ';
+            }
+            h1:nth-child(2):after {
+                content: 'ttendance ';
+            }
+            h1:nth-child(3):after {
+                content: 'ystem ';
+            }
+            div:hover h1:nth-child(1):after {
+                width: 125px;
+            }   
+            div:hover h1:nth-child(2):after {
+                width: 245px;
+            }
+            div:hover h1:nth-child(3):after {
+                width: 150px;
+            }
+            .metro-main{
+                height: 300px;
+                width: 80%;
+                margin-left: 10%;
+            }
+			table, td, tr{
+				border: 0px solid black;
+			}
+			td{
+				padding: 10px;
+			}
+        </style>
+    </head>
+    <body style="background-color: #eaf6ff">
+		<div style="width: 100%">
+        <article>
+        <header style="background-color: royalblue;">
+            <img alt="logo" src="images/mbc-logo.png" height="120px" style="margin: 25px">
+            <div style="display: inline-block; vertical-align: top; margin-top: 50px">
+            <h1>H</h1>
+            <h1>A</h1>
+            <h1>S</h1>
+            </div>
+        </header>
+        </article>
+        <div class="index-bg-image">
+       <!-- <div class="metro-main" style="height: auto; margin-top: 60px; width: 100% auto; display: inline-block">
+           <table style="border: none">
+		  	<tr>
+				<td colspan="2">
+			   		<div style="background-color: black; width: 310px; height: 310px"><p style="color: white"><img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%"></p></div>
+				</td>
+				<td>
+			   		<div style="background-color: blueviolet; width: 150px; height: 150px; margin-bottom: 10px"><p style="color: white"><img alt="logo" src="images/icons/student-logo.png" height="140px" width="140px" style="padding: 5%"></p></div>
+					<div style="background-color: yellow; width: 150px; height: 150px; margin-top: 10px;"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+
+				</td>
+				<td colspan="2">
+			   		<div style="background-color: greenyellow; width: 150px; height: 310px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+				</td>
+				<td>
+			   		<div style="background-color: green; width: 300px; height: 150px; margin-bottom: 10px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+					<div style="background-color: blue; width: 150px; height: 150px; margin-top: 10px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+				</td>
+				<td colspan="2">
+			   		<div style="background-color: orange; width: 150px; height: 310px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+				</td>
+			</tr>
+			
+		   </table>
+        </div> -->
+      </div>  
+		</div>
+    </body>
+</html>
