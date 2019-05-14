@@ -44,13 +44,32 @@
 	<div style="width: 1000px; margin: 0px auto;">
 		<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; box-shadow: 0px 0px 15px #666;">
 			<span style="color:#09F; font-size: 18px; font-family: Arial Black;">
-				Student Info
+				Student Info <br>
 			</span>
+			<div style="color:#DEE3EF">
+				<?php
+					if ($a['hostel_code'] != "") 
+					{
+						echo " Hostel : ".$a['hostel_code'];
+
+						if($a['floor_no'] != "")	
+						{
+							echo "&nbsp; &nbsp; &nbsp; &nbsp;";
+							echo "Floor No : ".$a['floor_no'];
+							if($a['room_no'] != "")
+							{
+								echo "&nbsp; &nbsp; &nbsp; &nbsp;";
+								echo "Room No : ".$a['room_no'];
+							}
+						}					
+					}
+				?>
+			</div>
 		</div>
 		<form action="../php/attendance_hostel.php" method="POST">
 			<center>
 				<div style="color: #666; background-color: #F7F7F7; border-radius: 0px 0px 7px 7px; text-align: left; box-shadow: 0px 0px 15px #999;"> 
-					<table style="width: 100%; text-align: center;" class="beta">
+					<table style="width: 100%; text-align: center;" class="beta" border="1">
 						<tr style="border: 2px solid black; border-collapse: collapse;">
 							<th> Sl No.</th>	
 							<th> Room No. </th>	
@@ -65,6 +84,7 @@
 					<?php
 						include 'dbConnect.php';
 						$sl_no = 1;
+						$log_count = 1;
 
 						$res = mysql_query($var_sql);
 						$res1 = mysql_query($var_sql);
@@ -86,7 +106,6 @@
 							$room = $row[0];
 							$admno[$count] = $row[1];
 							$name[$count] = $row[2];
-							$dept = $row[3]." - ".$row[4];
 
 							while($flag != 1)
 							{	
@@ -112,7 +131,13 @@
 						<tr>
 							<!-- SL NO. -->
 							<td> 
-								<?php echo $sl_no; $sl_no++; ?>
+								<?php 
+									for($i=0;$i<$n;$i++)
+									{
+										echo $sl_no."<br><br>"; 
+										$sl_no++; 
+									}
+								?>
 							</td>
 
 							<!-- Room No. -->
@@ -144,15 +169,21 @@
 							<!-- Details -->
 							<td> 
 								<?php
-									echo $dept;
+									for($i=0;$i<$n;$i++)
+										echo $row[3]." - ".$row[4]."<br><br>";
 								?>
 							</td>
 
 							<!-- Absent -->
-							<td>
+							<td align="left" style="width: 125px">
 								<?php
 									for($i=0;$i<$n;$i++)
-										echo "<input type='checkbox' name = 'log[]' value=".$admno[$i]."><br><br>";
+									{
+										echo "<input type='checkbox' id='check".$log_count."' name='log[]' value=".$admno[$i]." onchange='drop_appear(".$log_count.")'>";
+										include 'option.php';
+										$log_count++;
+									}
+
 								?>
 							</td>
 
@@ -177,3 +208,10 @@
 		</form>
 	</div>
 </div>
+
+<script type="text/javascript">
+	//The function drop_appear() is defined in mbc.php
+	//I dont know why im doing this
+</script>
+
+

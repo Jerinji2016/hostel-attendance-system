@@ -10,7 +10,6 @@
 	$result = mysql_query($var_sql);
  	
 	session_start();
-	echo $_SESSION['user'];
 
 	$flag = 0;
 	while($row = mysql_fetch_array($result))
@@ -21,7 +20,6 @@
 			{
 				$var_sql = "INSERT INTO login_details(user_id) VALUES ('".$user."')";
 				mysql_query($var_sql);
-        
                 $_SESSION['userid'] = $user;
 				header("Location: ../php/mbc.php");
 			}
