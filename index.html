@@ -3,6 +3,7 @@
     <head>
         <title>Hostel Attendance System</title>  <!-- -->
         <meta charset="utf-8">
+		<link rel="stylesheet" href="css/metro-main-flip.css" type="text/css">
         <style>
             *{
 				padding: 0;
@@ -16,8 +17,8 @@
 				background-attachment: fixed;
 				background-repeat: no-repeat;
 				background-size: cover;
-				height: 600px;
-				align-items: center;
+				height: 100vh;
+				width: 100%;
 			}
             h1{
                 display: inline;
@@ -50,20 +51,36 @@
                 width: 150px;
             }
             .metro-main{
-                height: 300px;
-                width: 80%;
+                height: auto;
+                width: 80vw;
                 margin-left: 10%;
+				overflow-x: hidden;
+				overflow-y: hidden;
             }
+			@media only screen and (max-width: 600px) {
+  				.metro-main {
+    				overflow-x: scroll;
+  				}
+			}
 			table, td, tr{
 				border: 0px solid black;
 			}
 			td{
 				padding: 10px;
 			}
+			.m1{
+				transform: scale(1.0);
+				transition: transform .2s;
+			}
+			.m1:hover{
+				transform: scale(1.1);
+				transition: transform .2s;
+			}
+			
         </style>
     </head>
     <body style="background-color: #eaf6ff">
-		<div style="width: 100%">
+		
         <article>
         <header style="background-color: royalblue;">
             <img alt="logo" src="images/mbc-logo.png" height="120px" style="margin: 25px">
@@ -74,33 +91,127 @@
             </div>
         </header>
         </article>
-        <div class="index-bg-image">
-       <!-- <div class="metro-main" style="height: auto; margin-top: 60px; width: 100% auto; display: inline-block">
-           <table style="border: none">
+        
+		<div class="index-bg-image">
+			
+        <div class="metro-main" style="margin-top: 60px; display: inline-block">
+           <table>
 		  	<tr>
+				
+				<!-- FIRST BIG SQUARE (M1) -->
+				
 				<td colspan="2">
-			   		<div style="background-color: black; width: 310px; height: 310px"><p style="color: white"><img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%"></p></div>
+			   		<div class="m1" style="background-color: black; width: 310px; height: 310px"><p style="color: white"><img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%"></p></div>
 				</td>
 				<td>
-			   		<div style="background-color: blueviolet; width: 150px; height: 150px; margin-bottom: 10px"><p style="color: white"><img alt="logo" src="images/icons/student-logo.png" height="140px" width="140px" style="padding: 5%"></p></div>
-					<div style="background-color: yellow; width: 150px; height: 150px; margin-top: 10px;"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
-
+					
+					<!-- FLIP OF FIRST SMALL SQUARE (M2) (F1) -->
+					
+					<div class="flip-card-small">
+						<div class="flip-card-inner-small">
+							<div class="flip-card-front-small">
+								<div class="m2" style="background-color: blueviolet; width: 150px; height: 150px; margin-bottom: 5px"><img alt="logo" src="images/icons/student-logo.png" height="140px" width="140px" style="padding: 5%"></div>
+							</div>
+							<div class="flip-card-back-small">
+								<br>
+								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+								<p style="color: white; font-size: 12px">View your attencance</p>
+							</div>
+						</div>
+					</div>
+			   		
+					<!-- FLIP OF SECOND SMALL SQUARE (M3) (F2) -->
+					
+					<div class="flip-card-small" style="margin-top: 5px">
+						<div class="flip-card-inner-small" style="margin-top: 5px">
+							<div class="flip-card-front-small" style="margin-top: 5px; background-color: transparent">
+								<div style="background-color: yellow; width: 150px; height: 150px; margin-top: 5px;"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px" style="margin-top: 5px"></div>
+							</div>
+							<div class="flip-card-back-small" style="margin-top: 5px">
+								<br>
+								<h2 style="font-size: 20px; color: aliceblue">Department Login</h2><br>
+								<p style="color: white; font-size: 12px">For departments</p>
+							</div>
+						</div>
+					</div>
+				<!-- END OF SECOND COLUMN -->
 				</td>
+				
+				<!-- THIRD COLUMN -->
 				<td colspan="2">
-			   		<div style="background-color: greenyellow; width: 150px; height: 310px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+					
+					<!-- FLIP OF LONG RECTANGLE (M4) (F3) -->
+					
+					<div class="flip-card-long">
+						<div class="flip-card-inner-long">
+							<div class="flip-card-front-long">
+								<div style="background-color: greenyellow; width: 150px; height: 310px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
+							</div>
+							<div class="flip-card-back-long">
+								<br>
+								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+								<p style="color: white; font-size: 12px">View your attencance</p>
+							</div>
+						</div>
+					</div>
+					
 				</td>
+				
+				<!-- FOURTH COLUMN -->
+				
 				<td>
-			   		<div style="background-color: green; width: 300px; height: 150px; margin-bottom: 10px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
-					<div style="background-color: blue; width: 150px; height: 150px; margin-top: 10px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+					
+					<!-- FLIP OF WIDE RECTANGLE (M5) (F4) -->
+					
+					<div class="flip-card-wide">
+						<div class="flip-card-inner-wide">
+							<div class="flip-card-front-wide">
+								<div style="background-color: green; width: 300px; height: 150px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="150px" width="300px"></div>
+							</div>
+							<div class="flip-card-back-wide">
+								<br>
+								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+								<p style="color: white; font-size: 12px">View your attencance</p>
+							</div>
+						</div>
+					</div>
+					
+			   		<div class="flip-card-small" style="margin-top: 5px">
+						<div class="flip-card-inner-small" style="margin-top: 5px">
+							<div class="flip-card-front-small" style="background-color: transparent; margin-top: 5px">
+								<div style="background-color: blue; width: 150px; height: 150px; margin-top: 10px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
+							</div>
+							<div class="flip-card-back-small" style="margin-top: 5px">
+								<br>
+								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+								<p style="color: white; font-size: 12px">View your attencance</p>
+							</div>
+						</div>
+					</div>
+					
 				</td>
+				
 				<td colspan="2">
-			   		<div style="background-color: orange; width: 150px; height: 310px"><p style="color: white"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></p></div>
+					
+					<div class="flip-card-long">
+						<div class="flip-card-inner-long">
+							<div class="flip-card-front-long">
+								<div style="background-color: orange; width: 150px; height: 310px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
+							</div>
+							<div class="flip-card-back-long">
+								<br>
+								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+								<p style="color: white; font-size: 12px">View your attencance</p>
+							</div>
+						</div>
+					</div>
+				
 				</td>
 			</tr>
-			
 		   </table>
-        </div> -->
+        </div>
+			
       </div>  
-		</div>
-    </body>
+	
+   </body>
 </html>

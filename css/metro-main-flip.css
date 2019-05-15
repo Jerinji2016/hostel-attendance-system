@@ -1,0 +1,103 @@
+.flip-card-small{
+				background-color: transparent;
+				perspective: 1000px;
+				width: 150px;
+				height: 150px;
+			}
+.flip-card-inner-small{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				transition: 0.8s;
+				transform-style: preserve-3d;
+			}
+.flip-card-small:hover .flip-card-inner-small{
+				transform: rotateY(180deg);
+			}
+.flip-card-front-small, .flip-card-back-small{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				backface-visibility: hidden;
+			}
+.flip-card-front-small{
+				background-color: #bbb;
+				color: black;
+			}
+.flip-card-back-small{
+				background-color: dodgerblue;
+				color: white;
+				transform: rotateY(180deg);
+			}
+
+/*LONGLONGLONGLONGLONGLONGLONGLONGLONG*/
+
+.flip-card-long{
+				background-color: transparent;
+				perspective: 1000px;
+				width: 150px;
+				height: 310px;
+			}
+.flip-card-inner-long{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				transition: 0.8s;
+				transform-style: preserve-3d;
+			}
+.flip-card-long:hover .flip-card-inner-long{
+				transform: rotateY(180deg);
+			}
+.flip-card-front-long, .flip-card-back-long{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				backface-visibility: hidden;
+			}
+.flip-card-front-long{
+				background-color: #bbb;
+				color: black;
+			}
+.flip-card-back-long{
+				background-color: dodgerblue;
+				color: white;
+				transform: rotateY(180deg);
+			}
+
+
+/*WIDEWIDEWIDEWIDEWIDEWIDEWIDEWIDEWIDEWIDEWIDE*/
+
+.flip-card-wide{
+				background-color: transparent;
+				perspective: 1000px;
+				width: 300px;
+				height: 150px;
+			}
+.flip-card-inner-wide{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				transition: 0.8s;
+				transform-style: preserve-3d;
+			}
+.flip-card-wide:hover .flip-card-inner-wide{
+				transform: rotateY(180deg);
+			}
+.flip-card-front-wide, .flip-card-back-wide{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				backface-visibility: hidden;
+			}
+.flip-card-front-wide{
+				background-color: transparent;
+				color: black;
+			}
+.flip-card-back-wide{
+				background-color: dodgerblue;
+				color: white;
+				transform: rotateY(180deg);
+			}
