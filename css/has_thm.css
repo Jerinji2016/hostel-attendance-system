@@ -35,13 +35,13 @@
 	padding:4px;
 }
 
-.cms_lnk_tog
+.has_lnk_tog
 {
 	cursor:pointer;
 	margin:5px;
 	font-size:18px !important;
 }
-.cms_slnk_tog
+.has_slnk_tog
 {
 	display:none;
 }
@@ -102,7 +102,7 @@ input[type="file"] {
 	direction: ltr;
 	cursor: pointer;
 }
-.cms_btn_tile,.cms_btn_tilex,.cms_btn_tile_wdt {
+.has_btn_tile,.has_btn_tilex,.has_btn_tile_wdt {
 	cursor: pointer;
 	margin: 0px 4px;
 	padding: 0px;
@@ -110,7 +110,7 @@ input[type="file"] {
 	border:0;
 	text-align:left;
 }
-.cms_btn_tile div,.cms_btn_tilex div,.cms_btn_tile_wdt div {
+.has_btn_tile div,.has_btn_tilex div,.has_btn_tile_wdt div {
 	margin-bottom: 4px;
 	padding: 7px 2px;
 	background-image: url(../img/trans_8.png);
@@ -119,21 +119,21 @@ input[type="file"] {
 	text-indent: 10px;
 }
 
-.cms_btn_tile_atv {
+.has_btn_tile_atv {
 	margin-bottom: 4px;
 	padding: 10px 7px;
 	background-image: url(../img/trans_5.png) !important;
 	cursor: default;
 	color: #FFF !important;
 }
-.cms_btn_tile div:hover,.cms_btn_tilex div:hover,.cms_btn_tile_wdt div:hover {
+.has_btn_tile div:hover,.has_btn_tilex div:hover,.has_btn_tile_wdt div:hover {
 	margin-bottom: 4px;
 	padding: 7px 2px;
 	background-image: url(../img/trans_7.png);
 	color: #333;
 }
 
-.cms_rep_title td
+.has_rep_title td
 {
 	background-image:url(../img/trans_01.png);
 	text-align:center;
@@ -143,7 +143,7 @@ input[type="file"] {
 	font-family:Segoe, "Segoe UI SemiBold", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
 
-.cms_rep_sub td
+.has_rep_sub td
 {
 	background-image:url(../img/trans_1.png);
 	text-align:center;
@@ -151,7 +151,7 @@ input[type="file"] {
 	font-family:Segoe, "Segoe UI SemiBold", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
 
-.cms_rep_td
+.has_rep_td
 {
 	background-image:url(../img/trans_01.png);
 	text-align:center;
@@ -160,7 +160,7 @@ input[type="file"] {
 	color:#333;
 	font-family:Segoe, "Segoe UI SemiBold", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
-.cms_bdet_row_0
+.has_bdet_row_0
 {
 	background-image:url(../img/trans_1.png);
 	text-align:center;
@@ -168,7 +168,7 @@ input[type="file"] {
 	font-size:11px;
 	color:#555;	
 }
-.cms_bdet_row_1
+.has_bdet_row_1
 {
 	background-image:url(../img/trans_2.png);
 	text-align:center;
@@ -176,12 +176,12 @@ input[type="file"] {
 	padding:4px;
 	color:#555;	
 }
-.cms_bdet_row_0:hover
+.has_bdet_row_0:hover
 {
 	background-image:url(../img/trans_5.png);
 	color:#FFF;
 }
-.cms_bdet_row_1:hover
+.has_bdet_row_1:hover
 {	
 	background-image:url(../img/trans_5.png);
 	color:#FFF;
@@ -190,15 +190,15 @@ input[type="file"] {
 {
 	background-image:url(../img/trans_01.png); color:#CC4200; padding:7px 14px; margin:7px 20px;
 }
-.cms_lft_lst
+.has_lft_lst
 {
 	padding:7px; cursor:default; background-image:url(../img/trans_2.png); margin:4px 0px; width:410px;
 }
-.cms_usr_set
+.has_usr_set
 {
 	width:28px; height:28px; background-image:url(../img/settings.png); margin:2px 7px 0px 0px; background-position:0px 1px; float:right;
 }
-.cms_usr_set:hover
+.has_usr_set:hover
 {
 	width:28px; height:28px; background-image:url(../img/settings.png); margin:2px 7px 0px 0px; background-position:0px 29px; float:right; cursor:pointer;
 }
@@ -223,7 +223,7 @@ line-height: 30px;
   direction: ltr;
   cursor: pointer;
 }
-#cms_content
+#has_content
 {
 	width:986px; min-height:516px; 
 	border-left:1px solid #999; 

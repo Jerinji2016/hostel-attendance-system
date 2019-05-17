@@ -224,19 +224,4 @@
 		document.getElementById("hasAttend").style.display = "block";
 		name_call();
 	}
-
-	function submitDetails()
-	{
-		var xhr = new XMLHttpRequest();
-
-		xhr.open('GET','php/viewAttendanceDetails.php',true);
-
-		xhr.onreadystatechange = function()
-		{
-			if(xhr.readyState==4 && xhr.status==200)
-			{
-				window.location = 'http://localhost/has/php/viewAttendanceDetails.php';
-			}
-		}
-	}
 </script>
