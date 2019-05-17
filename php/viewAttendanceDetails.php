@@ -196,7 +196,7 @@
 				$res_att = mysql_query($var_att);
 				$row_att = mysql_fetch_array($res_att);
 
-				$var_stu = "SELECT date_id,remarks FROM hostel_attendance_details WHERE adm_no=".$row[5]." AND status=1 ORDER BY date_id DESC";
+				$var_stu = "SELECT date_id,remarks,entered_by FROM hostel_attendance_details WHERE adm_no=".$row[5]." AND status=1 ORDER BY date_id DESC";
 				$res_stu = mysql_query($var_stu);
 				$row_stu = mysql_fetch_array($res_stu);
 
@@ -235,19 +235,20 @@
 						<td> 
 							<?php 
 								if($row_att[1] == 1)
-									echo "<img src='../images/c.png' id='arrow_img3' alt='arrow' style='width: 30px; height: 25px;'>";
+									echo "<img src='../images/c.png' alt='Class' style='width: 30px; height: 25px;'>";
 								else 
-									echo "<img src='../images/x.png' id='arrow_img3' alt='arrow' style='width: 20px; height: 20px;'>";
+									echo "<img src='../images/x.png' alt='Holiday' style='width: 20px; height: 20px;'>";
 							?> 
 						</td>
 
 				<!-- Attendance (P/A) -->
 						<td> 
-							<?php 
+							<div>
+							<?php
 								if((int)$row_stu[0] == $si_no)
 								{
 									//echo "<b>A</b>";
-									echo "<img src='../images/a.png' id='arrow_img3' alt='arrow' style='width: 20px; height: 20px;'>";
+									echo "<img src='../images/a.png' alt='Absent' style='width: 20px; height: 20px;'>";
 									echo "</td> <td>";
 				//Remarks
 									echo (string)$row_stu[1];
@@ -256,12 +257,13 @@
 								}
 								else
 								{
-									echo "<img src='../images/p.png' id='arrow_img3' alt='arrow' style='width: 20px; height: 20px;'>";
+									echo "<img src='../images/p.png' alt='Present' style='width: 20px; height: 20px;'>";
 									echo "</td> <td>";
 									echo "--";;
 									echo "</td>"; 
 								}
-							?> 
+							?>
+						</div>
 						</td>
 					</tr>
 				<?php
