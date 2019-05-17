@@ -85,7 +85,7 @@
 
 	<body style="overflow-y: scroll; background-color: #009ffd;" data-gr-c-s-loaded="false">
 		<!-- View Details Page Header -->
-		<div id="has_header" style="box-shadow: -1px 1px 15px rgba(0,0,0,.5); width:90%; min-width:1000px; margin:0px auto; background-color: #232528">
+		<div id="has_header" style="box-shadow: -1px 1px 15px rgba(0,0,0,.5); width:90%; min-width:1000px; margin:0px auto; background-color: lightblue">
 			<div style="float:left; padding:4px 5px; " id="mbc_logo_hldr"><img alt="Logo" src="../images/favicon.ico" height="24" /> </div>
 			<b>
 				<div style="float:left; padding:6px 0px;  font-size:13px;">
@@ -104,7 +104,7 @@
 		</div>
 
 		<!-- View Details Page Body -->
-		<div id="has_body" style="min-height:600px; width:90%; min-width:1000px; box-shadow: -1px 1px 15px rgba(0, 0, 0, .5); margin:7px auto; background-color: #232528">
+		<div id="has_body" style="min-height:600px; width:90%; min-width:1000px; box-shadow: -1px 1px 15px rgba(0, 0, 0, .5); margin:7px auto; background-color: lightblue">
 			<div style="margin-top: 10px;padding: 5px 5px"></div>
 
 			<div class="detail_head"> 
@@ -158,18 +158,6 @@
 					</tr>
 				</table>
 			</div>
-
-			<!--div class="detail_head"> 
-				<div style="margin-left: 5px; float: left" id="click_arrow2"> 
-					<img src="../images/arrow.png" id="arrow_img2" alt="arrow" style="width: 20px; height: 20px;">
-				</div>
-				&nbsp; &nbsp; <label class="heading"> &nbsp; &nbsp; Overall Attendance </label>
-			</div>
-
-			<-- Overall Attendance >
-			<div id="overall_attend" class="details">
-				Overall Attendance
-			</div-->
 
 			<div class="detail_head"> 
 				<div style="margin-left: 5px; float: left" id="click_arrow3"> 
@@ -309,8 +297,7 @@
 	window.onload = function()
 	{
 		document.getElementById('click_arrow1').addEventListener('click', divStuDet);
-		//document.getElementById('click_arrow2').addEventListener('click', divAllAtnd);
-		document.getElementById('click_arrow3').addEventListener('click', divDailyAtnd);
+			document.getElementById('click_arrow3').addEventListener('click', divDailyAtnd);
 	}
 
 	function divStuDet()
@@ -329,23 +316,6 @@
 			document.getElementById('arrow_img1').classList.remove('rotate90');	
 		}
 	}
-
-	/*function divAllAtnd()
-	{	
-		console.log("here");
-		if(flag != 1)
-		{
-			document.getElementById('overall_attend').style.display = 'none';
-			flag++;
-			document.getElementById('arrow_img2').className = 'rotate90';
-		}
-		else
-		{
-			document.getElementById('overall_attend').style.display = 'block';
-			flag--;
-			document.getElementById('arrow_img2').classList.remove('rotate90');	
-		}
-	}*/
 
 	function divDailyAtnd()
 	{	
