@@ -3,6 +3,9 @@
 	$a["floor_no"] = $_GET['floorno'];
 	$a["room_no"] = $_GET['roomno'];
 
+	$myDate = $_GET['date'];
+	setcookie("dateCookie", $myDate);
+
 	$var_sql = "SELECT room_no,adm_no,name,semester,branch FROM hostel_details ";
 
 	$flag = 0;

@@ -51,7 +51,7 @@
 
 					<!-- Search By Hostel Details -->
 					<div style="display: block"; class="has_lgn_tl_x" id="has_lgn_1_x">
-						<form id="hostel_form" method="post" enctype="multipart/form-data" action="">
+						<form id="hostel_form" method="post" enctype="multipart/form-data">
 							<div style="padding: 20px; padding-left: 35px;"> 
 								<table style="font-size: 14px" align="center">
 									<tr height="30">
@@ -180,7 +180,7 @@
 	</body>
 </html>
 		
-<script src="../js/getDetails_hostel.js?v=1"> </script>
+<script src="../js/getDetails_hostel.js?v=2"> </script>
 <script src="../js/getDetails_student.js?v=1"> </script>
 
 <script>

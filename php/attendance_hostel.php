@@ -5,6 +5,9 @@
 	$result = mysql_query($var_sql);
 	$row = mysql_fetch_array($result);
 
+	echo $_COOKIE["dateCookie"];
+	
+
 	if(!empty($_POST['log']))
 	{
 		foreach($_POST['log'] as $varx)
@@ -12,12 +15,12 @@
 			$z = "remark".$varx;
 			$remark = $_POST[$z];
 			$var = "INSERT INTO hostel_attendance_details(status,adm_no,entered_by,remarks) VALUES (1,".$varx.",'".$row[0]."','".$remark."')";
-			mysql_query($var);
+			//mysql_query($var);
 		}
 	}
 ?>
 
 <script>
 	console.log("Data Submitted");
-	window.location = '../php/mbc.php';
+	//window.location = '../php/mbc.php';
 </script>
