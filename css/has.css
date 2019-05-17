@@ -1016,15 +1016,15 @@ width: auto;
   z-index:1000;
   display:none;
 }
-.cms_prnt_rep
+.has_prnt_rep
 {
   padding:3px 14px; background-repeat:no-repeat;
 }
-.cms_pdf_rep
+.has_pdf_rep
 {
   padding:3px 14px; background-repeat:no-repeat;
 }
-.cms_down_rep
+.has_down_rep
 {
   padding:3px 14px; background-repeat:no-repeat;
 }
