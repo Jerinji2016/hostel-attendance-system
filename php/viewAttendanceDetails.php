@@ -41,8 +41,6 @@
 		<title>Student Details - Mar Baselios College of Engg And Tech.</title>
 
 		<link href="../css/has.css?v=1" rel="stylesheet" type="text/css" />
-		<link href="../css/has_thm.css?v=1" rel="stylesheet" type="text/css" />
-		<link href="../css/has_vd.css?v=1" rel="stylesheet" type="text/css" />
 		
 		<style type="text/css">
 			.heading
@@ -57,7 +55,7 @@
 			}
 			.rotate90
 			{
-			    -    webkit-transform: rotate(-90deg);
+			    -webkit-transform: rotate(-90deg);
 			    -moz-transform: rotate(-90deg);
 			    -o-transform: rotate(-90deg);
 			    -ms-transform: rotate(-90deg);

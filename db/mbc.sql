@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 12, 2019 at 09:35 AM
--- Server version: 5.7.23
--- PHP Version: 5.6.38
+-- Generation Time: May 18, 2019 at 05:09 PM
+-- Server version: 5.7.26
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -116,12 +116,12 @@ CREATE TABLE IF NOT EXISTS `hostel_attendance_details` (
 
 INSERT INTO `hostel_attendance_details` (`si_no`, `status`, `date_id`, `adm_no`, `absent_id`, `entered_by`, `remarks`) VALUES
 (1, 1, 2, 4501, NULL, 'jerin', 'sick'),
-(2, 1, 3, 4501, NULL, 'jerin', 'home'),
+(2, 1, 3, 4501, NULL, 'aditya', 'home'),
 (3, 1, 6, 4501, NULL, 'jerin', 'kuttikanam'),
-(4, 1, 15, 4501, NULL, 'jerin', 'fest'),
+(4, 1, 15, 4501, NULL, 'abijith', 'fest'),
 (5, 1, 18, 4501, NULL, 'jerin', 'sick again'),
 (6, 1, 23, 4501, NULL, 'jerin', 'bad remark'),
-(7, 1, 27, 4501, NULL, 'jerin', 'study leave');
+(7, 1, 27, 4501, NULL, 'abijith', 'study leave');
 
 -- --------------------------------------------------------
 
@@ -292,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `login_details` (
   `session_in` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `session_out` datetime DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login_details`
@@ -304,7 +304,8 @@ INSERT INTO `login_details` (`si_no`, `user_id`, `session_in`, `session_out`) VA
 (3, 'jerin', '2019-05-11 19:06:29', '2019-05-11 19:14:48'),
 (4, 'aditya', '2019-05-11 19:17:12', '2019-05-11 19:29:34'),
 (5, 'jerin', '2019-05-12 13:53:36', '2019-05-12 14:07:50'),
-(6, 'jerin', '2019-05-12 15:04:31', NULL);
+(6, 'jerin', '2019-05-12 15:04:31', NULL),
+(7, 'jerin', '2019-05-18 21:58:27', '2019-05-18 22:29:40');
 
 -- --------------------------------------------------------
 
