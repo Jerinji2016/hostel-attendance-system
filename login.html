@@ -119,7 +119,7 @@
 											<td> - </td>
 											<td>
 												<span id="sem_change">
-													<select id="semester" name="semester" class="has_sel_fld" style="width: 100px; margin-left: 3px;">
+													<select id="semester" name="semester" class="has_sel_fld">
 														<option value=''>-select-</option>
 													</select>
 												</span> 
@@ -158,7 +158,7 @@
 											</td>
 										</tr>
 	<!-- Scripts -->
-<script src="js/autoCompete.js?v=1"> </script>
+<script src="js/autoComplete.js?v=1"> </script>
 <script src="js/sem.js?v=1.3"> </script>
 <script src="js/name_Array.js?v=1.2"> </script>
 
@@ -223,20 +223,5 @@
 		document.getElementById("has_attend").className = "has_lgn_tl";
 		document.getElementById("hasAttend").style.display = "block";
 		name_call();
-	}
-
-	function submitDetails()
-	{
-		var xhr = new XMLHttpRequest();
-
-		xhr.open('GET','php/viewAttendanceDetails.php',true);
-
-		xhr.onreadystatechange = function()
-		{
-			if(xhr.readyState==4 && xhr.status==200)
-			{
-				window.location = 'http://localhost/has/php/viewAttendanceDetails.php';
-			}
-		}
 	}
 </script>

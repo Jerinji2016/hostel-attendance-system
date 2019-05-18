@@ -23,11 +23,9 @@ function filter(name)
 
 function name_call()
 {
-	var target = document.getElementById("get");
 	var course = document.getElementById("course").value;
 	var semester = document.getElementById("semester").value;
 	var branch = document.getElementById("branch").value;
-	//console.log(branch+" "+course+" "+semester);
 
 	var xhr = new XMLHttpRequest();
 	var x = "&course="+course+"&semester="+semester+"&branch="+branch;

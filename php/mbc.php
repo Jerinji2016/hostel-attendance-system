@@ -154,7 +154,7 @@
 										</td>
 									</tr>
 <!-- Scripts -->
-<script src="../js/autoCompete.js?v=1"> </script>
+<script src="../js/autoComplete.js?v=1"> </script>
 <script src="../js/sem.js?v=1"> </script>
 <script src="../js/name_Array.js?v=1"> </script>
 
