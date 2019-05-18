@@ -1,26 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-.klub_c18 
-{
-background-color: #f8f8f8;
-width: 160px;
-margin: 0;
-font-size: 12px;
-padding: 1px 3px;
-}
-.klub_c17 
-{
-text-align: right;
-color: #666;
-font-size: 13px;
-}
-.klub_c16 
-{
-margin-left: 10px;
-font-size: 14px;
-color: #555;
-}
+
 .has_input_fld
 {
 	padding: 2px 3px;
@@ -34,24 +15,24 @@ color: #555;
 	width: 218px;
 	border: 1px solid #CCC !important;
 	border-radius: 1px !important;
-	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;	
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
 .has_lgn_tl
 {
-	float: left; 
-	text-align: center; 
-	padding: 4px 7px; 
-	line-height: 22px;  
-	font-size: 13px;	
-	width: 184px; 
+	float: left;
+	text-align: center;
+	padding: 4px 7px;
+	line-height: 22px;
+	font-size: 13px;
+	width: 184px;
 	cursor: pointer;
 }
 .atv
 {
-	border: 1px solid #999; 
-	border-top: 0; 
-	padding: 4px 7px; 
-	line-height: 22px; 
+	border: 1px solid #999;
+	border-top: 0;
+	padding: 4px 7px;
+	line-height: 22px;
 	width: 186px;
 }
 input

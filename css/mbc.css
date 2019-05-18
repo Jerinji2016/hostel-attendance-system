@@ -359,7 +359,7 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; 
+  background-size: cover;
   background-color:#067BA8;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/6.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/6.jpg', sizingMethod='scale')";
@@ -371,7 +371,7 @@ body {
   -webkit-background-size:contain;
   -moz-background-size:contain;
   -o-background-size:contain;
-  background-size:contain; 
+  background-size:contain;
 
 }
 #klub_header
@@ -380,53 +380,6 @@ body {
 }
 #mbc_logo_hldr
 {
-}
-.klub_c25 {
-float : right;
-margin-left : 8px;
-}
-#klub_user_button
-{
-	background-color:#666; 
-	cursor:pointer; 
-	box-shadow:0px 0px 7px rgba(0,0,0,.2); 
-	height:20px; 
-	padding:0px 10px; 
-	border-radius:2px; 
-	border:1px solid #666;
-	color:#F6F6F6; 
-	width:auto;
-	font-size:12px; 
-	font-weight:bold;
-}
-#klub_user_button:active
-{
-	background-color:#666; 
-	cursor:pointer; 
-	box-shadow:0px 0px 2px rgba(0,0,0,.2); 
-	height:20px; 
-	padding:0px 10px; 
-	border-radius:2px; 
-	border:1px solid #666;
-	color:#F6F6F6; 
-	width:auto;
-	font-size:12px; 
-	font-weight:bold;
-}
-.exit_klub_x
-{
-	background-color:#FFF;
-	padding:4px;
-	border:1px solid #FFF; 
-	border-bottom-color:#DDD;
-	padding-left:5px;
-}
-.exit_klub_x:hover
-{
-	background-color:#F7F7F7;
-	border-radius:4px;
-	text-decoration:none;
-	color:#0C3;
 }
 .clear {
 	clear:both;
@@ -456,7 +409,7 @@ margin-left : 8px;
 }
 .side_link div:hover
 {
-	cursor:pointer; 
+	cursor:pointer;
 	padding-left:15px;
 	font-size:14px;
 	background-color:#00bcf2;
@@ -500,23 +453,23 @@ margin-left : 8px;
 }
 .mlink_active
 {
-	cursor:pointer; 
+	cursor:pointer;
 	padding-left:15px;
 	font-size:14px;
 	background-color:#00bcf2;
-	color:#FFF;	
+	color:#FFF;
 }
 .link_active
 {
 	list-style:none;
 	box-shadow:1px 0px 5px rgba(0, 0, 0, .1);
-	cursor:pointer; 
-	margin-top:4px; 
+	cursor:pointer;
+	margin-top:4px;
 	padding:3px;
 	padding-left:20px;
 	font-weight:bold;
-	background-color:#FFF; 
-	color:#FFF; 
+	background-color:#FFF;
+	color:#FFF;
 }
 .mbc_exm_v
 {
@@ -529,7 +482,7 @@ margin-left : 8px;
 	border-radius:4px;
 	font-family:Arial, Helvetica, sans-serif;
 	padding:10px;
-	color:#fff;	
+	color:#fff;
 }
 .mbc_tile_z:hover
 {
@@ -546,7 +499,7 @@ margin-left : 8px;
 }
 .shan_mem_lst_div
 {
-	float:left; 
+	float:left;
 	padding:2px 4px 2px 4px;
 	margin:2px;
 	border-radius:4px;
@@ -639,7 +592,7 @@ margin-left : 8px;
 	width: 20px;
 	right: 0;
 	clip: rect(-6px,22px,14px,10px);
-} 
+}
 
 .btn {
   display: inline-block;
@@ -982,16 +935,16 @@ margin-left : 8px;
 }
 .btn_bold
 {
-	font-family:Segoe, 'Segoe UI Semibold', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; 
+	font-family:Segoe, 'Segoe UI Semibold', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;
 }
 
 input[type=checkbox].css-checkbox {
-	position: absolute; 
-    overflow: hidden; 
-    clip: rect(0 0 0 0); 
-    height:1px; 
-    width:1px; 
-    margin:-1px; 
+	position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height:1px;
+    width:1px;
+    margin:-1px;
     padding:0;
     border:0;
 }
@@ -999,7 +952,7 @@ input[type=checkbox].css-checkbox {
 input[type=checkbox].css-checkbox + label.css-label {
 	padding-left:18px;
 	margin-left:7px;
-	height:15px; 
+	height:15px;
 	display:inline-block;
 	line-height:15px;
 	background-repeat:no-repeat;
@@ -1046,28 +999,6 @@ width: auto;
 }
 .klub_alrt_frm
 {
-	position:fixed;border-radius:2px;background-color:#FFF; box-shadow:0px 0px 20px 7px #FFF;  width:430px; top:15%; z-index:1000; display:none; right:0px; 
-	
+	position:fixed;border-radius:2px;background-color:#FFF; box-shadow:0px 0px 20px 7px #FFF;  width:430px; top:15%; z-index:1000; display:none; right:0px;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

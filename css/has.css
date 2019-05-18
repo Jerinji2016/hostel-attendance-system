@@ -317,34 +317,6 @@ table {
   vertical-align: bottom;
 }
 
-
-.klub_scroll::-webkit-scrollbar{
-width: 12px;
-height: 30px;
-border-radius:4px;
-}
-.klub_scroll::-webkit-scrollbar-track{
-	border-radius:2px;
-	border:1px solid #EEE;}
-.klub_scroll::-webkit-scrollbar-thumb{
--webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,0.10),inset 0 -1px 0 rgba(0,0,0,0.07);
-border-radius:4px;
-cursor:pointer;
-}
-.klub_scroll::-webkit-scrollbar-button {
-width: 0px;
-height: 0px;
-display: block;
-}
-
-.klub_scroll{
-	scrollbar-base-color:#333;
-	scrollbar:5px;	
-	scrollbar-track-color:#DDD;
-
-}
-
-
 body {
   margin: 0;
   font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
@@ -354,10 +326,10 @@ body {
   color: #333333;
   background:url(../images/mbccet_bg.jpg) no-repeat center center fixed;  /* <----Change bg-image here */
   -webkit-background-size: cover;                                         /*       |  */
-  -moz-background-size: cover;                                            /*       |  */  
-  -o-background-size: cover;                                              /*       |  */  
+  -moz-background-size: cover;                                            /*       |  */
+  -o-background-size: cover;                                              /*       |  */
   background-size: cover;                                                 /*       |  */
-  background-color:#067BA8;                                               /*       V  */    
+  background-color:#067BA8;                                               /*       V  */
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/mbccet_bg.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/mbccet_bg.jpg', sizingMethod='scale')";
   zoom:1;
@@ -369,57 +341,10 @@ body {
   -webkit-background-size:contain;
   -moz-background-size:contain;
   -o-background-size:contain;
-  background-size:contain; 
+  background-size:contain;
 
 }
 
-.klub_c25 {
-float : right;
-margin-left : 8px;
-}
-#klub_user_button
-{
-	background-color:#666; 
-	cursor:pointer; 
-	box-shadow:0px 0px 7px rgba(0,0,0,.2); 
-	height:20px; 
-	padding:0px 10px; 
-	border-radius:2px; 
-	border:1px solid #666;
-	color:#F6F6F6; 
-	width:auto;
-	font-size:12px; 
-	font-weight:bold;
-}
-#klub_user_button:active
-{
-	background-color:#666; 
-	cursor:pointer; 
-	box-shadow:0px 0px 2px rgba(0,0,0,.2); 
-	height:20px; 
-	padding:0px 10px; 
-	border-radius:2px; 
-	border:1px solid #666;
-	color:#F6F6F6; 
-	width:auto;
-	font-size:12px; 
-	font-weight:bold;
-}
-.exit_klub_x
-{
-	background-color:#FFF;
-	padding:4px;
-	border:1px solid #FFF; 
-	border-bottom-color:#DDD;
-	padding-left:5px;
-}
-.exit_klub_x:hover
-{
-	background-color:#F7F7F7;
-	border-radius:4px;
-	text-decoration:none;
-	color:#0C3;
-}
 .trans
 {
 	 -webkit-transition:  all linear 0.3s;
@@ -457,7 +382,7 @@ margin-left : 8px;
 }
 .side_link div:hover
 {
-	cursor:pointer; 
+	cursor:pointer;
 	padding-left:11px;
 	font-size:14px;
 	background-color:#00bcf2;
@@ -499,7 +424,7 @@ margin-left : 8px;
 }
 .mlink_active
 {
-	cursor:pointer; 
+	cursor:pointer;
 	padding-left:11px;
 	font-size:14px;
 	background-color:#00bcf2 !important;
@@ -510,13 +435,13 @@ margin-left : 8px;
 {
 	list-style:none;
 	box-shadow:1px 0px 5px rgba(0, 0, 0, .1);
-	cursor:pointer; 
-	margin-top:4px; 
+	cursor:pointer;
+	margin-top:4px;
 	padding:3px;
 	padding-left:20px;
 	font-weight:bold;
-	background-color:#FFF; 
-	color:#FFF; 
+	background-color:#FFF;
+	color:#FFF;
 }
 .mbc_exm_v
 {
@@ -528,7 +453,7 @@ margin-left : 8px;
 	border-radius:4px;
 	font-family:Arial, Helvetica, sans-serif;
 	padding:10px;
-	color:#fff;	
+	color:#fff;
 }
 .mbc_tile_z:hover
 {
@@ -556,7 +481,7 @@ margin-left : 8px;
 
 .part_mem_lst_div
 {
-	float:left; 
+	float:left;
 	padding:2px 4px 2px 4px;
 	margin:2px;
 	border-radius:4px;
@@ -619,7 +544,7 @@ margin-left : 8px;
 	width: 20px;
 	right: 0;
 	clip: rect(-6px,22px,14px,10px);
-} 
+}
 
 .btn {
   display: inline-block;
@@ -962,16 +887,16 @@ margin-left : 8px;
 }
 .btn_bold
 {
-	font-family:Segoe, 'Segoe UI Semibold', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif; 
+	font-family:Segoe, 'Segoe UI Semibold', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif;
 }
 
 .css-checkbox {
-	position:relative; 
-    overflow: hidden; 
-    clip: rect(0 0 0 0); 
-    height:1px; 
-    width:1px; 
-    margin:-1px; 
+	position:relative;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height:1px;
+    width:1px;
+    margin:-1px;
     padding:0;
     border:0;
 }
@@ -979,7 +904,7 @@ margin-left : 8px;
 .css-checkbox + label.css-label {
 	padding-left:18px;
 	margin-left:7px;
-	height:15px; 
+	height:15px;
 	display:inline-block;
 	line-height:15px;
 	background-repeat:no-repeat;
@@ -1083,7 +1008,7 @@ width: auto;
 }
 .klub_scroll-mini{
   scrollbar-base-color:#333;
-  scrollbar:5px;  
+  scrollbar:5px;
   scrollbar-track-color:#DDD;
 }
 .klub_alrt_frm{
