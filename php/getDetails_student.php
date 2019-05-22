@@ -1,4 +1,4 @@
-	<?php
+<?php
 	$a["course"] = $_GET['course'];
 	$a["semester"] = $_GET['semester'];
 	$a["branch"] = $_GET['branch'];

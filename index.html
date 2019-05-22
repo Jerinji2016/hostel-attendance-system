@@ -97,17 +97,17 @@
 		  	<tr>
 				<!-- FIRST BIG SQUARE (M1) -->
 				<td colspan="2">
-			   		<div class="m1" style="background-color: black; width: 310px; height: 310px"><img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%"></div>
+			   		<div class="m1" style="background-color: black; width: 310px; height: 310px"><img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%" onclick="gotoAdmin()"></div>
 				</td>
 
 				<td>
 					<!-- FLIP OF FIRST SMALL SQUARE (M2) (F1) -->
-					<div class="flip-card-small" style="margin-top: 4 px">
+					<div class="flip-card-small" style="margin-top: 4 px" onclick()="gotoViewAttend">
 						<div class="flip-card-inner-small">
 							<div class="flip-card-front-small">
 								<div class="m2" style="background-color: deepskyblue; width: 150px; height: 150px; margin-bottom: 5px"><img alt="logo" src="images/icons/student-logo.png" height="140px" width="140px" style="padding: 5%"></div>
 							</div>
-							<div class="flip-card-back-small">
+							<div class="flip-card-back-small" onclick="gotoViewAttend()">
 								<br>
 								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
 								<p style="color: white; font-size: 12px">View your attencance</p>
@@ -119,7 +119,7 @@
 					<div class="flip-card-small">
 						<div class="flip-card-inner-small">
 							<div class="flip-card-front-small" style="background-color: transparent">
-								<div style="background-color: royalblue; width: 150px; height: 150px; margin-top: 5px;"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px" style="margin-top: 5px"></div>
+								<div style="background-color: royalblue; width: 150px; height: 150px; margin-top: 5px;"><img alt="logo" src="" height="300px" width="300px" style="margin-top: 5px"></div>
 							</div>
 							<div class="flip-card-back-small" style="margin-top: 5px">
 								<br>
@@ -137,7 +137,7 @@
 					<div class="flip-card-long">
 						<div class="flip-card-inner-long">
 							<div class="flip-card-front-long">
-								<div style="background-color: limegreen; width: 150px; height: 310px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
+								<div style="background-color: limegreen; width: 150px; height: 310px"><img alt="logo" src="" height="300px" width="300px"></div>
 							</div>
 							<div class="flip-card-back-long">
 								<br>
@@ -203,3 +203,17 @@
 	
    </body>
 </html>
+
+<script type="text/javascript">
+	var co = 1;
+
+	function gotoAdmin()
+	{
+		window.location.assign("login.html");
+	}
+	function gotoViewAttend()
+	{
+		co++;
+		window.location.href = "login.html?&co="+co;
+	}
+</script>

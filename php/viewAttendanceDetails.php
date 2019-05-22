@@ -209,7 +209,7 @@
 					<tr>
 						<th> Date </th>
 						<th> Day </th>
-						<th> Status </th>
+						<th> Class / Holiday </th>
 						<th> Attendance </th>
 						<th> Remark </th>
 					</tr>
@@ -220,7 +220,7 @@
 				?>
 					<tr>
 				<!-- Date -->
-						<td> <?php echo $row_att[2]; ?> </td>
+						<td> <?php echo date("d-m-Y",strtotime($row_att[2])); ?> </td>
 	
 				<!-- Day -->
 						<td> 
@@ -297,7 +297,7 @@
 	window.onload = function()
 	{
 		document.getElementById('click_arrow1').addEventListener('click', divStuDet);
-			document.getElementById('click_arrow3').addEventListener('click', divDailyAtnd);
+		document.getElementById('click_arrow3').addEventListener('click', divDailyAtnd);
 	}
 
 	function divStuDet()

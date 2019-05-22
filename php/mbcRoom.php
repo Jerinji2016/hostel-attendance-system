@@ -9,8 +9,7 @@
 	echo "<option value=''>-select-</option>";
 	while($row=mysql_fetch_array($result))
 	{
-		echo "<option value='$row[0]'> $row[0] </option>";
-		
+		echo "<option value='$row[0]'> $row[0] </option>";	
 	}
 	echo"</select>";
 ?>

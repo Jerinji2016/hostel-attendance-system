@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-
 <html lang = "en">
 	<head>
 		<title> Login - Hostel Attendance System </title>
-		<meta name="viewport">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" >
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link href="css/login.css" rel="stylesheet" type="text/css">
+		<link href="css/has.css?v=1" rel="stylesheet" type="text/css" />
 
 		<style type="text/css">
 			input::placeholder
@@ -35,13 +37,32 @@
 		</style>
 	</head>
 	
-	<body>
-		<div style="width: 1000px; margin: 0px auto; margin-top: 130px; padding: 0px">
+	<body style="background-color: white">
+		<script type="text/javascript">
+			document.getElementById("co").value;
+			console.log(co);
+		</script>
+		<div id="has_header" style="box-shadow: -1px 1px 15px rgba(0,0,0,.5); width:90%; min-width:1000px; margin:0px auto; background-color: white; color: #3333333">
+			<div style="float:left; padding:4px 5px; " id="mbc_logo_hldr"><img alt="Logo" src="images/favicon.ico" height="24" /> </div>
+			<b>
+				<div style="float:left; padding:6px 0px;  font-size:13px;">
+					<p style="margin:0;">
+						Hostel Management System - Mar Baselios Christian College of Engineering &amp; Technology, Peermade.
+					</p>
+				</div>
+			 
+				<div class="klub_h4" style="float:right; padding:7px;"  >
+					<!-- Current TimeStamp -->  
+				</div>
+			</b>
+			<div class="clear" style="height:0px;"> </div>
+		</div>
+		<div style="width: 1000px; margin: 0px auto; margin-top: 130px; padding: 0%">
 			<div style="width: 400px; margin: 0px auto">
 				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
 					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
-						Login
+						<div id="head"> Login </div>
 					</span>
 				</div>
 
@@ -54,14 +75,12 @@
 						View Attendance
 					</div>
 
-					<div class="clear" style="height:30px;"></div>
-
 					<!-- Division 1 -->
-					<div style="display: block"; class="has_lgn_tl_x" id="hasLogin">
+					<div style="display: block;"; class="has_lgn_tl_x" id="hasLogin">
 						<form action="php/login.php" method="POST">
 							<center>
-								<div style="padding: 20px; padding-left: 35px; padding-top: 40px"> 
-									<table class="alpha" style="font-size: 14px">
+								<div style="padding: 20px; padding-left: 35px; padding-top: 40px;"> 
+									<table class="alpha" style="font-size: 14px; margin-top: 25px">
 										<tr>
 											<td> User ID </td>
 											<td> : </td>
@@ -92,7 +111,7 @@
 					</div>
 
 					<!-- Division 2 -->
-					<div style="display: none"; class="has_lgn_tl_x" id="hasAttend">
+					<div style="display: none; clear:both;"; class="has_lgn_tl_x" id="hasAttend">
 						<center>
 							<form action="php/viewAttendanceDetails.php" method="POST" autocomplete="off">
 								<div style="padding: 20px; padding-left: 35px">
@@ -213,6 +232,8 @@
 		
 		document.getElementById("has_attend").className = "has_lgn_tl atv";
 		document.getElementById("hasAttend").style.display = "none";
+
+		document.getElementById("head").innerHTML = "Login"
 	}
 
 	function attendanceVisible()
@@ -222,6 +243,8 @@
 		
 		document.getElementById("has_attend").className = "has_lgn_tl";
 		document.getElementById("hasAttend").style.display = "block";
+
+		document.getElementById("head").innerHTML = "View Attendance"
 		name_call();
 	}
 </script>

@@ -10,10 +10,8 @@
 	echo"<option value=''>-select-</option>";
 
 	while($row=mysql_fetch_array($result))
-	{
-	?>
-	<?php echo "<option value='$row[0]'>";?><?php echo $row[0]."</option>"; ?>
-	<?php
+	{ 
+		echo "<option value='$row[0]'>";?><?php echo $row[0]."</option>";
 	}
 	echo"</select>";
 ?>
