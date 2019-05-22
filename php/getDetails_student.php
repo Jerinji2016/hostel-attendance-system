@@ -122,8 +122,11 @@
 						?>
 					</table>
 				</div>
-				<div style="padding: 15px	">
-					<center> <input type="submit" value="Submit"> </center>
+				<div style="padding: 10px">
+					<center> 
+						<input type="submit" value="Submit"> 
+						<input type="reset" value="Cancel" onclick="getDetails_hide()">
+					</center>
 				</div>
 			</center>
 		</form>

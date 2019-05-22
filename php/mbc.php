@@ -6,7 +6,7 @@
 <html lang="en">
 	<head>
 		<title> MBC Portal </title>
-		<meta name="viewport">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link href="../css/login.css" rel="stylesheet" type="text/css">
 
@@ -17,19 +17,86 @@
 				font-size: 0.8em;
 				font-style: italic;
 			}
+			.sidebar 
+			{
+				height: 100%;
+				width: 0;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color: #111;
+				overflow-x: hidden;
+				transition: 0.5s;
+				padding-top: 60px;
+			}
+			.sidebar a 
+			{
+				text-align: left;
+			  	padding: 8px 8px 8px 32px;
+			  	text-decoration: none;
+			  	font-size: 20px;
+			  	color: #818181;
+			  	display: block;
+			  	transition: 0.3s;
+			}
+			.sidebar a:hover 
+			{
+			  	color: #F1F1F1;
+			}
+			.openbtn 
+			{
+			  	font-size: 20px;
+			  	cursor: pointer;
+			  	background-color: #111;
+			  	color: white;
+			  	padding: 10px 15px;
+			  	border: none;
+			}
+			.openbtn:hover 
+			{
+			  	background-color: #444;
+			}
+			#main 
+			{
+			  	transition: margin-left .5s;
+			  	padding: 16px;
+			}
+			/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+			@media screen and (max-height: 450px) 
+			{
+			  	.sidebar {
+			  		padding-top: 15px;
+			  	}
+			  	.sidebar a {
+			  		font-size: 18px;
+			  	}
+			}
 		</style>
 	</head>
 
-	<body style="background-color: #FFF;" onbeforeunload="handleBackFunc()">
+	<body style="background-color: #FFF; width: 100%" onbeforeunload="handleBackFunc()" align="center">
 
-        <div style="float: right; margin-right: 10px;">  <!--div for logout button-->
+        <div style="width: 100%" align="right">  <!--div for logout button-->
+        	<div id="navButton" align="left" style="transition: margin-left .5s">
+				<button class="openbtn" onclick="openNav()" style="align">☰ </button>
+			</div>
             <form action="logout.php" method="post">
-            	Logged In As: <b> <?php echo $_SESSION['userid']; ?> &nbsp; </b>
-                <button type="submit" value="logout">Logout</button>
+            	<div style="margin-right: 20px">
+            		Logged In As: <b> <?php echo $_SESSION['userid']; ?> &nbsp; </b>
+               	 	<button type="submit" value="logout">Logout</button>
+            	</div>
             </form>
         </div>
-		<div id="main" style="width:1000px; margin: 0px auto; margin-top: 130px; padding: 0px">
-			<div style="width: 400px; margin: 0px auto">
+
+        <div id="adminBar" class="sidebar">
+        	<a href="#" style="color: #F1F1F1"> Attendance </a>
+        	<a href="#"> View Record </a>
+        	<a href="#"> Option 3 </a>
+        </div>
+
+		<div id="main" style="margin: 0px auto; margin-top: 15px">	
+			<div id="selectTab" style="width: 400px; margin: 0px auto; margin-top: 115px">
 				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
 					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
@@ -173,15 +240,14 @@
 					</div>	
 				</div>
 			</div>
-		</div>
-
-		<div id="getDetails"> </div>
-		
+			<div id="getDetails"> </div>
+		</div>		
 	</body>
 </html>
 		
-<script src="../js/getDetails_hostel.js?v=2"> </script>
-<script src="../js/getDetails_student.js?v=1"> </script>
+<script src="../js/getDetails_hostel.js?v=3"> </script>
+<script src="../js/getDetails_student.js?v=2"> </script>
+<script src="../js/navPanel.js"> </script>
 
 <script>
 	window.onload = function()
@@ -265,5 +331,28 @@
 		{
 			drop_id.style.display = "none";
 		}
+	}
+
+	function getDetails_hide()
+	{
+		document.getElementById("getDetails").innerHTML = "";
+
+		document.getElementById("hostelno").selectedIndex = "";
+		document.getElementById("s_name").value = "";
+		clearSelect(document.getElementById("floorno"));
+		clearSelect(document.getElementById("roomno"));
+	}
+	function clearSelect(item)
+	{
+		var i;
+		for(i=item.options.length - 1;i>0;i--)
+		{
+			item.remove(i);
+		}
+	}
+
+	function hide_HAS()
+	{
+		document.getElementById("selectTab").style.display = "none";
 	}
 </script>

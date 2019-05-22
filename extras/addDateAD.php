@@ -6,9 +6,9 @@
 
 	$day = 1;
 
-	while($day <= 30)
+	while($day <= 31)
 	{
-		$var_sql = $var."1,'2019-4-".$day."',1,'----','jerin')";
+		$var_sql = $var."1,'2019-7-".$day."',1,'----','aditya')";
 		mysql_query($var_sql);
 		echo $var_sql."<br><br>";
 		$day++;

@@ -43,8 +43,8 @@
 	}
 </style>
 
-<div style="width:1000px; margin: 0px auto; margin-top: 40px; padding: 0px"> 
-	<div style="width: 1000px; margin: 0px auto;">
+<div style="width:900px; margin: 0px auto; margin-top: 40px"> 
+	<div style="width: 900px; margin: 0px auto;">
 		<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; box-shadow: 0px 0px 15px #666;">
 			<span style="color:#09F; font-size: 18px; font-family: Arial Black;">
 				Student Info <br>
@@ -204,8 +204,11 @@
 					?>
 					</table>
 				</div>
-				<div style="padding: 15px	">
-					<center> <input type="submit" value="Submit"> </center>
+				<div style="padding: 15px">
+					<center> 
+						<input type="submit" value="Submit">
+						<input type="reset" value="Cancel" onclick="getDetails_hide()">
+					</center>
 				</div>
 			</center>
 		</form>

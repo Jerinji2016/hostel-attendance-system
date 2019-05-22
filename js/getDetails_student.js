@@ -5,6 +5,7 @@ function studGetDetails()
 	var semester = document.getElementById('semester').value;
 	var branch = document.getElementById('branch').value;
 	var s_name = document.getElementById('s_name').value;
+	hide_HAS();
 
 	var xhr = new XMLHttpRequest();
 	var x = "&course="+course+"&semester="+semester+"&branch="+branch+"&s_name="+s_name;
@@ -18,5 +19,5 @@ function studGetDetails()
 			target.innerHTML = xhr.responseText;
 		}
 	}
-	xhr.send(x);	
+	xhr.send(x);
 }

@@ -5,7 +5,7 @@ function hostelGetDetails()
 	var floor_no = document.getElementById('floorno').value;
 	var room_no = document.getElementById('roomno').value;
 	var date = document.getElementById('myDate').value;
-	console.log(date);
+	hide_HAS();
 
 	var xhr = new XMLHttpRequest();
 	var x = "&hostelno="+hostel_code+"&floorno="+floor_no+"&roomno="+room_no+"&date="+date;
