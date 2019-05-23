@@ -1,6 +1,7 @@
 function studGetDetails()
 {
 	var target = document.getElementById('getDetails');
+	target.style.display = "block";
 	var course = document.getElementById('course').value;
 	var semester = document.getElementById('semester').value;
 	var branch = document.getElementById('branch').value;

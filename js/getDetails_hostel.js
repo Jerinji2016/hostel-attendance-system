@@ -1,6 +1,7 @@
 function hostelGetDetails()
 {
 	var target = document.getElementById('getDetails');
+	target.style.display = "block";
 	var hostel_code = document.getElementById('hostelno').value;
 	var floor_no = document.getElementById('floorno').value;
 	var room_no = document.getElementById('roomno').value;

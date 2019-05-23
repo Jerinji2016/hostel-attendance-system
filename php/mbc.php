@@ -9,6 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link href="../css/login.css" rel="stylesheet" type="text/css">
+		<link href="../css/sidebar.css" rel="stylesheet" type="text/css">
 
 		<style type="text/css">
 			input::placeholder
@@ -17,83 +18,11 @@
 				font-size: 0.8em;
 				font-style: italic;
 			}
-			.sidebar 
-			{
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color: #111;
-				overflow-x: hidden;
-				transition: 0.5s;
-				padding-top: 60px;
-			}
-			.sidebar a 
-			{
-				text-align: left;
-			  	padding: 8px 8px 8px 32px;
-			  	text-decoration: none;
-			  	font-size: 20px;
-			  	color: #818181;
-			  	display: block;
-			  	transition: 0.3s;
-			}
-			.sidebar a:hover 
-			{
-			  	color: #F1F1F1;
-			}
-			.openbtn 
-			{
-			  	font-size: 20px;
-			  	cursor: pointer;
-			  	background-color: #111;
-			  	color: white;
-			  	padding: 10px 15px;
-			  	border: none;
-			}
-			.openbtn:hover 
-			{
-			  	background-color: #444;
-			}
-			#main 
-			{
-			  	transition: margin-left .5s;
-			  	padding: 16px;
-			}
-			/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-			@media screen and (max-height: 450px) 
-			{
-			  	.sidebar {
-			  		padding-top: 15px;
-			  	}
-			  	.sidebar a {
-			  		font-size: 18px;
-			  	}
-			}
 		</style>
 	</head>
 
 	<body style="background-color: #FFF; width: 100%" onbeforeunload="handleBackFunc()" align="center">
-
-        <div style="width: 100%" align="right">  <!--div for logout button-->
-        	<div id="navButton" align="left" style="transition: margin-left .5s">
-				<button class="openbtn" onclick="openNav()" style="align">☰ </button>
-			</div>
-            <form action="logout.php" method="post">
-            	<div style="margin-right: 20px">
-            		Logged In As: <b> <?php echo $_SESSION['userid']; ?> &nbsp; </b>
-               	 	<button type="submit" value="logout">Logout</button>
-            	</div>
-            </form>
-        </div>
-
-        <div id="adminBar" class="sidebar">
-        	<a href="#" style="color: #F1F1F1"> Attendance </a>
-        	<a href="#"> View Record </a>
-        	<a href="#"> Option 3 </a>
-        </div>
+        <?php include 'sidebar.php'; ?>
 
 		<div id="main" style="margin: 0px auto; margin-top: 15px">	
 			<div id="selectTab" style="width: 400px; margin: 0px auto; margin-top: 115px">
@@ -220,13 +149,14 @@
 											<input type="text" id="s_name" placeholder="Student Name" style="width: 240px; margin-left: 3px;">
 										</td>
 									</tr>
-<!-- Scripts -->
+
+	<!-- Scripts -->
 <script src="../js/autoComplete.js?v=1"> </script>
 <script src="../js/sem.js?v=1"> </script>
 <script src="../js/name_Array.js?v=1"> </script>
 
 <script type="text/javascript"> sem(); </script>
-
+								
 									<tr>
 										<td></td>
 										<td colspan="4"></td>
@@ -240,14 +170,17 @@
 					</div>	
 				</div>
 			</div>
+
 			<div id="getDetails"> </div>
+
 		</div>		
 	</body>
 </html>
 		
-<script src="../js/getDetails_hostel.js?v=3"> </script>
-<script src="../js/getDetails_student.js?v=2"> </script>
+<script src="../js/getDetails_hostel.js?v=4"> </script>
+<script src="../js/getDetails_student.js?v=3"> </script>
 <script src="../js/navPanel.js"> </script>
+<script src="../js/navPanel_actions.js"> </script>
 
 <script>
 	window.onload = function()
@@ -255,6 +188,26 @@
         document.getElementById("has_lgn_1").addEventListener('click', hostel_visible);
         document.getElementById("has_lgn_2").addEventListener('click', stud_visible);
     }
+
+    function stud_visible()
+	{
+		document.getElementById("has_lgn_1").className = "has_lgn_tl atv";
+		document.getElementById("has_lgn_1_x").style.display = "none";
+		
+		document.getElementById("has_lgn_2").className = "has_lgn_tl";
+		document.getElementById("has_lgn_2_x").style.display = "block";
+
+		name_call();
+	}
+
+	function hostel_visible()
+	{
+		document.getElementById("has_lgn_2").className = "has_lgn_tl atv";
+		document.getElementById("has_lgn_2_x").style.display = "none";
+
+		document.getElementById("has_lgn_1").className = "has_lgn_tl";
+		document.getElementById("has_lgn_1_x").style.display = "block";
+	}
 
     function handleBackFunc()
     {
@@ -299,26 +252,6 @@
 		xhr.send(x);
 	}
 
-	function stud_visible()
-	{
-		document.getElementById("has_lgn_1").className = "has_lgn_tl atv";
-		document.getElementById("has_lgn_1_x").style.display = "none";
-		
-		document.getElementById("has_lgn_2").className = "has_lgn_tl";
-		document.getElementById("has_lgn_2_x").style.display = "block";
-
-		name_call();
-	}
-
-	function hostel_visible()
-	{
-		document.getElementById("has_lgn_2").className = "has_lgn_tl atv";
-		document.getElementById("has_lgn_2_x").style.display = "none";
-
-		document.getElementById("has_lgn_1").className = "has_lgn_tl";
-		document.getElementById("has_lgn_1_x").style.display = "block";
-	}
-
 	function drop_appear(id)
 	{
 		var check_id = document.getElementById("check"+id);
@@ -336,7 +269,7 @@
 	function getDetails_hide()
 	{
 		document.getElementById("getDetails").innerHTML = "";
-
+		document.getElementById("selectTab").style.display = "block"
 		document.getElementById("hostelno").selectedIndex = "";
 		document.getElementById("s_name").value = "";
 		clearSelect(document.getElementById("floorno"));

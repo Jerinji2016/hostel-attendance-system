@@ -3,7 +3,7 @@ function sem()
 		var target=document.getElementById("sem_change");
 		var course=document.getElementById("course").value;
 		var x="&c="+course;
-		
+	
 		var xhr=new XMLHttpRequest();
 		xhr.open("GET","/hostel-attendance-system/php/semester.php?"+x,true);
 		

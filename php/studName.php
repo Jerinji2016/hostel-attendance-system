@@ -1,5 +1,5 @@
 <?php
-
+	include 'dbConnect.php'
 	$course = $_GET['course'];
 	$semester = $_GET['semester'];
 	$branch = $_GET['branch'];
