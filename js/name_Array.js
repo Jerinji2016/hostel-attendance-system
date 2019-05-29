@@ -27,16 +27,13 @@ function name_call()
 	var semester = document.getElementById("semester").value;
 	var branch = document.getElementById("branch").value;
 
-	console.log("here");
-
 	var xhr = new XMLHttpRequest();
 	var x = "&course="+course+"&semester="+semester+"&branch="+branch;
-	xhr.open('GET','/hostel-attendance-system/php/studName.php?'+x,true);
+	xhr.open('POST','/hostel-attendance-system/php/studName.php?'+x,true);
 	xhr.onreadystatechange = function()
 	{
 	  	if(xhr.readyState==4 && xhr.status==200)
 	  	{
-	   	 	//target.innerHTML = xhr.responseText;
 	   	 	var name = xhr.responseText;
 	   	 	filter(name);
 	  	}
