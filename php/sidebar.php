@@ -44,7 +44,6 @@
         transition: margin-left .5s;
         padding: 16px;
     }
-    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
     @media screen and (max-height: 450px) 
     {
         .sidebar {
@@ -74,10 +73,10 @@
 </div>
 
 <div id="adminBar" class="sidebar">
-	<a id="attend_option" style="color: #F1F1F1" href="#"> 
+	<a id="attend_option" style="color: #F1F1F1" href="#" onclick="window.location='mbc.php';"> 
 		Attendance 
 	</a>
-	<a id="view_option" href="#"> View Record </a>
+	<a id="view_option" href="#" onclick="window.location='attendanceTab_admin.php';"> View Record </a>
 	<a id="leave_option" href="#"> Leave Request </a>
 </div>
 
