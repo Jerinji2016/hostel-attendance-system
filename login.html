@@ -45,7 +45,7 @@
 					</p>
 				</div>
 			 
-				<div class="klub_h4" style="float:right; padding:7px;"  >
+				<div style="float:right; padding:7px;"  >
 					<!-- Current TimeStamp -->  
 				</div>
 			</b>
@@ -61,14 +61,6 @@
 				</div>
 
 				<div style="color: #666; background-color: #F7F7F7; border-radius: 0px 0px 7px 7px; text-align: left; box-shadow: 0px 0px 15px #999;">
-					<div class="has_lgn_tl" id="has_login" style="border-left:0;">
-						Login
-					</div>
-					
-					<div class="has_lgn_tl atv" id="has_attend" style="border-right:0;">
-						View Attendance
-					</div>
-
 					<!-- Division 1 -->
 					<div style="display: block;"; class="has_lgn_tl_x" id="hasLogin">
 						<form action="php/login.php" method="POST">
@@ -103,85 +95,6 @@
 							</center>
 						</form>
 					</div>
-
-					<!-- Division 2 -->
-					<div style="display: none; clear:both;"; class="has_lgn_tl_x" id="hasAttend">
-						<center>
-							<form action="php/viewAttendanceDetails.php" method="POST" autocomplete="off">
-								<div style="padding: 20px; padding-left: 35px">
-									Enter Adm no : 
-									<input type="text" name="adm_no" id="adm_no" style="text-align: center; margin: 2px; width: 120px; padding: 4px 7px;" oninput="nameNeedFalse()" required>								
-									<input type="submit" value="GO">	
-								</div>
-						
-								<div>
-									============== OR ==============
-								</div>
-						
-								<div style="padding: 20px; padding-left: 35px">
-									<table style="font-size: 14px;" class="beta">
-										<tr height="30">
-											<td> Course </td>
-											<td> : </td>
-											<td> 
-												<select id="course" name="course" class="has_sel_fld" style="width: 100px; margin-left: 3px;" onchange="sem()">
-													<option value='BTECH'> B.Tech </option>
-													<option value='MTECH'> M.Tech </option>
-												</select>
-											</td>
-											<td> - </td>
-											<td>
-												<span id="sem_change">
-													<select id="semester" name="semester" class="has_sel_fld">
-														<option value=''>-select-</option>
-													</select>
-												</span> 
-											</td>
-										</tr>
-
-										<tr height="30">
-											<td> Branch </td>
-											<td> : </td>
-											<td colspan="3">
-												<select id="branch" name="branch" class="has_sel_fld" style="width: 240px; margin-left: 3px;" onchange="name_call()">
-													<option value="CSE"> Computer Science & Engg. </option>
-													<option value="ME">  Mechanical Engg. </option>
-													<option value="CE">  Civil Engg. </option>
-													<option value="EEE"> Electrical & Electronics Engg. </option>
-													<option value="ECE"> Electroniics and Communicatioin Engg. </option>
-												</select>
-											</td>
-										</tr>
-
-										<tr height="30">
-											<td> Name </td>
-											<td> : </td>
-											<td colspan="3">
-												<input type="text" id="s_name" name="s_name" placeholder="Student Name" style="width: 240px; margin-left: 3px;" oninput="admNeedFalse()" required>
-											</td>
-										</tr>
-
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td>
-												<input type="submit" value="GO"> 
-											</td>
-										</tr>
-	<!-- Scripts -->
-<script src="js/autoComplete.js?v=2"> </script>
-<script src="js/sem.js?v=1"> </script>
-<script src="js/name_Array.js?v=1"> </script>
-
-<script type="text/javascript"> sem(); </script>
-
-									</table>
-								</div>
-							</form>
-						</center>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -189,12 +102,6 @@
 </html>
 
 <script type="text/javascript">
-	window.onload = function()
-	{
-		document.getElementById('has_login').addEventListener('click', loginVisible);
-		document.getElementById('has_attend').addEventListener('click', attendanceVisible);
-	}
-
 	function nameNeedFalse()
 	{
 		if(document.getElementById('adm_no').value != "")
@@ -217,28 +124,5 @@
 		{
 			document.getElementById('adm_no').required = true;
 		}
-	}
-
-	function loginVisible()
-	{
-		document.getElementById("has_login").className = "has_lgn_tl";
-		document.getElementById("hasLogin").style.display = "block";
-		
-		document.getElementById("has_attend").className = "has_lgn_tl atv";
-		document.getElementById("hasAttend").style.display = "none";
-
-		document.getElementById("head").innerHTML = "Login"
-	}
-
-	function attendanceVisible()
-	{
-		document.getElementById("has_login").className = "has_lgn_tl atv";
-		document.getElementById("hasLogin").style.display = "none";
-		
-		document.getElementById("has_attend").className = "has_lgn_tl";
-		document.getElementById("hasAttend").style.display = "block";
-
-		document.getElementById("head").innerHTML = "View Attendance"
-		name_call();
 	}
 </script>

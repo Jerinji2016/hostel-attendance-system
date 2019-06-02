@@ -51,9 +51,10 @@
 			</span>
 			<div style="color:#DEE3EF">
 				<?php
+					echo " Date : ".date('d-m-Y',strtotime($myDate));
 					if ($a['hostel_code'] != "") 
 					{
-						echo " Hostel : ".$a['hostel_code'];
+						echo "&nbsp; &nbsp; &nbsp; &nbsp; Hostel : ".$a['hostel_code'];
 
 						if($a['floor_no'] != "")	
 						{

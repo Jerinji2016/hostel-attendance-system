@@ -102,7 +102,7 @@
 
 				<td>
 					<!-- FLIP OF FIRST SMALL SQUARE (M2) (F1) -->
-					<div class="flip-card-small" style="margin-top: 4 px" onclick()="gotoViewAttend">
+					<div class="flip-card-small" style="margin-top: 4 px" onclick="studentPortal()">
 						<div class="flip-card-inner-small">
 							<div class="flip-card-front-small">
 								<div class="m2" style="background-color: deepskyblue; width: 150px; height: 150px; margin-bottom: 5px"><img alt="logo" src="images/icons/student-logo.png" height="140px" width="140px" style="padding: 5%"></div>
@@ -205,15 +205,13 @@
 </html>
 
 <script type="text/javascript">
-	var co = 1;
-
 	function gotoAdmin()
 	{
 		window.location.assign("login.html");
 	}
-	function gotoViewAttend()
+
+	function studentPortal()
 	{
-		co++;
-		window.location.href = "login.html?&co="+co;
+		window.location.assign("student_portal.html");
 	}
 </script>

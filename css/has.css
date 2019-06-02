@@ -328,8 +328,7 @@ body {
   -webkit-background-size: cover;                                         /*       |  */
   -moz-background-size: cover;                                            /*       |  */
   -o-background-size: cover;                                              /*       |  */
-  background-size: cover;                                                 /*       |  */
-  background-color:#067BA8;                                               /*       V  */
+  background-size: cover;                                                 /*       V  */
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/mbccet_bg.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/mbccet_bg.jpg', sizingMethod='scale')";
   zoom:1;

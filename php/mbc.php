@@ -178,7 +178,7 @@
 		
 <script src="../js/getDetails_hostel.js?v=4"> </script>
 <script src="../js/getDetails_student.js?v=3"> </script>
-<script src="../js/navPanel.js"> </script>
+
 <script src="../js/navPanel_actions.js"> </script>
 
 <script>

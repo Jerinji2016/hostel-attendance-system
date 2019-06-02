@@ -27,6 +27,10 @@ function name_call()
 	var semester = document.getElementById("semester").value;
 	var branch = document.getElementById("branch").value;
 
+	if(semester == "")
+		semester = "S1";
+
+
 	var xhr = new XMLHttpRequest();
 	var x = "&course="+course+"&semester="+semester+"&branch="+branch;
 	xhr.open('POST','/hostel-attendance-system/php/studName.php?'+x,true);
