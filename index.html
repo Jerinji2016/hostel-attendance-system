@@ -3,6 +3,7 @@
     <head>
         <title>Hostel Attendance System</title>  <!-- -->
         <meta charset="utf-8">
+		<meta name="theme-color" content="#4286f4">
 		<link rel="stylesheet" href="css/metro-main-flip.css" type="text/css">
         <style>
             *{
@@ -74,7 +75,9 @@
 				transform: scale(1.1);
 				transition: transform .2s;
 			}
-			
+			td div{
+				cursor: pointer;
+			}
         </style>
     </head>
     <body style="background-color: #eaf6ff">
@@ -97,7 +100,9 @@
 		  	<tr>
 				<!-- FIRST BIG SQUARE (M1) -->
 				<td colspan="2">
-			   		<div class="m1" style="background-color: black; width: 310px; height: 310px"><img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%" onclick="gotoAdmin()"></div>
+			   		<div class="m1" style="background-color: black; width: 310px; height: 310px">
+							<img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%" onclick="gotoAdmin()">
+					</div>
 				</td>
 
 				<td>
@@ -105,7 +110,7 @@
 					<div class="flip-card-small" style="margin-top: 4 px" onclick="studentPortal()">
 						<div class="flip-card-inner-small">
 							<div class="flip-card-front-small">
-								<div class="m2" style="background-color: deepskyblue; width: 150px; height: 150px; margin-bottom: 5px"><img alt="logo" src="images/icons/student-logo.png" height="140px" width="140px" style="padding: 5%"></div>
+								<div class="m2" style="background-color: deepskyblue; width: 150px; height: 150px; margin-bottom: 5px"><img alt="logo" src="images/icons/student-logo.png" height="130px" width="130px" style="padding: 5%"></div>
 							</div>
 							<div class="flip-card-back-small" onclick="gotoViewAttend()">
 								<br>
@@ -119,7 +124,7 @@
 					<div class="flip-card-small" onclick="gotoAdmin()">
 						<div class="flip-card-inner-small">
 							<div class="flip-card-front-small" style="background-color: transparent">
-								<div style="background-color: royalblue; width: 150px; height: 150px; margin-top: 5px;"><img alt="logo" src="" height="300px" width="300px" style="margin-top: 5px"></div>
+								<div style="background-color: royalblue; width: 150px; height: 150px; margin-top: 5px;"><img alt="logo" src="images/icons/dept.png" height="auto" width="120px" style="margin-top: 20%"></div>
 							</div>
 							<div class="flip-card-back-small" style="margin-top: 5px">
 								<br>
@@ -137,7 +142,7 @@
 					<div class="flip-card-long">
 						<div class="flip-card-inner-long">
 							<div class="flip-card-front-long">
-								<div style="background-color: limegreen; width: 150px; height: 310px"><img alt="logo" src="" height="300px" width="300px"></div>
+								<div style="background-color: limegreen; width: 150px; height: 310px"><img alt="logo" src="images/icons/calender.png" height="auto" width="100px" style="margin-top: 70%"></div>
 							</div>
 							<div class="flip-card-back-long">
 								<br>

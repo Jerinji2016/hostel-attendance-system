@@ -21,8 +21,10 @@
 	</head>
 
 	<body style="background-color: #FFF; width: 100%" onbeforeunload="handleBackFunc()" align="center">
-        <?php include 'sidebar.php'; ?>
-
+        <input type="text" value="1" id="display" style="display: none">
+		<?php include 'sidebar.php'; ?>
+		<script type="text/javascript"> focusSidebar(); </script>
+			
 		<div id="main" style="margin: 0px auto; margin-top: 15px">	
 			<div id="selectTab" style="width: 400px; margin: 0px auto; margin-top: 115px">
 				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 

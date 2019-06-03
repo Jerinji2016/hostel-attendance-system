@@ -30,14 +30,17 @@
     {
         font-size: 20px;
         cursor: pointer;
-        background-color: #111;
-        color: white;
+        background-color: #d6d6d6;
+        color: black;
         padding: 10px 15px;
-        border: none;
+		border: none;
+		border-radius: 20px;
+		box-shadow: 0px 0px 10px #666;
     }
     .openbtn:hover 
     {
         background-color: #444;
+		color: #d6d6d6;
     }
     #main 
     {
@@ -73,7 +76,7 @@
 </div>
 
 <div id="adminBar" class="sidebar">
-	<a id="attend_option" style="color: #F1F1F1" href="#" onclick="window.location='mbc.php';"> 
+	<a id="attend_option" href="#" onclick="window.location='mbc.php';"> 
 		Attendance 
 	</a>
 	<a id="view_option" href="#" onclick="window.location='attendanceTab_admin.php';"> View Record </a>
@@ -102,4 +105,13 @@
         document.getElementById("navButton").style.marginLeft = "0";    
         panelFlag--;
     }
+	function focusSidebar()
+	{
+		var display = document.getElementById("display").value;
+		if(display == "1")
+			document.getElementById("attend_option").style.color = "#F1F1F1";
+		else
+			if(display == "2")
+				document.getElementById("view_option").style.color = "#F1F1F1";
+	}
 </script>
