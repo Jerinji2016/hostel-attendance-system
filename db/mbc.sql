@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 22, 2019 at 02:51 PM
+-- Generation Time: Jun 04, 2019 at 04:42 PM
 -- Server version: 5.7.26
 -- PHP Version: 5.6.40
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `hostel_attendance_details` (
   `entered_by` varchar(20) DEFAULT NULL,
   `remarks` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel_attendance_details`
@@ -121,7 +121,9 @@ INSERT INTO `hostel_attendance_details` (`si_no`, `status`, `date_id`, `adm_no`,
 (4, 1, 15, 4501, NULL, 'abijith', 'fest'),
 (5, 1, 18, 4501, NULL, 'jerin', 'sick again'),
 (6, 1, 23, 4501, NULL, 'jerin', 'bad remark'),
-(7, 1, 27, 4501, NULL, 'abijith', 'study leave');
+(7, 1, 27, 4501, NULL, 'abijith', 'study leave'),
+(8, 1, 52, 4512, NULL, 'jerin', ''),
+(9, 1, 52, 4516, NULL, 'jerin', '');
 
 -- --------------------------------------------------------
 
@@ -290,6 +292,7 @@ CREATE TABLE IF NOT EXISTS `hostel_details` (
   `course` varchar(5) NOT NULL,
   `semester` varchar(50) DEFAULT NULL,
   `branch` varchar(50) DEFAULT NULL,
+  `phn_no` varchar(13) NOT NULL,
   `remarks` varchar(1000) DEFAULT NULL,
   `allocated_on` timestamp NULL DEFAULT NULL,
   `reason` int(4) DEFAULT NULL,
@@ -306,45 +309,45 @@ CREATE TABLE IF NOT EXISTS `hostel_details` (
 -- Dumping data for table `hostel_details`
 --
 
-INSERT INTO `hostel_details` (`si_no`, `academic_year`, `status`, `fee_status`, `fee_head_id`, `adm_no`, `name`, `room_no`, `floor_no`, `hostel_code`, `course`, `semester`, `branch`, `remarks`, `allocated_on`, `reason`, `vacated_on`, `vct_remarks`, `entered_by`, `verified_by`, `verification_remarks`) VALUES
-(1, NULL, 1, NULL, NULL, 4501, 'Aby', 10, 1, 1, 'BTECH', 'S1', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, NULL, 1, NULL, NULL, 4502, 'Anand', 11, 1, 1, 'BTECH', 'S1', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, 1, NULL, NULL, 4503, 'Rahul', 12, 1, 1, 'BTECH', 'S1', 'ME', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, NULL, 1, NULL, NULL, 4504, 'Bhim', 13, 1, 1, 'BTECH', 'S1', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, NULL, 1, NULL, NULL, 4505, 'Aju', 14, 1, 1, 'BTECH', 'S1', 'CE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, NULL, 1, NULL, NULL, 4511, 'Jithin', 110, 2, 1, 'BTECH', 'S3', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, NULL, 1, NULL, NULL, 4512, 'Kevin', 111, 2, 1, 'BTECH', 'S3', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, NULL, 1, NULL, NULL, 4513, 'Jishnu', 112, 2, 1, 'BTECH', 'S3', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, NULL, 1, NULL, NULL, 4514, 'Omar', 113, 2, 1, 'BTECH', 'S3', 'CE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, NULL, 1, NULL, NULL, 4515, 'Tintu', 114, 2, 1, 'BTECH', 'S3', 'ME', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, NULL, 1, NULL, NULL, 4601, 'Ted', 21, 1, 2, 'BTECH', 'S5', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, NULL, 1, NULL, NULL, 4602, 'Daniel', 22, 1, 2, 'BTECH', 'S5', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, NULL, 1, NULL, NULL, 4603, 'Sanjo', 23, 1, 2, 'BTECH', 'S5', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, NULL, 1, NULL, NULL, 4604, 'Noyal', 24, 1, 2, 'BTECH', 'S5', 'CE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, NULL, 1, NULL, NULL, 4605, 'Libin', 25, 1, 2, 'BTECH', 'S5', 'ME', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(16, NULL, 1, NULL, NULL, 4611, 'Shijo', 121, 2, 2, 'BTECH', 'S7', 'ME', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(17, NULL, 1, NULL, NULL, 4612, 'Aman', 122, 2, 2, 'BTECH', 'S7', 'CE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(18, NULL, 1, NULL, NULL, 4613, 'Afsal', 123, 2, 2, 'BTECH', 'S7', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(19, NULL, 1, NULL, NULL, 4614, 'Cyril', 124, 2, 2, 'BTECH', 'S7', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, NULL, 1, NULL, NULL, 4615, 'Vishnu', 125, 2, 2, 'BTECH', 'S7', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(29, NULL, 1, NULL, NULL, 4902, 'Rinoj', 212, 3, 1, 'MTECH', 'M1', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(28, NULL, 1, NULL, NULL, 4901, 'Shinto', 211, 3, 1, 'MTECH', 'M1', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(30, NULL, 1, NULL, NULL, 4903, 'Rohan', 213, 3, 1, 'MTECH', 'M1', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(31, NULL, 1, NULL, NULL, 4904, 'Rinto', 214, 3, 1, 'MTECH', 'M1', 'CE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(32, NULL, 1, NULL, NULL, 4905, 'Tijo', 215, 3, 1, 'MTECH', 'M1', 'ME', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(33, NULL, 1, NULL, NULL, 4911, 'Edwin', 221, 3, 2, 'MTECH', 'M3', 'CE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(34, NULL, 1, NULL, NULL, 4912, 'Jerin', 222, 3, 2, 'MTECH', 'M3', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(35, NULL, 1, NULL, NULL, 4913, 'Titto', 223, 3, 2, 'MTECH', 'M3', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(36, NULL, 1, NULL, NULL, 4914, 'Aswin', 224, 3, 2, 'MTECH', 'M3', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(37, NULL, 1, NULL, NULL, 4915, 'Nikhil A', 225, 3, 2, 'MTECH', 'M3', 'ME', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(38, NULL, 1, NULL, NULL, 4506, 'Ajay', 10, 1, 1, 'BTECH', 'S1', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(39, NULL, 1, NULL, NULL, 4507, 'Jude', 10, 1, 1, 'BTECH', 'S1', 'CSE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(40, NULL, 1, NULL, NULL, 4508, 'Brian', 11, 1, 1, 'BTECH', 'S1', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(41, NULL, 1, NULL, NULL, 4509, 'Brad', 13, 1, 1, 'BTECH', 'S1', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(42, NULL, 1, NULL, NULL, 4510, 'Kriss', 14, 1, 1, 'BTECH', 'S1', 'CE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(43, NULL, 1, NULL, NULL, 4516, 'Drew', 111, 2, 1, 'BTECH', 'S3', 'ECE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(44, NULL, 1, NULL, NULL, 4517, 'Danny', 112, 2, 1, 'BTECH', 'S3', 'EEE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(45, NULL, 1, NULL, NULL, 4518, 'Chingan', 114, 2, 1, 'BTECH', 'S3', 'ME', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `hostel_details` (`si_no`, `academic_year`, `status`, `fee_status`, `fee_head_id`, `adm_no`, `name`, `room_no`, `floor_no`, `hostel_code`, `course`, `semester`, `branch`, `phn_no`, `remarks`, `allocated_on`, `reason`, `vacated_on`, `vct_remarks`, `entered_by`, `verified_by`, `verification_remarks`) VALUES
+(1, NULL, 1, NULL, NULL, 4501, 'Jerin', 10, 1, 1, 'BTECH', 'S1', 'CSE', '7012788627', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, 1, NULL, NULL, 4502, 'Anand', 11, 1, 1, 'BTECH', 'S1', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, NULL, 1, NULL, NULL, 4503, 'Rahul', 12, 1, 1, 'BTECH', 'S1', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, NULL, 1, NULL, NULL, 4504, 'Bhim', 13, 1, 1, 'BTECH', 'S1', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, NULL, 1, NULL, NULL, 4505, 'Aju', 14, 1, 1, 'BTECH', 'S1', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, NULL, 1, NULL, NULL, 4511, 'Jithin', 110, 2, 1, 'BTECH', 'S3', 'CSE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, NULL, 1, NULL, NULL, 4512, 'Kevin', 111, 2, 1, 'BTECH', 'S3', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, NULL, 1, NULL, NULL, 4513, 'Jishnu', 112, 2, 1, 'BTECH', 'S3', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, NULL, 1, NULL, NULL, 4514, 'Omar', 113, 2, 1, 'BTECH', 'S3', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, NULL, 1, NULL, NULL, 4515, 'Tintu', 114, 2, 1, 'BTECH', 'S3', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, NULL, 1, NULL, NULL, 4601, 'Ted', 21, 1, 2, 'BTECH', 'S5', 'CSE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, NULL, 1, NULL, NULL, 4602, 'Daniel', 22, 1, 2, 'BTECH', 'S5', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, NULL, 1, NULL, NULL, 4603, 'Sanjo', 23, 1, 2, 'BTECH', 'S5', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, NULL, 1, NULL, NULL, 4604, 'Noyal', 24, 1, 2, 'BTECH', 'S5', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, NULL, 1, NULL, NULL, 4605, 'Libin', 25, 1, 2, 'BTECH', 'S5', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, NULL, 1, NULL, NULL, 4611, 'Shijo', 121, 2, 2, 'BTECH', 'S7', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, NULL, 1, NULL, NULL, 4612, 'Aman', 122, 2, 2, 'BTECH', 'S7', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, NULL, 1, NULL, NULL, 4613, 'Afsal', 123, 2, 2, 'BTECH', 'S7', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, NULL, 1, NULL, NULL, 4614, 'Cyril', 124, 2, 2, 'BTECH', 'S7', 'CSE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, NULL, 1, NULL, NULL, 4615, 'Vishnu', 125, 2, 2, 'BTECH', 'S7', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, NULL, 1, NULL, NULL, 4902, 'Rinoj', 212, 3, 1, 'MTECH', 'M1', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, NULL, 1, NULL, NULL, 4901, 'Shinto', 211, 3, 1, 'MTECH', 'M1', 'CSE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, NULL, 1, NULL, NULL, 4903, 'Rohan', 213, 3, 1, 'MTECH', 'M1', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, NULL, 1, NULL, NULL, 4904, 'Rinto', 214, 3, 1, 'MTECH', 'M1', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(32, NULL, 1, NULL, NULL, 4905, 'Tijo', 215, 3, 1, 'MTECH', 'M1', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(33, NULL, 1, NULL, NULL, 4911, 'Edwin', 221, 3, 2, 'MTECH', 'M3', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(34, NULL, 1, NULL, NULL, 4912, 'Jerin', 222, 3, 2, 'MTECH', 'M3', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(35, NULL, 1, NULL, NULL, 4913, 'Titto', 223, 3, 2, 'MTECH', 'M3', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(36, NULL, 1, NULL, NULL, 4914, 'Aswin', 224, 3, 2, 'MTECH', 'M3', 'CSE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(37, NULL, 1, NULL, NULL, 4915, 'Nikhil A', 225, 3, 2, 'MTECH', 'M3', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(38, NULL, 1, NULL, NULL, 4506, 'Ajay', 10, 1, 1, 'BTECH', 'S1', 'CSE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(39, NULL, 1, NULL, NULL, 4507, 'Aditya', 10, 1, 1, 'BTECH', 'S1', 'CSE', '9947189437', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, NULL, 1, NULL, NULL, 4508, 'Brian', 11, 1, 1, 'BTECH', 'S1', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(41, NULL, 1, NULL, NULL, 4509, 'Brad', 13, 1, 1, 'BTECH', 'S1', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(42, NULL, 1, NULL, NULL, 4510, 'Kriss', 14, 1, 1, 'BTECH', 'S1', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(43, NULL, 1, NULL, NULL, 4516, 'Drew', 111, 2, 1, 'BTECH', 'S3', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(44, NULL, 1, NULL, NULL, 4517, 'Danny', 112, 2, 1, 'BTECH', 'S3', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(45, NULL, 1, NULL, NULL, 4518, 'Chingan', 114, 2, 1, 'BTECH', 'S3', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -357,18 +360,21 @@ CREATE TABLE IF NOT EXISTS `login` (
   `si_no` int(5) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(30) NOT NULL,
   `password` varchar(40) NOT NULL,
+  `admin_priority` int(2) NOT NULL,
   PRIMARY KEY (`si_no`),
   UNIQUE KEY `si_no` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`si_no`, `user_id`, `password`) VALUES
-(1, 'jerin', '3f7cf81f5056b329e5f02ca04e0efa66'),
-(2, 'abijith', 'd76f3d05cc9ac98f1f9160274a39fe33'),
-(3, 'aditya', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `login` (`si_no`, `user_id`, `password`, `admin_priority`) VALUES
+(1, 'jerin', '3f7cf81f5056b329e5f02ca04e0efa66', 1),
+(2, 'abijith', 'd76f3d05cc9ac98f1f9160274a39fe33', 2),
+(3, 'aditya', '21232f297a57a5a743894a0e4a801fc3', 2),
+(4, 'divya', '65104f10b780a5c9732549a47d4e3239', 1),
+(5, 'ajay', '29e457082db729fa1059d4294ede3909', 1);
 
 -- --------------------------------------------------------
 
@@ -383,7 +389,7 @@ CREATE TABLE IF NOT EXISTS `login_details` (
   `session_in` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `session_out` datetime DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login_details`
@@ -402,7 +408,84 @@ INSERT INTO `login_details` (`si_no`, `user_id`, `session_in`, `session_out`) VA
 (10, 'jerin', '2019-05-20 22:28:25', NULL),
 (11, 'jerin', '2019-05-22 19:51:41', '2019-05-22 19:52:18'),
 (12, 'jerin', '2019-05-22 19:52:31', '2019-05-22 20:10:31'),
-(13, 'jerin', '2019-05-22 20:11:44', NULL);
+(13, 'jerin', '2019-05-22 20:11:44', '2019-05-22 22:07:47'),
+(14, 'jerin', '2019-05-22 22:11:24', NULL),
+(15, 'jerin', '2019-05-22 22:15:14', '2019-05-22 22:47:05'),
+(16, 'jerin', '2019-05-22 22:47:30', NULL),
+(17, 'jerin', '2019-05-22 23:23:33', '2019-05-22 23:29:25'),
+(18, 'jerin', '2019-05-22 23:31:10', '2019-05-22 23:31:23'),
+(19, 'jerin', '2019-05-22 23:31:32', '2019-05-22 23:34:54'),
+(20, 'jerin', '2019-05-22 23:34:58', '2019-05-22 23:36:30'),
+(21, 'jerin', '2019-05-22 23:37:21', '2019-05-22 23:54:00'),
+(22, 'jerin', '2019-05-22 23:54:03', NULL),
+(23, 'jerin', '2019-05-23 00:37:58', NULL),
+(24, 'jerin', '2019-05-23 12:16:52', '2019-05-23 12:34:12'),
+(25, 'jerin', '2019-05-23 12:34:15', '2019-05-23 13:23:58'),
+(26, 'jerin', '2019-05-23 13:24:01', NULL),
+(27, 'jerin', '2019-05-23 13:24:20', NULL),
+(28, 'jerin', '2019-05-23 14:57:31', NULL),
+(29, 'jerin', '2019-05-23 15:10:31', NULL),
+(30, 'jerin', '2019-05-23 19:17:13', NULL),
+(31, 'jerin', '2019-05-23 19:33:44', '2019-05-23 19:34:49'),
+(32, 'jerin', '2019-05-23 19:35:53', NULL),
+(33, 'jerin', '2019-05-23 19:49:53', '2019-05-23 19:51:50'),
+(34, 'jerin', '2019-05-23 19:54:44', NULL),
+(35, 'jerin', '2019-05-23 20:57:18', NULL),
+(36, 'jerin', '2019-05-23 21:08:14', '2019-05-23 22:15:20'),
+(37, 'jerin', '2019-05-23 22:15:23', '2019-05-23 22:15:29'),
+(38, 'jerin', '2019-05-23 22:16:48', NULL),
+(39, 'jerin', '2019-05-23 22:19:06', NULL),
+(40, 'jerin', '2019-05-23 22:20:36', '2019-05-23 22:22:38'),
+(41, 'jerin', '2019-05-23 22:30:10', NULL),
+(42, 'jerin', '2019-05-23 22:35:43', '2019-05-23 22:36:02'),
+(43, 'jerin', '2019-05-23 22:42:29', '2019-05-23 22:43:07'),
+(44, 'jerin', '2019-05-29 20:48:20', '2019-05-29 20:50:59'),
+(45, 'jerin', '2019-05-29 20:52:54', '2019-05-31 19:48:48'),
+(46, 'jerin', '2019-05-31 19:48:50', '2019-05-31 21:25:36'),
+(47, 'jerin', '2019-05-31 21:26:10', '2019-05-31 21:30:26'),
+(48, 'jerin', '2019-05-31 21:30:31', '2019-05-31 22:41:19'),
+(49, 'jerin', '2019-05-31 22:41:22', NULL),
+(50, 'jerin', '2019-05-31 22:47:49', '2019-05-31 22:54:08'),
+(51, 'jerin', '2019-05-31 22:54:12', '2019-05-31 22:54:58'),
+(52, 'jerin', '2019-05-31 22:55:40', '2019-06-02 21:08:53'),
+(53, 'jerin', '2019-06-02 21:11:01', '2019-06-02 21:12:32'),
+(54, 'jerin', '2019-06-02 21:12:39', '2019-06-02 21:12:43'),
+(55, 'jerin', '2019-06-02 23:17:17', NULL),
+(56, 'jerin', '2019-06-02 23:18:33', '2019-06-02 23:22:14'),
+(57, 'jerin', '2019-06-02 23:44:53', '2019-06-02 23:45:02'),
+(58, 'jerin', '2019-06-04 15:03:42', '2019-06-04 21:29:10'),
+(59, 'jerin', '2019-06-04 21:35:55', NULL),
+(60, 'aditya', '2019-06-04 21:36:14', NULL),
+(61, 'jerin', '2019-06-04 21:39:56', '2019-06-04 21:44:07'),
+(62, 'jerin', '2019-06-04 21:44:14', '2019-06-04 21:46:10'),
+(63, 'aditya', '2019-06-04 21:46:14', '2019-06-04 21:46:21'),
+(64, 'jerin', '2019-06-04 21:46:37', '2019-06-04 21:46:46'),
+(65, 'jerin', '2019-06-04 21:46:48', NULL),
+(66, 'aditya', '2019-06-04 21:51:24', '2019-06-04 21:53:06'),
+(67, 'jerin', '2019-06-04 21:57:59', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sms_auth`
+--
+
+DROP TABLE IF EXISTS `sms_auth`;
+CREATE TABLE IF NOT EXISTS `sms_auth` (
+  `sl_no` int(5) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(35) NOT NULL,
+  PRIMARY KEY (`sl_no`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sms_auth`
+--
+
+INSERT INTO `sms_auth` (`sl_no`, `name`, `username`, `password`) VALUES
+(1, 'Jerin', 'jerinji2016@gmail.com', 'jimmyjerin.in'),
+(2, 'Aditya', 'adityavishnu3610@gmail.com', 'justtesting');
 
 -- --------------------------------------------------------
 

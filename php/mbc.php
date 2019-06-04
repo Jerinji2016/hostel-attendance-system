@@ -67,7 +67,7 @@
 										<td> : </td>
 										<td>
 											<span id="floor_change">
-												<select class="has_sel_fld" style="width: 100px; margin-left: 3px;" id="floorno">
+												<select class="has_sel_fld" style="width: 100px; margin-left: 3px;">
 													<option value=''>-select-</option>
 												</select>
 											</span>		

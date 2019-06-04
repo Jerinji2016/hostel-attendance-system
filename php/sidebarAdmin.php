@@ -17,7 +17,7 @@
         text-align: left;
         padding: 8px 8px 8px 32px;
         text-decoration: none;
-        font-size: 20px;
+        font-size: 15px;
         color: #818181;
         display: block;
         transition: 0.3s;
@@ -77,11 +77,27 @@
 </div>
 
 <div id="adminBar" class="sidebar">
-	<a id="attend_option" href="#" onclick="window.location='mbc.php';"> 
-		Attendance 
+	<a id="createAdmin" href="#" onclick="window.location='';"> 
+		Create Co-Admins 
 	</a>
-	<a id="view_option" href="#" onclick="window.location='attendanceTab_admin.php';"> View Record </a>
-	<a id="leave_option" href="#"> Leave Request </a>
+	<a id="markAttend" href="#" onclick="window.location='';"> 
+        Mark Attendance 
+    </a>
+	<a id="sendSms" href="#"> 
+        Send SMS
+    </a>
+    <a id="editAttend" href="#"> 
+        Edit Attendance Record
+    </a>
+    <a id="removeAdmin" href="#"> 
+        Remove Co-Admins
+    </a>
+    <a id="changePassword" href="#"> 
+        Change Password 
+    </a>
+    <a id="hostelReport" href="#"> 
+        Hostel Reports
+    </a>
 </div>
 
 <script type="text/javascript">
@@ -111,8 +127,9 @@
 		var display = document.getElementById("display").value;
 		if(display == "1")
 			document.getElementById("attend_option").style.color = "#F1F1F1";
-		else
-			if(display == "2")
-				document.getElementById("view_option").style.color = "#F1F1F1";
-	}
+		else if(display == "2")
+			document.getElementById("view_option").style.color = "#F1F1F1";
+	    else if(display == "3")
+            document.getElementById("leave_options").style.color = "#F1F1F1";
+    }
 </script>

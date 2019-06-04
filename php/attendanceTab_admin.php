@@ -12,13 +12,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
 		<style>
-			#viewByStudent,#viewByDate,#viewByHostel{
+			#viewByStudent,#viewByDate,#viewByHostel
+			{
 				transition: transform .2s;
 				border: none;
 				width: 133px;
 				height: 50px;
 			}
-			#viewByStudent:hover,#viewByDate:hover,#viewByHostel:hover{
+			#viewByStudent:hover,#viewByDate:hover,#viewByHostel:hover
+			{
 				transform: scale(1.1);
 				background-color: darkgray;
 			}
@@ -109,7 +111,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td align="right" colspan="right">
+											<td align="right" colspan="5">
 												<input type="submit" value="GO">
 											</td>
 										</tr>
@@ -125,16 +127,44 @@
 					</div>
 
 					<!-- Division - 2 -->
-					<div id="div_2" style="clear:both; display: none"; class="has_lgn_tl_x">
+					<div id="div_2" style="clear:both; display: none; padding: 20px"; class="has_lgn_tl_x">
 						<center>
-							Division-2
+							<form action="" method="post">
+								<div>
+									<?php date_default_timezone_set("Asia/Kolkata"); ?>
+										<label> &nbsp; &nbsp; Date : </label> 
+										<input type="date" id="myDate" value="<?php echo date('Y-m-d',strtotime('-1 day')); ?>">
+										<br> <br>
+								<div> <input type="submit" value="GO" /> </div>
+							</form>
 						</center>
 					</div>
 
 					<!-- Division - 3 -->
 					<div id="div_3" style="clear:both; display: none"; class="has_lgn_tl_x">
 						<center>
-							Division-3
+							<div style="padding: 5px">
+								<form action="" method="post">
+									<div>
+										<table>
+											<tr>
+												<td> Hostel </td>
+												<td> : </td>
+												<td> 
+													<select id="hostel_id" class="has_sel_fld" onchange="floor()" style="width: 100px; margin-left: 3px">
+														<option value=""> -select- </option>
+														<option value=1> HOSTEL 1 </option>
+														<option value=2> HOSTEL 2 </option>
+													</select>
+												</td>
+											</tr>
+											<tr id="floor_change" />
+											<tr id="room_change" />
+										</table>
+									</div>
+									<div> <input type="submit" value="GO" /> </div>
+								</form>
+							</div>	
 						</center>
 					</div>
 				</div>
@@ -186,7 +216,6 @@
 		document.getElementById('viewByStudent').style.fontWeight ="bold";
 		document.getElementById('viewByDate').style.fontWeight ="normal";
 		document.getElementById('viewByHostel').style.fontWeight ="normal";
-		console.log("here1");
 	}
 
 	function viewByDate()
@@ -201,8 +230,6 @@
 		document.getElementById('viewByDate').style.fontWeight ="bold";
 		document.getElementById('viewByStudent').style.fontWeight ="normal";
 		document.getElementById('viewByHostel').style.fontWeight ="normal";
-
-		console.log("not here 1");
 	}
 
 	function viewByHostel()
@@ -217,6 +244,47 @@
 		document.getElementById('viewByHostel').style.fontWeight ="bold";
 		document.getElementById('viewByStudent').style.fontWeight ="normal";
 		document.getElementById('viewByDate').style.fontWeight ="normal";
-		console.log("here3");
+	}
+
+	function floor()
+	{
+		var target = document.getElementById("floor_change");
+		var hostel_code=document.getElementById("hostel_id").value;
+		
+		var floor = "<td> Floor </td> <td> : </td> <td>";
+
+		var xhr = new XMLHttpRequest();
+		var x="&hostel_code="+hostel_code;
+		xhr.open('GET','mbcFloor.php?'+x,true);
+		xhr.onreadystatechange = function()
+		{
+			if(xhr.readyState==4 && xhr.status==200)
+			{
+				target.innerHTML = floor+xhr.responseText+"</td>";
+			}
+		}
+		xhr.send(x);
+	}
+
+	function room()
+	{
+		var target=document.getElementById("room_change");
+		var hostel=document.getElementById("hostel_id").value;
+		var floor=document.getElementById("floorno").value;
+		
+		var room = "<td> Room </td> <td> : </td> <td>";
+
+		var xhr=new XMLHttpRequest();
+		var x="&hostel="+hostel+"&floor="+floor;
+		xhr.open('GET','mbcRoom.php?'+x,true);
+		
+		xhr.onreadystatechange = function()
+		{
+			if(xhr.readyState==4 && xhr.status==200)
+			{
+				target.innerHTML = room+xhr.responseText+"</td>";
+			}
+		}
+		xhr.send(x);
 	}
 </script>
