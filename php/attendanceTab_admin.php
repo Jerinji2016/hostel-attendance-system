@@ -12,6 +12,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
 		<style>
+			/*{
+				margin: 0;
+				padding: 0;
+			}*/
 			#viewByStudent,#viewByDate,#viewByHostel{
 				transition: transform .2s;
 				border: none;
@@ -20,10 +24,33 @@
 			}
 			#viewByStudent:hover,#viewByDate:hover,#viewByHostel:hover{
 				transform: scale(1.1);
-				background-color: darkgray;
+				background-color: #c6c6c6;
 			}
 			.SelectorHead{
 				color: #666; background-color: #F7F7F7; border-radius: 0px 0px 25px 25px; text-align: center; box-shadow: 0px 0px 15px #999;
+			}
+			.SelectorHead p{
+				font-weight: bold;
+				margin: 10px;
+			}
+			footer{
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				background-color: black;
+				color: white;
+				text-align: center;
+			}
+			#div_1 button{
+				border: none;
+				background-color: darkgray;
+				height: 21px;
+				width: 80px;
+			}
+			#div_1 button:hover{
+				background-color: royalblue;
+				color: white;
 			}
 		</style>
 	</head>
@@ -32,7 +59,7 @@
 		<?php include 'sidebar.php' ?>
 		<script type="text/javascript"> focusSidebar(); </script>
 		
-		<div id="main" style="width: 1000px; margin: 0px auto; margin-top: 130px; padding: 0%">
+		<div id="main" style="width: 1000px; margin: 0px auto; margin-top: 5%; padding: 0%">
 			<div style="width: 400px; margin: 0px auto">
 				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
@@ -43,7 +70,7 @@
 
 				<div class="SelectorHead">
 					<div style="border-left: 1px; display: inline; font-weight: bold">
-						<button id="viewByStudent" name="head1" value="head1" style="float: left; background-color: darkgray">Student</button>   
+						<button id="viewByStudent" name="head1" value="head1" style="float: left; background-color: darkgray; font-weight: bold">Student</button>   
 					</div>
 					
 					<div style="border-right:0; display: inline;">
@@ -59,29 +86,33 @@
 						<center>
 							<form action="" method="post">
 								<div style="width: auto">
-									Adm No : 
+									<p>Adm No : 
 									<input type="text" required>
-									<input type="submit" value="GO">
+									<button type="submit" value="go">GO</button>
+									<!--<input class="button" type="submit" value="GO">-->
+									</p>
 								</div>
 							</form>
 								<div>
-									========== OR ===========
+									<br>
+									─────────────────────────────
+									<br>
 								</div>
 							<form method="post" action="">
 								<div style="width: auto">
 									<table> 
 										<tr>
-											<td> Course </td>
-											<td> : </td>
+											<td><p> Course </p></td>
+											<td><p> : </p></td>
 											<td> 
 												<select id="course" name="course" onchange="sem()" style="width: 100px; margin-left: 3px;">
 													<option value='BTECH'> B.TECH </option>
 													<option value='MTECH'> M.TECH </option>
 												</select>
 											</td>
-											<td> - </td>
+											<td><p> - </p></td>
 											<td> 
-												<span id="sem_change">
+												<span id="sem_change" style="float: right">
 													<select id="semester" name="semester" class="has_sel_fld" style="width: 100px">
 														<option value=''>-select-</option>
 													</select>
@@ -89,10 +120,10 @@
 											</td>
 										</tr>
 										<tr>
-											<td> Branch </td>
-											<td> : </td>
+											<td><p> Branch </p></td>
+											<td><p> : </p></td>
 											<td colspan="3"> 
-												<select id="branch" name="branch" style="width: 240px; margin-left: 3px;" onchange="name_call()">
+												<select id="branch" name="branch" style="width: 100%" onchange="name_call()">
 													<option value="CSE"> Computer Science & Engg. </option>
 													<option value="ME">  Mechanical Engg. </option>
 													<option value="CE">  Civil Engg. </option>
@@ -102,15 +133,20 @@
 											</td>
 										</tr>
 										<tr> 
-											<td> Name </td>
-											<td> : </td>
+											<td><p> Name </p></td>
+											<td><p> : </p></td>
 											<td colspan="3">
-												<input type="text" id="s_name" name="s_name" placeholder="Student Name" required>
+												<input type="text" id="s_name" name="s_name" placeholder="Student Name" required style="width: 99%">
 											</td>
 										</tr>
 										<tr>
-											<td align="right" colspan="right">
-												<input type="submit" value="GO">
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td align="right" colspan="right"> <!--Why Colspan right?-->
+												<button type="submit" value="go">GO</button>
+												<!--<input class="button" type="submit" value="GO">-->
 											</td>
 										</tr>
 		<script type="text/javascript" src="../js/sem.js"></script>
@@ -140,6 +176,12 @@
 				</div>
 			</div>
 		</div>
+		<div style="height: 5%">
+		<p style="color: white">Send your feedback at: </p>
+		</div>
+		<footer>
+		<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
+		</footer>
 	</body>
 </html>
 
