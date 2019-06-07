@@ -6,7 +6,7 @@
 		$pass = $_POST['password'];
 	}
 
-	$var_sql = "SELECT user_id,password FROM login";
+	$var_sql = "SELECT user_id,password,admin_priority FROM login";
 	$result = mysql_query($var_sql);
  	
 	session_start();
@@ -21,7 +21,10 @@
 				$var_sql = "INSERT INTO login_details(user_id) VALUES ('".$user."')";
 				mysql_query($var_sql);
                 $_SESSION['userid'] = $user;
-				header("Location: ../php/mbc.php");
+				if($row[2] > 1)
+					header("Location: mbc.php");
+				else
+					header("Location: adminPanel.php");
 			}
 			else
 				header("Location: ../login.html");
