@@ -11,11 +11,11 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
+		<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 		<style>
-			/*{
-				margin: 0;
-				padding: 0;
-			}*/
+			body{
+				font-family: 'Open Sans'
+			}
 			#viewByStudent,#viewByDate,#viewByHostel{
 				transition: transform .2s;
 				border: none;
@@ -45,12 +45,24 @@
 			#div_1 button{
 				border: none;
 				background-color: darkgray;
-				height: 21px;
+				height: 30px;
 				width: 80px;
+				border-radius: 5px;
 			}
 			#div_1 button:hover{
 				background-color: royalblue;
 				color: white;
+			}
+			.input{
+				height: 25px;
+				border-radius: 7px;
+				border-style: dotted;
+				border-color: darkgray;
+				font-family: 'Open Sans'
+			}
+			.has_lgn_tl_x p{
+				font-family: 'Open Sans';
+				font-weight: lighter;
 			}
 		</style>
 	</head>
@@ -64,7 +76,7 @@
 				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
 					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
-						<div id="head"> View Attendance Records </div>
+						<div id="head" style="text-align: center; font-family: 'Open Sans'"> View Attendance Records </div>
 					</span>
 				</div>
 
@@ -87,8 +99,8 @@
 							<form action="" method="post">
 								<div style="width: auto">
 									<p>Adm No : 
-									<input type="text" required>
-									<button type="submit" value="go">GO</button>
+									<input class="input" type="text" required="on" autofocus="on" autocomplete="off">
+									<button class="button" type="submit" value="go" style="margin-left: 5px">GO</button>
 									<!--<input class="button" type="submit" value="GO">-->
 									</p>
 								</div>
@@ -105,16 +117,16 @@
 											<td><p> Course </p></td>
 											<td><p> : </p></td>
 											<td> 
-												<select id="course" name="course" onchange="sem()" style="width: 100px; margin-left: 3px;">
-													<option value='BTECH'> B.TECH </option>
-													<option value='MTECH'> M.TECH </option>
+												<select class="input" id="course" name="course" onchange="sem()" style="width: 100px; height: 32px">
+													<option value='BTECH'> B.Tech </option>
+													<option value='MTECH'> M.Tech </option>
 												</select>
 											</td>
-											<td><p> - </p></td>
+											<td><p> &amp; </p></td>
 											<td> 
 												<span id="sem_change" style="float: right">
-													<select id="semester" name="semester" class="has_sel_fld" style="width: 100px">
-														<option value=''>-select-</option>
+													<select class="input" id="semester" name="semester" class="has_sel_fld">
+														<option class="input" value=''>-select-</option>
 													</select>
 												</span> 
 											</td>
@@ -123,7 +135,7 @@
 											<td><p> Branch </p></td>
 											<td><p> : </p></td>
 											<td colspan="3"> 
-												<select id="branch" name="branch" style="width: 100%" onchange="name_call()">
+												<select class="input" id="branch" name="branch" style="width: 100%; height: 32px" onchange="name_call()">
 													<option value="CSE"> Computer Science & Engg. </option>
 													<option value="ME">  Mechanical Engg. </option>
 													<option value="CE">  Civil Engg. </option>
@@ -136,7 +148,7 @@
 											<td><p> Name </p></td>
 											<td><p> : </p></td>
 											<td colspan="3">
-												<input type="text" id="s_name" name="s_name" placeholder="Student Name" required style="width: 99%">
+												<input class="input" type="text" id="s_name" name="s_name" placeholder=" Student Name" required style="width: 99%">
 											</td>
 										</tr>
 										<tr>
@@ -145,7 +157,7 @@
 											<td></td>
 											<td></td>
 											<td align="right" colspan="right"> <!--Why Colspan right?-->
-												<button type="submit" value="go">GO</button>
+												<button class="button" type="submit" value="go">GO</button>
 												<!--<input class="button" type="submit" value="GO">-->
 											</td>
 										</tr>
