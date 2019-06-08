@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Hostel Attendance System</title>  <!-- -->
-        <meta charset="utf-8">
+	<head>
+		<title>Hostel Attendance System</title>  <!-- -->
+		<meta charset="utf-8">
 		<meta name="theme-color" content="#4286f4">
 		<link rel="stylesheet" href="css/metro-main-flip.css" type="text/css">
-        <style>
-            *{
+		<style>
+			*{
 				padding: 0;
 				margin: 0;
-                font-family: Helvetica;
-                color: #232528;
+				font-family: Helvetica;
+				color: #232528;
 			}
 			.index-bg-image{
 				background-image: url(images/index-bg.jpg);
@@ -21,53 +21,54 @@
 				height: 100vh;
 				width: 100%;
 			}
-            h1{
-                display: inline;
-                font-size: 50px;
+			h1{
+				display: inline;
+				font-size: 50px;
 				color: aliceblue;
-            }
-            h1:after {
-                width: 0px;
-                overflow: hidden;
-                display: inline-block;
-                vertical-align: middle;
-                transition: .2s linear;
-            }
-            h1:nth-child(1):after {
-                content: 'ostel ';
-            }
-            h1:nth-child(2):after {
-                content: 'ttendance ';
-            }
-            h1:nth-child(3):after {
-                content: 'ystem ';
-            }
-            div:hover h1:nth-child(1):after {
-                width: 125px;
-            }   
-            div:hover h1:nth-child(2):after {
-                width: 245px;
-            }
-            div:hover h1:nth-child(3):after {
-                width: 150px;
-            }
-            .metro-main{
-                height: auto;
-                width: 100vw;
-				overflow-y: hidden;
-            }
-			@media only screen and (max-width: 600px) {
-  				.metro-main {
-    				overflow-x: scroll;
-  				}
 			}
-            ::-webkit-scrollbar { 
-                display: none; 
-            }
+			h1:after {
+				width: 0px;
+				overflow: hidden;
+				display: inline-block;
+				vertical-align: middle;
+				transition: .2s linear;
+			}
+			h1:nth-child(1):after {
+				content: 'ostel ';
+			}
+			h1:nth-child(2):after {
+				content: 'ttendance ';
+			}
+			h1:nth-child(3):after {
+				content: 'ystem ';
+			}
+			div:hover h1:nth-child(1):after {
+				width: 125px;
+			}   
+			div:hover h1:nth-child(2):after {
+				width: 245px;
+			}
+			div:hover h1:nth-child(3):after {
+				width: 150px;
+			}
+			.metro-main{
+				height: auto;
+				width: 100vw;
+				overflow-y: hidden;
+			}
+			@media only screen and (max-width: 768px) {
+				.m1 { 
+					background-color: red;
+				}
+			}
+			::-webkit-scrollbar { 
+				display: none; 
+			}
 			td{
 				padding: 10px;
 			}
 			.m1{
+				background-color: black; 
 				transform: scale(1.0);
 				transition: transform .2s;
 			}
@@ -78,135 +79,132 @@
 			td div{
 				cursor: pointer;
 			}
-        </style>
-    </head>
-    <body style="background-color: #eaf6ff">
-		
-        <article>
-        <header style="background-color: royalblue;">
-            <img alt="logo" src="images/mbc-logo.png" height="120px" style="margin: 25px">
-            <div style="display: inline-block; vertical-align: top; margin-top: 50px">
-            <h1>H</h1>
-            <h1>A</h1>
-            <h1>S</h1>
-            </div>
-        </header>
-        </article>
-        
-		<div class="index-bg-image">
-			
-        <div class="metro-main" style="margin-top: 60px; display: inline-block;" align="center">
-           <table>
-		  	<tr>
-				<!-- FIRST BIG SQUARE (M1) -->
-				<td colspan="2">
-			   		<div class="m1" style="background-color: black; width: 310px; height: 310px">
-							<img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%" onclick="gotoAdmin()">
-					</div>
-				</td>
+		</style>
+	</head>
 
-				<td>
-					<!-- FLIP OF FIRST SMALL SQUARE (M2) (F1) -->
-					<div class="flip-card-small" style="margin-top: 4 px" onclick="studentPortal()">
-						<div class="flip-card-inner-small">
-							<div class="flip-card-front-small">
-								<div class="m2" style="background-color: deepskyblue; width: 150px; height: 150px; margin-bottom: 5px"><img alt="logo" src="images/icons/student-logo.png" height="130px" width="130px" style="padding: 5%"></div>
+	<body style="background-color: #eaf6ff">
+
+		<article class="header" id="myHeader">
+			<header style="background-color: royalblue">
+				<img alt="logo" src="images/mbc-logo.png" height="120px" style="margin: 25px">
+				<div style="display: inline-block; vertical-align: top; margin-top: 50px">
+					<h1>H</h1>
+					<h1>A</h1>
+					<h1>S</h1>
+				</div>
+			</header>
+		</article>
+		<div class="index-bg-image">
+			<div class="metro-main" style="margin-top: 60px; display: inline-block;" align="center">
+				<table>
+					<tr>
+						<!-- FIRST BIG SQUARE (M1) -->
+						<td colspan="2">
+							<div class="m1" style="width: 310px; height: 310px">
+								<img alt="logo" src="images/icons/admin-icon.png" height="150px" width="150px" style="padding: 25%" onclick="gotoAdmin()">
 							</div>
-							<div class="flip-card-back-small" onclick="gotoViewAttend()">
-								<br>
-								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
-								<p style="color: white; font-size: 12px">View your attencance</p>
-							</div>
-						</div>
-					</div>
-			   		
-					<!-- FLIP OF SECOND SMALL SQUARE (M3) (F2) -->
-					<div class="flip-card-small" onclick="gotoAdmin()">
-						<div class="flip-card-inner-small">
-							<div class="flip-card-front-small" style="background-color: transparent">
-								<div style="background-color: royalblue; width: 150px; height: 150px; margin-top: 5px;"><img alt="logo" src="images/icons/dept.png" height="auto" width="120px" style="margin-top: 20%"></div>
-							</div>
-							<div class="flip-card-back-small" style="margin-top: 5px">
-								<br>
-								<h2 style="font-size: 20px; color: aliceblue">Department Login</h2><br>
-								<p style="color: white; font-size: 12px">For departments</p>
-							</div>
-						</div>
-					</div>
-				<!-- END OF SECOND COLUMN -->
-				</td>
-				
-				<!-- THIRD COLUMN -->
-				<td colspan="2">
-					<!-- FLIP OF LONG RECTANGLE (M4) (F3) -->
-					<div class="flip-card-long">
-						<div class="flip-card-inner-long">
-							<div class="flip-card-front-long">
-								<div style="background-color: limegreen; width: 150px; height: 310px"><img alt="logo" src="images/icons/calender.png" height="auto" width="100px" style="margin-top: 70%"></div>
-							</div>
-							<div class="flip-card-back-long">
-								<br>
-								<div style="margin-top: 60%">
-									<h2 style="font-size: 30px; color: aliceblue">Calender</h2><br>
-									<p style="color: white; font-size: 12px">View Academic Calender</p>
+						</td>
+
+						<td>
+							<!-- FLIP OF FIRST SMALL SQUARE (M2) (F1) -->
+							<div class="flip-card-small" style="margin-top: 4 px" onclick="studentPortal()">
+								<div class="flip-card-inner-small">
+									<div class="flip-card-front-small">
+										<div class="m2" style="background-color: deepskyblue; width: 150px; height: 150px; margin-bottom: 5px"><img alt="logo" src="images/icons/student-logo.png" height="130px" width="130px" style="padding: 5%"></div>
+									</div>
+									<div class="flip-card-back-small" onclick="gotoViewAttend()">
+										<br>
+										<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+										<p style="color: white; font-size: 12px">View your attencance</p>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-				</td>
-				
-				<!-- FOURTH COLUMN 
-				<td>
-					< FLIP OF WIDE RECTANGLE (M5) (F4)
-					<div class="flip-card-wide">
-						<div class="flip-card-inner-wide">
-							<div class="flip-card-front-wide">
-								<div style="background-color: lightseagreen; width: 300px; height: 150px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="150px" width="300px"></div>
+
+							<!-- FLIP OF SECOND SMALL SQUARE (M3) (F2) -->
+							<div class="flip-card-small" onclick="gotoAdmin()">
+								<div class="flip-card-inner-small">
+									<div class="flip-card-front-small" style="background-color: transparent">
+										<div style="background-color: royalblue; width: 150px; height: 150px; margin-top: 5px;"><img alt="logo" src="images/icons/dept.png" height="auto" width="120px" style="margin-top: 20%"></div>
+									</div>
+									<div class="flip-card-back-small" style="margin-top: 5px">
+										<br>
+										<h2 style="font-size: 20px; color: aliceblue">Department Login</h2><br>
+										<p style="color: white; font-size: 12px">For departments</p>
+									</div>
+								</div>
 							</div>
-							<div class="flip-card-back-wide">
-								<br>
-								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
-								<p style="color: white; font-size: 12px">View your attencance</p>
+							<!-- END OF SECOND COLUMN -->
+						</td>
+
+						<!-- THIRD COLUMN -->
+						<td colspan="2">
+							<!-- FLIP OF LONG RECTANGLE (M4) (F3) -->
+							<div class="flip-card-long">
+								<div class="flip-card-inner-long">
+									<div class="flip-card-front-long">
+										<div style="background-color: limegreen; width: 150px; height: 310px"><img alt="logo" src="images/icons/calender.png" height="auto" width="100px" style="margin-top: 70%"></div>
+									</div>
+									<div class="flip-card-back-long">
+										<br>
+										<div style="margin-top: 60%">
+											<h2 style="font-size: 30px; color: aliceblue">Calender</h2><br>
+											<p style="color: white; font-size: 12px">View Academic Calender</p>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					
-			   		<div class="flip-card-small">
-						<div class="flip-card-inner-small">
-							<div class="flip-card-front-small" style="background-color: transparent">
-								<div style="background-color: lightslategray; width: 150px; height: 150px; margin-top: 5px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
-							</div>
-							<div class="flip-card-back-small" style="margin-top: 5px">
-								<br>
-								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
-								<p style="color: white; font-size: 12px">View your attencance</p>
-							</div>
-						</div>
-					</div>
-				</td>
-				
-				<td colspan="2">
-					<div class="flip-card-long">
-						<div class="flip-card-inner-long">
-							<div class="flip-card-front-long">
-								<div style="background-color: lightsalmon; width: 150px; height: 310px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
-							</div>
-							<div class="flip-card-back-long">
-								<br>
-								<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
-								<p style="color: white; font-size: 12px">View your attencance</p>
-							</div>
-						</div>
-					</div>
-				
-				</td -->
-			</tr>
-		   </table>
-        </div>
-			
-      </div>  
-	
-   </body>
+						</td>
+
+						<!-- FOURTH COLUMN 
+<td>
+< FLIP OF WIDE RECTANGLE (M5) (F4)
+<div class="flip-card-wide">
+<div class="flip-card-inner-wide">
+<div class="flip-card-front-wide">
+<div style="background-color: lightseagreen; width: 300px; height: 150px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="150px" width="300px"></div>
+</div>
+<div class="flip-card-back-wide">
+<br>
+<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+<p style="color: white; font-size: 12px">View your attencance</p>
+</div>
+</div>
+</div>
+
+<div class="flip-card-small">
+<div class="flip-card-inner-small">
+<div class="flip-card-front-small" style="background-color: transparent">
+<div style="background-color: lightslategray; width: 150px; height: 150px; margin-top: 5px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
+</div>
+<div class="flip-card-back-small" style="margin-top: 5px">
+<br>
+<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+<p style="color: white; font-size: 12px">View your attencance</p>
+</div>
+</div>
+</div>
+</td>
+
+<td colspan="2">
+<div class="flip-card-long">
+<div class="flip-card-inner-long">
+<div class="flip-card-front-long">
+<div style="background-color: lightsalmon; width: 150px; height: 310px"><img alt="logo" src="images/hoover-tung-670860-unsplash.jpg" height="300px" width="300px"></div>
+</div>
+<div class="flip-card-back-long">
+<br>
+<h2 style="font-size: 30px; color: aliceblue">Student Login</h2><br>
+<p style="color: white; font-size: 12px">View your attencance</p>
+</div>
+</div>
+</div>
+
+</td -->
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
 </html>
 
 <script type="text/javascript">

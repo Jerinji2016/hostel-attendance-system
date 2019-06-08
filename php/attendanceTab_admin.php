@@ -1,5 +1,5 @@
 <?php 
-	include 'session.php';
+include 'session.php';
 ?>
 
 <!DOCTYPE html>
@@ -65,14 +65,19 @@
 				font-family: 'Open Sans';
 				font-weight: lighter;
 			}
+			@media only screen and (max-width: 400px){
+				.main{
+					margin-top: 20%;
+				}
+			}
 		</style>
 	</head>
 	<body>
-		<input type="text" value="2" id="display" style="display: none">
+		<input type="text" value="2" id="display" style="display: none"> <!--FOR SIDEBAR BUTTON-->
 		<?php include 'sidebar.php' ?>
 		<script type="text/javascript"> focusSidebar(); </script>
-		
-		<div id="main" style="width: auto; margin: 0px auto; margin-top: 5%; padding: 0%">
+		<div class="container">
+		<div id="main" style="margin-top: 3vw">
 			<div style="width: 400px; margin: 0px auto">
 				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
@@ -85,7 +90,7 @@
 					<div style="border-left: 1px; display: inline; font-weight: bold">
 						<button id="viewByStudent" name="head1" value="head1" style="float: left; background-color: darkgray; font-weight: bold">Student</button>   
 					</div>
-					
+
 					<div style="border-right:0; display: inline;">
 						<button id="viewByDate" name="head2" value="head2" style="float: center">Date</button>   
 					</div>
@@ -100,17 +105,17 @@
 							<form action="" method="post">
 								<div style="width: auto">
 									<p>Adm No : 
-									<input class="input" type="text" required="on" autofocus="on" autocomplete="off">
-									<button class="button" type="submit" value="go" style="margin-left: 5px">GO</button>
-									<!--<input class="button" type="submit" value="GO">-->
+										<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
+										<button class="button" type="submit" value="go" style="margin-left: 5px">GO</button>
+										<!--<input class="button" type="submit" value="GO">-->
 									</p>
 								</div>
 							</form>
-								<div>
-									<br>
-									─────────────────────────────
-									<br>
-								</div>
+							<div>
+								<br>
+								─────────────────────────────
+								<br>
+							</div>
 							<form method="post" action="">
 								<div style="width: auto">
 									<table> 
@@ -162,11 +167,11 @@
 												<!--<input class="button" type="submit" value="GO">-->
 											</td>
 										</tr>
-		<script type="text/javascript" src="../js/sem.js"></script>
-		<script type="text/javascript" src="../js/name_Array.js?v=1"></script>
-		<script type="text/javascript" src="../js/autoComplete.js"></script>
-		
-		<script type="text/javascript"> sem(); </script>
+										<script type="text/javascript" src="../js/sem.js"></script>
+										<script type="text/javascript" src="../js/name_Array.js?v=1"></script>
+										<script type="text/javascript" src="../js/autoComplete.js"></script>
+
+										<script type="text/javascript"> sem(); </script>
 									</table>
 								</div>
 							</form>
@@ -189,11 +194,12 @@
 				</div>
 			</div>
 		</div>
+		</div>
 		<div style="height: 5%">
-		<p style="color: white">Send your feedback at: </p>
+			<p style="color: white">Send your feedback at: </p>
 		</div>
 		<footer>
-		<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
+			<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
 		</footer>
 	</body>
 </html>
