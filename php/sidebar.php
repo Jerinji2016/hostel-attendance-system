@@ -1,4 +1,8 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <style type="text/css">
+	body{
+		font-family: 'Open Sans';
+	}
     .sidebar 
     {
         height: 100%;
@@ -35,8 +39,8 @@
         color: black;
         padding: 10px 15px;
 		border: none;
-		border-radius: 20px;
-		box-shadow: 0px 0px 10px #666;
+		border-radius: 5px;
+		box-shadow: 0px 0px 7px #666;
     }
     .openbtn:hover 
     {
@@ -57,6 +61,18 @@
             font-size: 18px;
         }
     }
+	.logout-button{
+			border: none;
+			background-color: lightgray;
+			height: 30px;
+			width: 80px;
+			border-radius: 5px;
+		}
+	.logout-button:hover{
+		background-color: royalblue;
+		color: white;
+		cursor: pointer;
+		}
 </style>
 
 <div style="width: 100%" align="right">  <!--div for logout button-->
@@ -65,13 +81,13 @@
 	</div>
     <form action="logout.php" method="post">
     	<div style="margin-right: 20px">
-    		Logged In As: <b> 
+    		Logged in as: <b> 
             <?php 
                 session_start();
                 echo $_SESSION['userid']; 
             ?> 
             &nbsp; </b>
-       	 	<button type="submit" value="logout">Logout</button>
+       	 	<button class="logout-button" type="submit" value="logout">Logout</button>
     	</div>
     </form>
 </div>
@@ -102,7 +118,7 @@
     function closeNav() 
     {
         document.getElementById("adminBar").style.width = "0";
-        document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("main").style.marginLeft= "180";
         document.getElementById("navButton").style.marginLeft = "0";    
         panelFlag--;
     }

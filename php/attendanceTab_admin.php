@@ -14,7 +14,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 		<style>
 			body{
-				font-family: 'Open Sans'
+				font-family: 'Open Sans';
 			}
 			#viewByStudent,#viewByDate,#viewByHostel{
 				transition: transform .2s;
@@ -52,6 +52,7 @@
 			#div_1 button:hover{
 				background-color: royalblue;
 				color: white;
+				cursor: pointer;
 			}
 			.input{
 				height: 25px;
@@ -71,12 +72,12 @@
 		<?php include 'sidebar.php' ?>
 		<script type="text/javascript"> focusSidebar(); </script>
 		
-		<div id="main" style="width: 1000px; margin: 0px auto; margin-top: 5%; padding: 0%">
+		<div id="main" style="width: auto; margin: 0px auto; margin-top: 5%; padding: 0%">
 			<div style="width: 400px; margin: 0px auto">
 				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
 					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
-						<div id="head" style="text-align: center; font-family: 'Open Sans'"> View Attendance Records </div>
+						<div id="head" style="text-align: center; font-family: 'Open Sans'; font-weight: bold"> View Attendance Records </div>
 					</span>
 				</div>
 
@@ -273,4 +274,5 @@
 		document.getElementById('viewByDate').style.fontWeight ="normal";
 		console.log("here3");
 	}
+
 </script>
