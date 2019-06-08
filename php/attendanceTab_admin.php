@@ -49,7 +49,7 @@ include 'session.php';
 				width: 80px;
 				border-radius: 5px;
 			}
-			#div_1 button:hover{
+			.button:hover{
 				background-color: royalblue;
 				color: white;
 				cursor: pointer;
