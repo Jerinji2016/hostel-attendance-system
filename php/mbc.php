@@ -17,6 +17,32 @@
 				font-size: 0.8em;
 				font-style: italic;
 			}
+           #button1,#button2 {
+				transition: transform .2s;
+				border: none;
+				width: 133px;
+				height: 50px;
+			}
+            #button1:hover,#button2:hover{
+				transform: scale(1.1);
+				background-color: #c6c6c6;
+			}
+            #button1:focus,#button2:focus{
+                background-color: darkgray;
+            }
+            .button:hover{
+				background-color: royalblue;
+				color: white;
+				cursor: pointer;
+			}
+            .input{
+				height: 25px;
+				border-radius: 7px;
+				border-style: dotted;
+				border-color: darkgray;
+				font-family: 'Open Sans'
+			}
+        
 		</style>
 	</head>
 
@@ -36,15 +62,19 @@
 
 				<div style="color: #666; background-color: #F7F7F7; border-radius: 0px 0px 7px 7px; text-align: left;
 							box-shadow: 0px 0px 15px #999;"> 
-					<div class="has_lgn_tl" id="has_lgn_1" style="border-left:0;">
+                    <div class="clear" style="height:50px;">
+					<div class="has_lgn_tl" id="has_lgn_1" style="border:none; padding: 0;width:50%">
+                        <button id="button1" name="head1" value="head1" style="float: left;  font-weight: bold; width:100%; hight:auto;" >
 						Hostel Details
+                        </button>
 					</div>
 					
-					<div class="has_lgn_tl atv" id="has_lgn_2" style="border-right:0;">
+					<div class="has_lgn_tl atv" id="has_lgn_2" style="border:none; padding: 0; width:50%"><button id="button2" name="head2" value="head2" style="float: right; font-weight: bold; width:100%; hight:auto;">
 						Student Details
+                    </button>
 					</div>
 
-					<div class="clear" style="height:30px;"></div>
+					</div>
 
 					<!-- Search By Hostel Details -->
 					<div style="display: block"; class="has_lgn_tl_x" id="has_lgn_1_x">
@@ -55,7 +85,7 @@
 										<td> Hostel </td>
 										<td> : </td>
 										<td>
-										<select id="hostelno" class="has_sel_fld" style="width: 100px; margin-left: 3px;" onchange="floor()">
+										<select id="hostelno" class="input" style="width: 100px; margin-left: 3px;" onchange="floor()">
 												<option value=''>-select-</option>
 											    <option value=1>HOSTEL 1</option>
 											    <option value=2>HOSTEL 2</option>
@@ -67,7 +97,7 @@
 										<td> : </td>
 										<td>
 											<span id="floor_change">
-												<select class="has_sel_fld" style="width: 100px; margin-left: 3px;">
+												<select class="input" style="width: 100px; margin-left: 3px;">
 													<option value=''>-select-</option>
 												</select>
 											</span>		
@@ -78,7 +108,7 @@
 										<td> : </td>
 										<td>
 											<span id="room_change">
-												<select class="has_sel_fld" style="width: 100px; margin-left: 3px;" id="roomno">
+												<select class="input" style="width: 100px; margin-left: 3px;" id="roomno">
 													<option value=''>-select-</option>
 												</select>
 											</span>
@@ -89,13 +119,13 @@
 										<td> </td>
 										<td> </td>
 										<td>
-											<input type="button" value="Go" class="btn btn-primary" style="width:auto; padding:3px 10px;" onclick="hostelGetDetails()"> 
+											<input type="button" value="Go" class="button" style="width:auto; padding:5px 15px;border-radius:5px; border: none" onclick="hostelGetDetails()"> 
 										</td> 
 									</tr>
 									<center>
 										<?php date_default_timezone_set("Asia/Kolkata"); ?>
 										<label> &nbsp; &nbsp; Date : </label> 
-										<input type="date" id="myDate" value="<?php echo date('Y-m-d'); ?>">
+										<input class="input" type="date" id="myDate" value="<?php echo date('Y-m-d'); ?>">
 										<br> <br>
 									</center>
 								</table>
@@ -113,7 +143,7 @@
 										<td> Course </td>
 										<td> : </td>
 										<td> 
-										<select id="course" class="has_sel_fld" style="width: 100px; margin-left: 3px;" onchange="sem()">
+										<select id="course" class="input" style="width: 100px; margin-left: 3px;" onchange="sem()">
 												<option value='BTECH'> B.Tech </option>
 												<option value='MTECH'> M.Tech </option>
 											</select>
@@ -122,7 +152,7 @@
 										<td> : </td>
 										<td>
 											<span id="sem_change">
-												<select id="semester" class="has_sel_fld" style="width: 100px; margin-left: 3px;">
+												<select id="semester" class="input" style="width: 100px; margin-left: 3px;">
 													<option value=''>-select-</option>
 												</select>
 											</span> 
@@ -133,7 +163,7 @@
 										<td> Branch </td>
 										<td> : </td>
 										<td colspan="4">
-											<select id="branch" class="has_sel_fld" style="width: 240px; margin-left: 3px;" onchange="name_call()">
+											<select id="branch" class="input" style="width: 240px; margin-left: 3px;" onchange="name_call()">
 												<option value="CSE"> Computer Science & Engg. </option>
 												<option value="ME">  Mechanical Engg. </option>
 												<option value="CE">  Civil Engg. </option>
@@ -147,7 +177,7 @@
 										<td> Name </td>
 										<td> : </td>
 										<td colspan="4">
-											<input type="text" id="s_name" placeholder="Student Name" style="width: 240px; margin-left: 3px;">
+											<input type="text" id="s_name" class="input"placeholder=" Student Name" style="width: 240px; margin-left: 3px;">
 										</td>
 									</tr>
 
@@ -162,7 +192,7 @@
 										<td></td>
 										<td colspan="4"></td>
 										<td>
-											<input type="button" value="Go" class="btn btn-primary" style="width:auto; padding:3px 10px;" onclick="studGetDetails()"> 
+											<input type="button" value="Go" class="button" style="width:auto; padding:5px 15px;border-radius:5px; border: none" onclick="studGetDetails()"> 
 										</td> 
 									</tr>
 								</table></center>
