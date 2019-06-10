@@ -14,7 +14,6 @@
 		<?php include 'sidebarAdmin.php' ?>
 
 		<div id="main">
-			
 		</div>
 	</body>
 </html>
