@@ -206,16 +206,14 @@ include 'session.php';
 											</select> 
 										</td> 
 									</tr>
-									<tr height="30" id="floor_change">
-									</tr>
-									<tr height="30" id="room_change">
-									</tr>
-
+									<tr height="30" id="floor_change"> </tr>
+									
+									<tr height="30" id="room_change"> </tr>
 									<tr>
 										<td> </td>
 										<td> </td>
 										<td>
-											<input type="button" value="Go" class="button" style="width:auto; padding:5px 15px;border-radius:5px; border: none" onclick="hostelGetDetails()"> 
+											<button class="button_go"> GO </button> 
 										</td> 
 									</tr>
 
