@@ -77,12 +77,8 @@ include 'session.php';
 		<input type="text" value="2" id="display" style="display: none"> <!--FOR SIDEBAR BUTTON-->
 		<?php include 'sidebar.php' ?>
 		<script type="text/javascript"> focusSidebar(); </script>
-<<<<<<< HEAD
-		<div id="main" style="width: 1000px; margin: 0px auto; margin-top: 130px; padding: 0%">
-=======
-		<div class="container">
+
 		<div id="main" style="margin-top: 3vw">
->>>>>>> e7b575f4318399be410a8d4fa2fc6543f1163a7f
 			<div style="width: 400px; margin: 0px auto">
 				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
@@ -198,7 +194,6 @@ include 'session.php';
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 		<div style="height: 5%">
 			<p style="color: white">Send your feedback at: </p>
