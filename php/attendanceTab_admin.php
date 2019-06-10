@@ -43,14 +43,14 @@ include 'session.php';
 				color: white;
 				text-align: center;
 			}
-			#div_1 button{
+			.button_go{
 				border: none;
 				background-color: darkgray;
 				height: 30px;
 				width: 80px;
 				border-radius: 5px;
 			}
-			.button:hover{
+			.button_go:hover{
 				background-color: royalblue;
 				color: white;
 				cursor: pointer;
@@ -106,7 +106,7 @@ include 'session.php';
 								<div style="width: auto">
 									<p>Adm No : 
 										<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
-										<button class="button" type="submit" value="go" style="margin-left: 5px">GO</button>
+										<button class="button_go" style="margin-left: 5px">GO</button>
 										<!--<input class="button" type="submit" value="GO">-->
 									</p>
 								</div>
@@ -162,8 +162,8 @@ include 'session.php';
 											<td></td>
 											<td></td>
 											<td></td>
-											<td align="right" colspan="right"> <!--Why Colspan right?-->
-												<button class="button" type="submit" value="go">GO</button>
+											<td align="right" colspan="right"> 
+												<button class="button_go">GO</button>
 												<!--<input class="button" type="submit" value="GO">-->
 											</td>
 										</tr>
@@ -179,105 +179,173 @@ include 'session.php';
 					</div>
 
 					<!-- Division - 2 -->
-					<div id="div_2" style="clear:both; display: none"; class="has_lgn_tl_x">
+					<div id="div_2" style="clear:both; display: none; padding: 30px"; class="has_lgn_tl_x">
 						<center>
-							Division-2
+							<?php date_default_timezone_set("Asia/Kolkata"); ?>
+							<label> &nbsp; &nbsp; Date : </label> 
+							<input class="input" type="date" id="myDate" value="<?php echo date('Y-m-d'); ?>">
+							<br> <br>
+							<button class="button_go">GO</button>
 						</center>
 					</div>
 
 					<!-- Division - 3 -->
 					<div id="div_3" style="clear:both; display: none"; class="has_lgn_tl_x">
 						<center>
-							Division-3
+							<div style="padding: 20px; padding-left: 35px;"> 
+								<table style="font-size: 14px" align="center">
+									<tr height="30">
+										<td> Hostel </td>
+										<td> : </td>
+										<td>
+											<select id="hostelno" class="input" style="width: 100px; margin-left: 3px;" onchange="floor()">
+												<option value=''>-select-</option>
+												<option value=1>HOSTEL 1</option>
+												<option value=2>HOSTEL 2</option>
+											</select> 
+										</td> 
+									</tr>
+									<tr height="30" id="floor_change">
+									</tr>
+									<tr height="30" id="room_change">
+									</tr>
+
+									<tr>
+										<td> </td>
+										<td> </td>
+										<td>
+											<input type="button" value="Go" class="button" style="width:auto; padding:5px 15px;border-radius:5px; border: none" onclick="hostelGetDetails()"> 
+										</td> 
+									</tr>
+
+								</table>
+							</div>
 						</center>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div style="height: 5%">
-			<p style="color: white">Send your feedback at: </p>
-		</div>
-		<footer>
-			<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
-		</footer>
-	</body>
-</html>
+			<div style="height: 5%">
+				<p style="color: white">Send your feedback at: </p>
+			</div>
+			<footer>
+				<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
+			</footer>
+			</body>
+		</html>
 
-<script type="text/javascript">
-	window.onload = function()
-	{
-		document.getElementById("viewByStudent").addEventListener('click', viewByStudent);
-		document.getElementById("viewByDate").addEventListener('click', viewByDate);
-		document.getElementById("viewByHostel").addEventListener('click', viewByHostel);
-	}
-	function nameNeedFalse()
-	{
-		if(document.getElementById('adm_no').value != "")
+	<script type="text/javascript">
+		window.onload = function()
 		{
-			document.getElementById('s_name').required = false;
+			document.getElementById("viewByStudent").addEventListener('click', viewByStudent);
+			document.getElementById("viewByDate").addEventListener('click', viewByDate);
+			document.getElementById("viewByHostel").addEventListener('click', viewByHostel);
 		}
-		else
+		function nameNeedFalse()
 		{
-			document.getElementById('s_name').required = true;
+			if(document.getElementById('adm_no').value != "")
+			{
+				document.getElementById('s_name').required = false;
+			}
+			else
+			{
+				document.getElementById('s_name').required = true;
+			}
 		}
-	}
 
-	function admNeedFalse()
-	{	
-		if(document.getElementById('s_name').value != "")
+		function admNeedFalse()
+		{	
+			if(document.getElementById('s_name').value != "")
+			{
+				document.getElementById('adm_no').required = false;
+			}
+			else
+			{
+				document.getElementById('adm_no').required = true;
+			}
+		}
+
+		function viewByStudent()
 		{
-			document.getElementById('adm_no').required = false;
+			document.getElementById('div_2').style.display = "none";
+			document.getElementById('div_3').style.display = "none";
+			document.getElementById('div_1').style.display = "block";
+			document.getElementById('viewByStudent').style.backgroundColor="darkgray";
+			document.getElementById('viewByDate').style.backgroundColor="lightgray";
+			document.getElementById('viewByHostel').style.backgroundColor="lightgray";
+
+			document.getElementById('viewByStudent').style.fontWeight ="bold";
+			document.getElementById('viewByDate').style.fontWeight ="normal";
+			document.getElementById('viewByHostel').style.fontWeight ="normal";
+			console.log("here1");
 		}
-		else
+
+		function viewByDate()
 		{
-			document.getElementById('adm_no').required = true;
+			document.getElementById('div_1').style.display = "none";
+			document.getElementById('div_3').style.display = "none";
+			document.getElementById('div_2').style.display = "block";
+			document.getElementById('viewByDate').style.backgroundColor="darkgray";
+			document.getElementById('viewByStudent').style.backgroundColor="lightgray";
+			document.getElementById('viewByHostel').style.backgroundColor="lightgray";
+
+			document.getElementById('viewByDate').style.fontWeight ="bold";
+			document.getElementById('viewByStudent').style.fontWeight ="normal";
+			document.getElementById('viewByHostel').style.fontWeight ="normal";
+
+			console.log("not here 1");
 		}
-	}
 
-	function viewByStudent()
-	{
-		document.getElementById('div_2').style.display = "none";
-		document.getElementById('div_3').style.display = "none";
-		document.getElementById('div_1').style.display = "block";
-		document.getElementById('viewByStudent').style.backgroundColor="darkgray";
-		document.getElementById('viewByDate').style.backgroundColor="lightgray";
-		document.getElementById('viewByHostel').style.backgroundColor="lightgray";
+		function viewByHostel()
+		{
+			document.getElementById('div_1').style.display = "none";
+			document.getElementById('div_2').style.display = "none";
+			document.getElementById('div_3').style.display = "block";
+			document.getElementById('viewByHostel').style.backgroundColor="darkgray";
+			document.getElementById('viewByStudent').style.backgroundColor="lightgray";
+			document.getElementById('viewByDate').style.backgroundColor="lightgray";
 
-		document.getElementById('viewByStudent').style.fontWeight ="bold";
-		document.getElementById('viewByDate').style.fontWeight ="normal";
-		document.getElementById('viewByHostel').style.fontWeight ="normal";
-		console.log("here1");
-	}
+			document.getElementById('viewByHostel').style.fontWeight ="bold";
+			document.getElementById('viewByStudent').style.fontWeight ="normal";
+			document.getElementById('viewByDate').style.fontWeight ="normal";
+			console.log("here3");
+		}
 
-	function viewByDate()
-	{
-		document.getElementById('div_1').style.display = "none";
-		document.getElementById('div_3').style.display = "none";
-		document.getElementById('div_2').style.display = "block";
-		document.getElementById('viewByDate').style.backgroundColor="darkgray";
-		document.getElementById('viewByStudent').style.backgroundColor="lightgray";
-		document.getElementById('viewByHostel').style.backgroundColor="lightgray";
+		function floor()
+		{	
+			var target=document.getElementById("floor_change");
+			var hostel_code=document.getElementById("hostelno").value;
+			var floor="<td> Floor </td> <td> : </td> <td>";
+			var xhr = new XMLHttpRequest();
+			var x="&hostel_code="+hostel_code;
+			xhr.open('GET','mbcFloor.php?'+x,true);
+			xhr.onreadystatechange = function()
+			{
+				if(xhr.readyState==4 && xhr.status==200)
+				{
+					target.innerHTML=floor+xhr.responseText+"</td>";
+				}
+			}
+			xhr.send(x);
+		}
 
-		document.getElementById('viewByDate').style.fontWeight ="bold";
-		document.getElementById('viewByStudent').style.fontWeight ="normal";
-		document.getElementById('viewByHostel').style.fontWeight ="normal";
+		function room()
+		{
+			var target=document.getElementById("room_change");
+			var hostel=document.getElementById("hostelno").value;
+			var floor=document.getElementById("floorno").value;
+			var room="<td> Room </td> <td> : </td> <td>";
+			var xhr=new XMLHttpRequest();
+			var x="&hostel="+hostel+"&floor="+floor;
+			xhr.open('GET','mbcRoom.php?'+x,true);
 
-		console.log("not here 1");
-	}
+			xhr.onreadystatechange = function()
+			{
+				if(xhr.readyState==4 && xhr.status==200)
+				{
+					target.innerHTML=room+xhr.responseText+"</td>";
+				}
+			}
+			xhr.send(x);
+		}
 
-	function viewByHostel()
-	{
-		document.getElementById('div_1').style.display = "none";
-		document.getElementById('div_2').style.display = "none";
-		document.getElementById('div_3').style.display = "block";
-		document.getElementById('viewByHostel').style.backgroundColor="darkgray";
-		document.getElementById('viewByStudent').style.backgroundColor="lightgray";
-		document.getElementById('viewByDate').style.backgroundColor="lightgray";
-
-		document.getElementById('viewByHostel').style.fontWeight ="bold";
-		document.getElementById('viewByStudent').style.fontWeight ="normal";
-		document.getElementById('viewByDate').style.fontWeight ="normal";
-		console.log("here3");
-	}
-
-</script>
+	</script>
