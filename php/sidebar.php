@@ -118,7 +118,7 @@
 	function closeNav() 
 	{
 		document.getElementById("adminBar").style.width = "0";
-		document.getElementById("main").style.marginLeft= "180";
+		document.getElementById("main").style.marginLeft= "0";
 		document.getElementById("navButton").style.marginLeft = "0";    
 		panelFlag--;
 	}
