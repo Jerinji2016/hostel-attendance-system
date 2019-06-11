@@ -97,7 +97,7 @@
 										<td> : </td>
 										<td>
 											<span id="floor_change">
-												<select class="input" style="width: 100px; margin-left: 3px;">
+												<select class="input" id="floorno" style="width: 100px; margin-left: 3px;">
 													<option value=''>-select-</option>
 												</select>
 											</span>		
@@ -108,7 +108,7 @@
 										<td> : </td>
 										<td>
 											<span id="room_change">
-												<select class="input" style="width: 100px; margin-left: 3px;" id="roomno">
+												<select class="input" id="roomno" style="width: 100px; margin-left: 3px;" id="roomno">
 													<option value=''>-select-</option>
 												</select>
 											</span>

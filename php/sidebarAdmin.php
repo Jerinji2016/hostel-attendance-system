@@ -77,25 +77,25 @@
 </div>
 
 <div id="adminBar" class="sidebar">
+    <a id="sendSms" href="#" onclick="window.location='';"> 
+        Send SMS
+    </a>
 	<a id="createAdmin" href="#" onclick="window.location='';"> 
 		Create Co-Admins 
 	</a>
-	<a id="markAttend" href="#" onclick="window.location='';"> 
+	<a id="markAttend" href="#" onclick=""> 
         Mark Attendance 
     </a>
-	<a id="sendSms" href="#"> 
-        Send SMS
-    </a>
-    <a id="editAttend" href="#"> 
+    <a id="editAttend" href="#" onclick="window.location='';"> 
         Edit Attendance Record
     </a>
-    <a id="removeAdmin" href="#"> 
+    <a id="removeAdmin" href="#" onclick="window.location='';"> 
         Remove Co-Admins
     </a>
-    <a id="changePassword" href="#"> 
+    <a id="changePassword" href="#" onclick="window.location='';"> 
         Change Password 
     </a>
-    <a id="hostelReport" href="#"> 
+    <a id="hostelReport" href="#" onclick="window.location='';">
         Hostel Reports
     </a>
 </div>
@@ -122,14 +122,21 @@
         document.getElementById("navButton").style.marginLeft = "0";    
         panelFlag--;
     }
-	function focusSidebar()
-	{
-		var display = document.getElementById("display").value;
-		if(display == "1")
-			document.getElementById("attend_option").style.color = "#F1F1F1";
-		else if(display == "2")
-			document.getElementById("view_option").style.color = "#F1F1F1";
-	    else if(display == "3")
-            document.getElementById("leave_options").style.color = "#F1F1F1";
+
+    function markAttend()
+    {
+        var target = document.getElementById("main");
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','',true);
+
+        xhr.onreadystatechange = function()
+        {
+            if(xhr.readyState==4 && xhr.status==200)
+            {
+                target.innerHTML = xhr.responseText;
+            }
+        }
+        xhr.send();
     }
 </script>
