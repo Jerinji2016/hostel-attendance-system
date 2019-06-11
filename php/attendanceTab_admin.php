@@ -49,7 +49,7 @@
 				width: 80px;
 				border-radius: 5px;
 			}
-			.button:hover{
+			#div_1 button:hover{
 				background-color: royalblue;
 				color: white;
 				cursor: pointer;
