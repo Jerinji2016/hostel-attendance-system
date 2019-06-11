@@ -18,7 +18,7 @@
   border-top: none;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
-  width: 30.2%;
+  width: auto;
 }
 .autocomplete-items div 
 {

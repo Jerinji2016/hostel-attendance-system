@@ -13,6 +13,7 @@ include 'session.php';
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
 		<link rel="stylesheet" type="text/css" href="../css/autocomplete.css">
 		<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
 		<style>
 			body{
 				font-family: 'Open Sans';
@@ -27,15 +28,17 @@ include 'session.php';
 				transform: scale(1.1);
 				background-color: #c6c6c6;
 			}
-			.SelectorHead{
-				color: #666; background-color: #F7F7F7; border-radius: 0px 0px 25px 25px; text-align: center; box-shadow: 0px 0px 15px #999;
+			.FormDispArea{
+				color: #666;
+				background-color: #F7F7F7;
+				border-radius: 0px 0px 25px 25px;
+				box-shadow: 0px 0px 15px #999;
 			}
-			.SelectorHead p{
-				font-weight: bold;
+			.FormDispArea p{
 				margin: 10px;
 			}
-			footer{
-				position: fixed;
+			footer{        								 /*DO NOT CHANGE*/
+				position: fixed;                         /*CODE VERIFIED - OK*/
 				left: 0;
 				bottom: 0;
 				width: 100%;
@@ -43,15 +46,15 @@ include 'session.php';
 				color: white;
 				text-align: center;
 			}
-			.button_go{
-				border: none;
+			.button_go{									/*DO NOT CHANGE*/
+				border: none;							/*CODE VERIFIED - OK*/
 				background-color: darkgray;
 				height: 30px;
 				width: 80px;
 				border-radius: 5px;
 			}
-			.button_go:hover{
-				background-color: royalblue;
+			.button_go:hover{							/*DO NOT CHANGE*/		
+				background-color: royalblue;			/*CODE VERIFIED - OK*/
 				color: white;
 				cursor: pointer;
 			}
@@ -66,9 +69,10 @@ include 'session.php';
 				font-family: 'Open Sans';
 				font-weight: lighter;
 			}
-			@media only screen and (max-width: 400px){
-				.main{
-					margin-top: 20%;
+			@media (max-width: 500px){
+				.main_form{
+					padding-right: 25px;
+					padding-top: 100px;
 				}
 			}
 		</style>
@@ -78,8 +82,8 @@ include 'session.php';
 		<?php include 'sidebar.php' ?>
 		<script type="text/javascript"> focusSidebar(); </script>
 
-		<div id="main" style="margin-top: 3vw">
-			<div style="width: 400px; margin: 0px auto">
+		<div id="main">
+			<div class="main_form" style="width: 400px; margin: 0px auto; margin-top: 7%"> <!-- The Whole Box-->
 				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
 					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
@@ -87,7 +91,7 @@ include 'session.php';
 					</span>
 				</div>
 
-				<div class="SelectorHead">
+				<div class="FormDispArea">
 					<div style="border-left: 1px; display: inline; font-weight: bold">
 						<button id="viewByStudent" name="head1" value="head1" style="float: left; background-color: darkgray; font-weight: bold">Student</button>   
 					</div>
@@ -101,15 +105,14 @@ include 'session.php';
 					</div>
 
 					<!-- Division - 1 -->
-					<div id="div_1" style="clear:both; padding: 20px"; class="has_lgn_tl_x">
+					<div id="div_1" style="clear:both; padding: 20px" class="has_lgn_tl_x">
 						<center>
 							<form action="" method="post">
 								<div style="width: auto">
-									<p>Adm No : 
-										<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
-										<button class="button_go" style="margin-left: 5px">GO</button>
-										<!--<input class="button" type="submit" value="GO">-->
-									</p>
+									Adm No : 
+									<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
+									<button class="button_go" style="margin-left: 5px">GO</button>
+									<!--<input class="button" type="submit" value="GO">-->
 								</div>
 							</form>
 							<div>
@@ -133,7 +136,7 @@ include 'session.php';
 											<td> 
 												<span id="sem_change" style="float: right">
 													<select class="input" id="semester" name="semester" class="has_sel_fld">
-														<option class="input" value=''>-select-</option>
+														<option class="input">-select-</option>
 													</select>
 												</span> 
 											</td>
@@ -155,7 +158,7 @@ include 'session.php';
 											<td><p> Name </p></td>
 											<td><p> : </p></td>
 											<td colspan="3">
-												<input class="input" type="text" id="s_name" name="s_name" placeholder=" Student Name" required style="width: 99%">
+												<input class="input" type="text" id="s_name" name="s_name" placeholder=" Student Name" required style="width: 99%" autocomplete="off">
 											</td>
 										</tr>
 										<tr>
@@ -180,7 +183,7 @@ include 'session.php';
 					</div>
 
 					<!-- Division - 2 -->
-					<div id="div_2" style="clear:both; display: none; padding: 30px"; class="has_lgn_tl_x">
+					<div id="div_2" style="clear:both; display: none; padding: 30px" class="has_lgn_tl_x">
 						<center>
 							<?php date_default_timezone_set("Asia/Kolkata"); ?>
 							<label> &nbsp; &nbsp; Date : </label> 
@@ -191,7 +194,7 @@ include 'session.php';
 					</div>
 
 					<!-- Division - 3 -->
-					<div id="div_3" style="clear:both; display: none"; class="has_lgn_tl_x">
+					<div id="div_3" style="clear:both; display: none" class="has_lgn_tl_x">
 						<center>
 							<div style="padding: 20px; padding-left: 35px;"> 
 								<table style="font-size: 14px" align="center">
@@ -207,7 +210,7 @@ include 'session.php';
 										</td> 
 									</tr>
 									<tr height="30" id="floor_change"> </tr>
-									
+
 									<tr height="30" id="room_change"> </tr>
 									<tr>
 										<td> </td>
@@ -229,122 +232,123 @@ include 'session.php';
 			<footer>
 				<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
 			</footer>
-			</body>
-		</html>
+		</div>
+	</body>
+</html>
 
-	<script type="text/javascript">
-		window.onload = function()
+<script type="text/javascript">
+	window.onload = function()
+	{
+		document.getElementById("viewByStudent").addEventListener('click', viewByStudent);
+		document.getElementById("viewByDate").addEventListener('click', viewByDate);
+		document.getElementById("viewByHostel").addEventListener('click', viewByHostel);
+	}
+	function nameNeedFalse()
+	{
+		if(document.getElementById('adm_no').value != "")
 		{
-			document.getElementById("viewByStudent").addEventListener('click', viewByStudent);
-			document.getElementById("viewByDate").addEventListener('click', viewByDate);
-			document.getElementById("viewByHostel").addEventListener('click', viewByHostel);
+			document.getElementById('s_name').required = false;
 		}
-		function nameNeedFalse()
+		else
 		{
-			if(document.getElementById('adm_no').value != "")
-			{
-				document.getElementById('s_name').required = false;
-			}
-			else
-			{
-				document.getElementById('s_name').required = true;
-			}
+			document.getElementById('s_name').required = true;
 		}
+	}
 
-		function admNeedFalse()
-		{	
-			if(document.getElementById('s_name').value != "")
-			{
-				document.getElementById('adm_no').required = false;
-			}
-			else
-			{
-				document.getElementById('adm_no').required = true;
-			}
-		}
-
-		function viewByStudent()
+	function admNeedFalse()
+	{	
+		if(document.getElementById('s_name').value != "")
 		{
-			document.getElementById('div_2').style.display = "none";
-			document.getElementById('div_3').style.display = "none";
-			document.getElementById('div_1').style.display = "block";
-			document.getElementById('viewByStudent').style.backgroundColor="darkgray";
-			document.getElementById('viewByDate').style.backgroundColor="lightgray";
-			document.getElementById('viewByHostel').style.backgroundColor="lightgray";
-
-			document.getElementById('viewByStudent').style.fontWeight ="bold";
-			document.getElementById('viewByDate').style.fontWeight ="normal";
-			document.getElementById('viewByHostel').style.fontWeight ="normal";
-			console.log("here1");
+			document.getElementById('adm_no').required = false;
 		}
-
-		function viewByDate()
+		else
 		{
-			document.getElementById('div_1').style.display = "none";
-			document.getElementById('div_3').style.display = "none";
-			document.getElementById('div_2').style.display = "block";
-			document.getElementById('viewByDate').style.backgroundColor="darkgray";
-			document.getElementById('viewByStudent').style.backgroundColor="lightgray";
-			document.getElementById('viewByHostel').style.backgroundColor="lightgray";
-
-			document.getElementById('viewByDate').style.fontWeight ="bold";
-			document.getElementById('viewByStudent').style.fontWeight ="normal";
-			document.getElementById('viewByHostel').style.fontWeight ="normal";
-
-			console.log("not here 1");
+			document.getElementById('adm_no').required = true;
 		}
+	}
 
-		function viewByHostel()
+	function viewByStudent()
+	{
+		document.getElementById('div_2').style.display = "none";
+		document.getElementById('div_3').style.display = "none";
+		document.getElementById('div_1').style.display = "block";
+		document.getElementById('viewByStudent').style.backgroundColor="darkgray";
+		document.getElementById('viewByDate').style.backgroundColor="lightgray";
+		document.getElementById('viewByHostel').style.backgroundColor="lightgray";
+
+		document.getElementById('viewByStudent').style.fontWeight ="bold";
+		document.getElementById('viewByDate').style.fontWeight ="normal";
+		document.getElementById('viewByHostel').style.fontWeight ="normal";
+		console.log("here1");
+	}
+
+	function viewByDate()
+	{
+		document.getElementById('div_1').style.display = "none";
+		document.getElementById('div_3').style.display = "none";
+		document.getElementById('div_2').style.display = "block";
+		document.getElementById('viewByDate').style.backgroundColor="darkgray";
+		document.getElementById('viewByStudent').style.backgroundColor="lightgray";
+		document.getElementById('viewByHostel').style.backgroundColor="lightgray";
+
+		document.getElementById('viewByDate').style.fontWeight ="bold";
+		document.getElementById('viewByStudent').style.fontWeight ="normal";
+		document.getElementById('viewByHostel').style.fontWeight ="normal";
+
+		console.log("not here 1");
+	}
+
+	function viewByHostel()
+	{
+		document.getElementById('div_1').style.display = "none";
+		document.getElementById('div_2').style.display = "none";
+		document.getElementById('div_3').style.display = "block";
+		document.getElementById('viewByHostel').style.backgroundColor="darkgray";
+		document.getElementById('viewByStudent').style.backgroundColor="lightgray";
+		document.getElementById('viewByDate').style.backgroundColor="lightgray";
+
+		document.getElementById('viewByHostel').style.fontWeight ="bold";
+		document.getElementById('viewByStudent').style.fontWeight ="normal";
+		document.getElementById('viewByDate').style.fontWeight ="normal";
+		console.log("here3");
+	}
+
+	function floor()
+	{	
+		var target=document.getElementById("floor_change");
+		var hostel_code=document.getElementById("hostelno").value;
+		var floor="<td> Floor </td> <td> : </td> <td>";
+		var xhr = new XMLHttpRequest();
+		var x="&hostel_code="+hostel_code;
+		xhr.open('GET','mbcFloor.php?'+x,true);
+		xhr.onreadystatechange = function()
 		{
-			document.getElementById('div_1').style.display = "none";
-			document.getElementById('div_2').style.display = "none";
-			document.getElementById('div_3').style.display = "block";
-			document.getElementById('viewByHostel').style.backgroundColor="darkgray";
-			document.getElementById('viewByStudent').style.backgroundColor="lightgray";
-			document.getElementById('viewByDate').style.backgroundColor="lightgray";
-
-			document.getElementById('viewByHostel').style.fontWeight ="bold";
-			document.getElementById('viewByStudent').style.fontWeight ="normal";
-			document.getElementById('viewByDate').style.fontWeight ="normal";
-			console.log("here3");
-		}
-
-		function floor()
-		{	
-			var target=document.getElementById("floor_change");
-			var hostel_code=document.getElementById("hostelno").value;
-			var floor="<td> Floor </td> <td> : </td> <td>";
-			var xhr = new XMLHttpRequest();
-			var x="&hostel_code="+hostel_code;
-			xhr.open('GET','mbcFloor.php?'+x,true);
-			xhr.onreadystatechange = function()
+			if(xhr.readyState==4 && xhr.status==200)
 			{
-				if(xhr.readyState==4 && xhr.status==200)
-				{
-					target.innerHTML=floor+xhr.responseText+"</td>";
-				}
+				target.innerHTML=floor+xhr.responseText+"</td>";
 			}
-			xhr.send(x);
 		}
+		xhr.send(x);
+	}
 
-		function room()
+	function room()
+	{
+		var target=document.getElementById("room_change");
+		var hostel=document.getElementById("hostelno").value;
+		var floor=document.getElementById("floorno").value;
+		var room="<td> Room </td> <td> : </td> <td>";
+		var xhr=new XMLHttpRequest();
+		var x="&hostel="+hostel+"&floor="+floor;
+		xhr.open('GET','mbcRoom.php?'+x,true);
+
+		xhr.onreadystatechange = function()
 		{
-			var target=document.getElementById("room_change");
-			var hostel=document.getElementById("hostelno").value;
-			var floor=document.getElementById("floorno").value;
-			var room="<td> Room </td> <td> : </td> <td>";
-			var xhr=new XMLHttpRequest();
-			var x="&hostel="+hostel+"&floor="+floor;
-			xhr.open('GET','mbcRoom.php?'+x,true);
-
-			xhr.onreadystatechange = function()
+			if(xhr.readyState==4 && xhr.status==200)
 			{
-				if(xhr.readyState==4 && xhr.status==200)
-				{
-					target.innerHTML=room+xhr.responseText+"</td>";
-				}
+				target.innerHTML=room+xhr.responseText+"</td>";
 			}
-			xhr.send(x);
 		}
+		xhr.send(x);
+	}
 
-	</script>
+</script>

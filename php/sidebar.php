@@ -73,14 +73,27 @@
 		color: white;
 		cursor: pointer;
 	}
+	@media (max-width: 500px)
+	{
+		.logged_in_as{
+			margin-right: 0;
+		}
+		.logged_in{
+			margin-right: 0;
+		}
+		body, html, main{
+			width: auto;
+			margin-right: 0;	
+		}
+	}
 </style>
 
 <div style="width: 100%" align="right">  <!--div for logout button-->
 	<div id="navButton" align="left" style="transition: margin-left .5s">
 		<button class="openbtn" onclick="openNav()" style="align">☰ </button>
 	</div>
-	<form action="logout.php" method="post">
-		<div style="margin-top: 15px; margin-right: 0">
+	<form class="logged_in_as" action="logout.php" method="post">
+		<div class="logged_in" style="float: right; margin-top: 15px; margin-right: 0">
 			Logged in as: <b> 
 			<?php 
 			session_start();

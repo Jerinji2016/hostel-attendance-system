@@ -8,7 +8,7 @@
 	else
 		$i=2;
 
-	echo "<select id='semester' name='semester' class='has_sel_fld' style='width: 100px; margin-left: 3px; height: 28px' onchange='name_call()'>";
+	echo "<select class='input' id='semester' name='semester' class='has_sel_fld' style='width: 100px; margin-left: 3px; height: 28px' onchange='name_call()'>";
 
 	if($c == "BTECH")
 	{
