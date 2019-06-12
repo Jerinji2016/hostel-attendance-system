@@ -4,86 +4,117 @@
 		<title> Student Portal </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" type="text/css" href="css/login.css" />
-		<link rel="stylesheet" type="text/css" href="css/has.css?v=2" />
+		<link rel="stylesheet" type="text/css" href="../css/autocomplete.css">
+		<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 
-		<style type="text/css"> 
-			input::placeholder
-			{
-				color: #ADADAE;
-				font-size: 0.8em;
-				font-style: italic;
+		<style type="text/css">
+			body{
+				font-family: 'Open Sans';
+			}
+			.input{
+				height: 25px;
+				border-radius: 7px;
+				border-style: dotted;
+				border-color: darkgray;
+				font-family: 'Open Sans';
+				outline: none;
+			}
+			.button_go{									/*DO NOT CHANGE*/
+				border: none;							/*CODE VERIFIED - OK*/
+				background-color: darkgray;
+				height: 30px;
+				width: 80px;
+				border-radius: 5px;
+				outline: none;
+			}
+			.button_go:hover{							/*DO NOT CHANGE*/
+				background-color: royalblue;			/*CODE VERIFIED - OK*/
+				color: white;
+				cursor: pointer;
+			}
+			.has_lgn_tl_x p{
+				font-family: 'Open Sans';
+				font-weight: lighter;
+			}
+			@media (max-width: 500px){
+				.main_form{
+					padding-right: 25px;
+					padding-top: 100px;
+				}
 			}
 		</style>
 	</head>
-	
+
 	<body>
-		<div id="has_header" style="box-shadow: -1px 1px 15px rgba(0,0,0,.5); width:90%; min-width:1000px; margin:0px auto; background-color: white; color: #3333333">
-			<div style="float:left; padding:4px 5px; " id="mbc_logo_hldr"><img alt="Logo" src="images/favicon.ico" height="24" /> </div>
+		<div id="has_header" style="box-shadow: -1px 1px 15px rgba(0,0,0,.5); width:90%; height: 35px; min-width:1000px; margin:0px auto; background-color: white; color: #3333333">
+			<div style="float:left; padding:5px 5px 5px 5px" id="mbc_logo_hldr"><img alt="Logo" src="images/favicon.ico" height="26" /> </div>
 			<b>
-				<div style="padding:6px 10px;  font-size:13px;">
+				<div style="font-size:14px;">
 					<p style="float: left">
 						Hostel Management System - Mar Baselios Christian College of Engineering &amp; Technology, Peermade.
 					</p>
-					<a style="float: right;" href="index.html">
+					<a style="float: right; padding: 10px;" href="index.html">
 						<b> Home </b>
 					</a>
 				</div>
-			 
-				<div style="float:right; padding:7px;"  >
-					<!-- Current TimeStamp -->  
+
+				<div style="float:right; padding:7px;">
+					<!-- Current TimeStamp -->
 				</div>
 			</b>
 			<div class="clear" style="height:0px;"> </div>
 		</div>
-		<div style="width: 1000px; margin: 0px auto; margin-top: 130px; padding: 0%">
-			<div style="width: 400px; margin: 0px auto">
-				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
+		<div class="main_form"style="width: 400px; margin: 0px auto; margin-top: 7%">
+			<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C;
 							box-shadow: 0px 0px 15px #666;">
-					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
-						<div id="head"> Hostel Attendance </div>
+					<span style="color:#09F; font-size: 18px">
+						<div id="head" style="text-align: center; font-family: 'Open Sans'; font-weight: bold"> Student Portal </div>
 					</span>
-				</div>
+			</div>
 
-				<div style="color: #666; background-color: #F7F7F7; border-radius: 0px 0px 7px 7px; text-align: left; box-shadow: 0px 0px 15px #999;">
-					<div style="clear:both;"; class="has_lgn_tl_x" id="hasAttend">
-						<center>
-							<form action="php/viewAttendanceDetails.php" method="POST" autocomplete="off">
-								<div style="padding: 20px; padding-left: 35px">
-									Enter Adm no : 
-									<input type="text" name="adm_no" id="adm_no" style="text-align: center; margin: 2px; width: 120px; padding: 4px 7px;" oninput="nameNeedFalse()" required>								
-									<input type="submit" value="GO">	
-								</div>
-						
-								<div>
-									============== OR ==============
-								</div>
-						
-								<div style="padding: 20px; padding-left: 35px">
-									<table style="font-size: 14px;" class="beta">
-										<tr height="30">
-											<td> Course </td>
-											<td> : </td>
-											<td> 
-												<select id="course" name="course" class="has_sel_fld" style="width: 100px; margin-left: 3px;" onchange="sem()">
+			<div style="color: #666; padding: 5px 0px 4px 0px; background-color: #F7F7F7; border-radius: 0px 0px 25px 25px; box-shadow: 0px 0px 15px #666;">
+				<div id="hasAttend" style="clear:both; padding: 20px" class="has_lgn_tl_x">
+					<center>
+						<form action="php/viewAttendanceDetails.php" method="POST" autocomplete="off">
+								<div style="width: auto; padding: 0px 0px 25px 0px">
+									Adm no :
+								<input class="input" type="text" name="adm_no" id="adm_no" style="width: 100px;" oninput="nameNeedFalse()" required="on">
+								<button class="button_go" style="margin-left: 5px">GO</button>
+							</div>
+
+							<div>
+									<hr style="height:1px; border:none; color:#000; background-color:#000; width:90%; text-align:center; margin: 0 auto">
+							</div>
+
+							<div style="width: auto; padding: 10px 0px 0px 0px; line-height: 10px">
+									<table>
+										<tr>
+											<td><p> Course </p></td>
+											<td><p> : </p></td>
+											<td>
+												<select class="input" id="course" name="course" style="width: 100px; height: 32px;" onchange="sem()">
 													<option value='BTECH'> B.Tech </option>
 													<option value='MTECH'> M.Tech </option>
 												</select>
 											</td>
-											<td> - </td>
+											<td><p> &amp; </p></td>
 											<td>
-												<span id="sem_change">
-													<select id="semester" name="semester" class="has_sel_fld">
-														<option value=''>-select-</option>
+												<span id="sem_change" style="float: right">
+													<select class="input" id="semester" name="semester" style="width:100px; margin-left: 3px; height: 28px;" onchange="name_call()">
+														<option value="S1">S1</option>
+														<option value="S3">S3</option>
+														<option value="S5">S5</option>
+														<option value="S7">S7</option>
 													</select>
-												</span> 
+												</span>
 											</td>
 										</tr>
 
-										<tr height="30">
-											<td> Branch </td>
-											<td> : </td>
+										<tr>
+											<td><p> Branch </p></td>
+											<td><p> : </p></td>
 											<td colspan="3">
-												<select id="branch" name="branch" class="has_sel_fld" style="width: 240px; margin-left: 3px;" onchange="name_call()">
+												<select id="branch" name="branch" class="input" style="width: 100%; height: 32px" onchange="name_call()">
 													<option value="CSE"> Computer Science & Engg. </option>
 													<option value="ME">  Mechanical Engg. </option>
 													<option value="CE">  Civil Engg. </option>
@@ -93,11 +124,11 @@
 											</td>
 										</tr>
 
-										<tr height="30">
-											<td> Name </td>
-											<td> : </td>
+										<tr>
+											<td><p> Name </p></td>
+											<td><p> : </p></td>
 											<td colspan="3">
-												<input type="text" id="s_name" name="s_name" placeholder="Student Name" style="width: 240px; margin-left: 3px;" oninput="admNeedFalse()" required>
+												<input class="input" type="text" id="s_name" name="s_name" placeholder=" Student Name" required style="width: 99%" oninput="admNeedFalse()" required>
 											</td>
 										</tr>
 
@@ -106,8 +137,9 @@
 											<td></td>
 											<td></td>
 											<td></td>
-											<td>
-												<input type="submit" value="GO"> 
+											<br>
+											<td align="right" colspan="right">
+												<button class="button_go">GO</button>
 											</td>
 										</tr>
 	<!-- Scripts -->
@@ -115,8 +147,8 @@
 <script src="js/name_Array.js?v=2"> </script>
 <script src="js/autoComplete.js?v=2"> </script>
 
-<script type="text/javascript"> 
-	sem(); 
+<script type="text/javascript">
+	sem();
 </script>
 
 									</table>
@@ -126,7 +158,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</body>
 </html>
 
@@ -144,7 +175,7 @@
 	}
 
 	function admNeedFalse()
-	{	
+	{
 		if(document.getElementById('s_name').value != "")
 		{
 			document.getElementById('adm_no').required = false;
