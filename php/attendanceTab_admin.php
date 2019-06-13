@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'session.php';
 ?>
 
@@ -23,6 +23,7 @@ include 'session.php';
 				border: none;
 				width: 133px;
 				height: 50px;
+				outline: none;
 			}
 			#viewByStudent:hover,#viewByDate:hover,#viewByHostel:hover{
 				transform: scale(1.1);
@@ -52,8 +53,9 @@ include 'session.php';
 				height: 30px;
 				width: 80px;
 				border-radius: 5px;
+				outline: none;
 			}
-			.button_go:hover{							/*DO NOT CHANGE*/		
+			.button_go:hover{							/*DO NOT CHANGE*/
 				background-color: royalblue;			/*CODE VERIFIED - OK*/
 				color: white;
 				cursor: pointer;
@@ -64,6 +66,7 @@ include 'session.php';
 				border-style: dotted;
 				border-color: darkgray;
 				font-family: 'Open Sans';
+				outline: none;
 			}
 			.has_lgn_tl_x p{
 				font-family: 'Open Sans';
@@ -84,7 +87,7 @@ include 'session.php';
 
 		<div id="main">
 			<div class="main_form" style="width: 400px; margin: 0px auto; margin-top: 7%"> <!-- The Whole Box-->
-				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
+				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C;
 							box-shadow: 0px 0px 15px #666;">
 					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
 						<div id="head" style="text-align: center; font-family: 'Open Sans'; font-weight: bold"> View Attendance Records </div>
@@ -93,15 +96,15 @@ include 'session.php';
 
 				<div class="FormDispArea">
 					<div style="border-left: 1px; display: inline; font-weight: bold">
-						<button id="viewByStudent" name="head1" value="head1" style="float: left; background-color: darkgray; font-weight: bold">Student</button>   
+						<button id="viewByStudent" name="head1" value="head1" style="float: left; background-color: darkgray; font-weight: bold">Student</button>
 					</div>
 
 					<div style="border-right:0; display: inline;">
-						<button id="viewByDate" name="head2" value="head2" style="float: center">Date</button>   
+						<button id="viewByDate" name="head2" value="head2" style="float: center">Date</button>
 					</div>
 
 					<div style="display: inline">
-						<button id="viewByHostel" name="head3" value="head3" style="float: right">Hostel</button>   
+						<button id="viewByHostel" name="head3" value="head3" style="float: right">Hostel</button>
 					</div>
 
 					<!-- Division - 1 -->
@@ -109,7 +112,7 @@ include 'session.php';
 						<center>
 							<form action="" method="post">
 								<div style="width: auto">
-									Adm No : 
+									Adm No :
 									<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
 									<button class="button_go" style="margin-left: 5px">GO</button>
 									<!--<input class="button" type="submit" value="GO">-->
@@ -122,29 +125,29 @@ include 'session.php';
 							</div>
 							<form method="post" action="">
 								<div style="width: auto">
-									<table> 
+									<table>
 										<tr>
 											<td><p> Course </p></td>
 											<td><p> : </p></td>
-											<td> 
+											<td>
 												<select class="input" id="course" name="course" onchange="sem()" style="width: 100px; height: 32px">
 													<option value='BTECH'> B.Tech </option>
 													<option value='MTECH'> M.Tech </option>
 												</select>
 											</td>
 											<td><p> &amp; </p></td>
-											<td> 
+											<td>
 												<span id="sem_change" style="float: right">
 													<select class="input" id="semester" name="semester" class="has_sel_fld">
 														<option class="input">-select-</option>
 													</select>
-												</span> 
+												</span>
 											</td>
 										</tr>
 										<tr>
 											<td><p> Branch </p></td>
 											<td><p> : </p></td>
-											<td colspan="3"> 
+											<td colspan="3">
 												<select class="input" id="branch" name="branch" style="width: 100%; height: 32px" onchange="name_call()">
 													<option value="CSE"> Computer Science & Engg. </option>
 													<option value="ME">  Mechanical Engg. </option>
@@ -154,7 +157,7 @@ include 'session.php';
 												</select>
 											</td>
 										</tr>
-										<tr> 
+										<tr>
 											<td><p> Name </p></td>
 											<td><p> : </p></td>
 											<td colspan="3">
@@ -166,7 +169,7 @@ include 'session.php';
 											<td></td>
 											<td></td>
 											<td></td>
-											<td align="right" colspan="right"> 
+											<td align="right" colspan="right">
 												<button class="button_go">GO</button>
 												<!--<input class="button" type="submit" value="GO">-->
 											</td>
@@ -186,7 +189,7 @@ include 'session.php';
 					<div id="div_2" style="clear:both; display: none; padding: 30px" class="has_lgn_tl_x">
 						<center>
 							<?php date_default_timezone_set("Asia/Kolkata"); ?>
-							<label> &nbsp; &nbsp; Date : </label> 
+							<label> &nbsp; &nbsp; Date : </label>
 							<input class="input" type="date" id="myDate" value="<?php echo date('Y-m-d'); ?>">
 							<br> <br>
 							<button class="button_go">GO</button>
@@ -196,7 +199,7 @@ include 'session.php';
 					<!-- Division - 3 -->
 					<div id="div_3" style="clear:both; display: none" class="has_lgn_tl_x">
 						<center>
-							<div style="padding: 20px; padding-left: 35px;"> 
+							<div style="padding: 20px; padding-left: 35px;">
 								<table style="font-size: 14px" align="center">
 									<tr height="30">
 										<td> Hostel </td>
@@ -206,8 +209,8 @@ include 'session.php';
 												<option value=''>-select-</option>
 												<option value=1>HOSTEL 1</option>
 												<option value=2>HOSTEL 2</option>
-											</select> 
-										</td> 
+											</select>
+										</td>
 									</tr>
 									<tr height="30" id="floor_change"> </tr>
 
@@ -216,8 +219,8 @@ include 'session.php';
 										<td> </td>
 										<td> </td>
 										<td>
-											<button class="button_go"> GO </button> 
-										</td> 
+											<button class="button_go"> GO </button>
+										</td>
 									</tr>
 
 								</table>
@@ -256,7 +259,7 @@ include 'session.php';
 	}
 
 	function admNeedFalse()
-	{	
+	{
 		if(document.getElementById('s_name').value != "")
 		{
 			document.getElementById('adm_no').required = false;
@@ -314,7 +317,7 @@ include 'session.php';
 	}
 
 	function floor()
-	{	
+	{
 		var target=document.getElementById("floor_change");
 		var hostel_code=document.getElementById("hostelno").value;
 		var floor="<td> Floor </td> <td> : </td> <td>";
