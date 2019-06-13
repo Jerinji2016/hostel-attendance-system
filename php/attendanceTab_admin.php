@@ -63,7 +63,7 @@ include 'session.php';
 				border-radius: 7px;
 				border-style: dotted;
 				border-color: darkgray;
-				font-family: 'Open Sans'
+				font-family: 'Open Sans';
 			}
 			.has_lgn_tl_x p{
 				font-family: 'Open Sans';

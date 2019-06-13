@@ -4,10 +4,13 @@
 		<title> Login - Hostel Attendance System </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="#4286f4">
-		<link href="css/login.css" rel="stylesheet" type="text/css">
-		<link href="css/has.css?v=1" rel="stylesheet" type="text/css" />
-
+		<!--		<link href="css/login.css" rel="stylesheet" type="text/css">-->
+		<!--		<link href="css/has.css?v=1" rel="stylesheet" type="text/css" />-->
+		<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 		<style type="text/css">
+			*{
+				font-family: 'Open Sans';
+			}
 			input::placeholder
 			{
 				color: #ADADAE;
@@ -19,47 +22,87 @@
 			{
 				padding: 10px;
 			}
-			.beta td
-			{
-				padding: 5px;
-			}
-
 			tr
 			{
 				padding: 10px;
 			}
-			.shadow:hover
+			button{
+				border: none;
+				background-color: darkgray;
+				width: 60px;
+				height: 30px;
+				border-radius: 5px;
+			}
+			button:hover{
+				background-color: royalblue;
+				color: white;
+				cursor: pointer;
+			}
+			.input{
+				height: 25px;
+				border-radius: 7px;
+				border-style: dotted;
+				border-color: darkgray;
+				font-family: 'Open Sans';
+			}
+			.input:hover
 			{
 				box-shadow: 0 0 10px 5px #CCCCCC;
+			}
+			.home_icon{
+				transition: transform .2s;
+			}
+			.home_icon:hover{
+				transform: scale(1.1);
+			}
+			@media (max-width: 770px){
+				.form_main{
+					padding-right: 10px;
+				}
+				.heading{
+					color: red;
+				}
+				.header{
+					padding: 0;
+					height: 100px;
+					width: auto;
+				}
+				#has_header{
+					height: 100px;
+					width: auto;
+				}
+				p{
+					margin: 0;
+					padding: 0;
+				}
 			}
 		</style>
 	</head>
 
 	<body style="background-color: white">
-		<div id="has_header" style="box-shadow: -1px 1px 15px rgba(0,0,0,.5); width:90%; min-width:1000px; margin:0px auto; background-color: white; color: #3333333">
-			<div style="float:left; padding:4px 5px; " id="mbc_logo_hldr"><img alt="Logo" src="images/favicon.ico" height="24" /> </div>
-			<b>
-				<div style="padding:6px 10px;  font-size:13px;">
-					<p style="margin:0; float: left">
-						Hostel Management System - Mar Baselios Christian College of Engineering &amp; Technology, Peermade.
-					</p>
-					<span style="float: right"><img src="images/icons/home-icon.png" height="30px"></span>
-					<a style="float: right;" href="index.html">
-						<b> Home </b>
-					</a>
-				</div>
-
-				<div style="float:right; padding:7px;"  >
-					<!-- Current TimeStamp -->  
-				</div>
-			</b>
-			<div class="clear" style="height:0px;"> </div>
+		<div id="has_header" style="box-shadow: -1px 1px 15px rgba(0,0,0,.5); width:100%; margin:0px auto; background-color: white; color: #33333">
+<!--			<div style="float:left; padding:4px 5px" id="mbc_logo_hldr"></div>-->
+			<img alt="Logo" src="images/favicon.ico" height="54" />
+			<!--<div class="header" style="padding:6px 10px; margin: 0px auto; font-size: 13px; width: auto; height: 54px">-->
+			<div style="width: auto; display: inline-block">
+				<p class="heading" style="margin: 15px 10px; float: left; width: auto; font-weight: bold">
+					Hostel Management System - Mar Baselios Christian College of Engineering &amp; Technology, Peermade.
+				</p>
+			</div>
+				<a style="float: right;" href="index.html">
+					<img class="home_icon" src="images/icons/home-icon.png" height="30px" style="float: right; margin-top: 10px">
+				</a>
+<!--				</div>-->
+<!--			<div style="float:right; padding:7px">-->
+				<!-- Current TimeStamp -->  
+<!--			</div>-->
+<!--			<div class="clear" style="height:0px"> </div>-->
 		</div>
-		<div style="width: 1000px; margin: 0px auto; margin-top: 130px; padding: 0%">
-			<div style="width: 400px; margin: 0px auto">
+		<div class="form_container" style="width: 1000px auto; margin: 0px auto; margin-top: 130px; padding: 0%">
+			<div class="form_main" style="width: 400px; margin: 0px auto">
 				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
-					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
+					<span style="color:#09F; font-size: 18px; font-weight: bold">
 						<div id="head"> Login </div>
 					</span>
 				</div>
@@ -69,13 +112,13 @@
 					<div style="display: block;"; class="has_lgn_tl_x" id="hasLogin">
 						<form action="php/login.php" method="POST">
 							<center>
-								<div style="padding: 20px; padding-left: 35px; padding-top: 40px;"> 
+								<div style="padding: 20px"> 
 									<table class="alpha" style="font-size: 14px; margin-top: 25px">
 										<tr>
 											<td> User ID </td>
 											<td> : </td>
 											<td> 
-												<input type="text" name="userid" placeholder="Username" class="shadow">
+												<input type="text" name="userid" placeholder=" Username" class="input" autofocus="on">
 											</td> 
 										</tr>
 
@@ -83,7 +126,7 @@
 											<td> Password </td>
 											<td> : </td>
 											<td> 
-												<input type="password" name="password" placeholder="********" class="shadow">
+												<input type="password" name="password" placeholder=" ********" class="input">
 											</td>
 										</tr>
 
@@ -91,7 +134,7 @@
 											<td> </td>
 											<td> </td>
 											<td>
-												<input type="submit" value="Login" class="shadow"> 
+												<button value="login">Login</button>
 											</td>
 										</tr>
 									</table>
