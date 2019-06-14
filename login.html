@@ -32,6 +32,7 @@
 				width: 60px;
 				height: 30px;
 				border-radius: 5px;
+				outline:none;
 			}
 			button:hover{
 				background-color: royalblue;
@@ -44,6 +45,7 @@
 				border-style: dotted;
 				border-color: darkgray;
 				font-family: 'Open Sans';
+				outline: none;
 			}
 			.input:hover
 			{
@@ -94,15 +96,15 @@
 				</a>
 <!--				</div>-->
 <!--			<div style="float:right; padding:7px">-->
-				<!-- Current TimeStamp -->  
+				<!-- Current TimeStamp -->
 <!--			</div>-->
 <!--			<div class="clear" style="height:0px"> </div>-->
 		</div>
 		<div class="form_container" style="width: 1000px auto; margin: 0px auto; margin-top: 130px; padding: 0%">
 			<div class="form_main" style="width: 400px; margin: 0px auto">
-				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
+				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C;
 							box-shadow: 0px 0px 15px #666;">
-					<span style="color:#09F; font-size: 18px; font-weight: bold">
+					<span style="color:#09F; font-size: 18px; font-weight: bold; text-align: center">
 						<div id="head"> Login </div>
 					</span>
 				</div>
@@ -112,20 +114,20 @@
 					<div style="display: block;"; class="has_lgn_tl_x" id="hasLogin">
 						<form action="php/login.php" method="POST">
 							<center>
-								<div style="padding: 20px"> 
+								<div style="padding: 20px">
 									<table class="alpha" style="font-size: 14px; margin-top: 25px">
 										<tr>
 											<td> User ID </td>
 											<td> : </td>
-											<td> 
+											<td>
 												<input type="text" name="userid" placeholder=" Username" class="input" autofocus="on">
-											</td> 
+											</td>
 										</tr>
 
-										<tr> 
+										<tr>
 											<td> Password </td>
 											<td> : </td>
-											<td> 
+											<td>
 												<input type="password" name="password" placeholder=" ********" class="input">
 											</td>
 										</tr>
@@ -162,7 +164,7 @@
 	}
 
 	function admNeedFalse()
-	{	
+	{
 		if(document.getElementById('s_name').value != "")
 		{
 			document.getElementById('adm_no').required = false;
