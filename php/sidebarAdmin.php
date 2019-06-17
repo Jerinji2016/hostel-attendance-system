@@ -83,7 +83,7 @@
 	<a id="createAdmin" href="#" onclick="window.location='';"> 
 		Create Co-Admins 
 	</a>
-	<a id="markAttend" href="#" onclick=""> 
+	<a id="markAttend" href="#" onclick="window.location='markAttendance.php'"> 
         Mark Attendance 
     </a>
     <a id="editAttend" href="#" onclick="window.location='';"> 
@@ -122,21 +122,15 @@
         document.getElementById("navButton").style.marginLeft = "0";    
         panelFlag--;
     }
-
-    function markAttend()
+    function focusSidebar()
     {
-        var target = document.getElementById("main");
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET','',true);
-
-        xhr.onreadystatechange = function()
+        var display = document.getElementById("display").value;
+        switch(display)
         {
-            if(xhr.readyState==4 && xhr.status==200)
-            {
-                target.innerHTML = xhr.responseText;
-            }
+            case "1":   document.getElementById("attend_option").style.color = "#F1F1F1";
+                        break;
+            case "3":   document.getElementById("markAttend").style.color = "#F1F1F1";
+                        break;
         }
-        xhr.send();
     }
 </script>

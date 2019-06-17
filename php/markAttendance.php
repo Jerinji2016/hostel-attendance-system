@@ -1,14 +1,11 @@
-<?php 
-	include 'session.php';
-?>
+<?php include 'session.php' ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<title> MBC Portal </title>
+		<title> Mark Attendance </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+		
 		<style type="text/css">
 			input::placeholder
 			{
@@ -64,15 +61,14 @@
         
 		</style>
 	</head>
+	<body>
+		<?php include 'sidebarAdmin.php' ?>
 
-	<body style="background-color: #FFF; width: 100%" onbeforeunload="handleBackFunc()" align="center">
-        <input type="text" value="1" id="display" style="display: none">
-		<?php 
-			include 'sidebar.php'; 
-		?>
+		<!-- To HighLight in SideBar -->
+		<input type="text" value="3" id="display" style="display: none">
 		<script type="text/javascript"> focusSidebar(); </script>
-			
-		<div id="main" style="margin: 0px auto; margin-top: 15px">	
+		
+		<div id="main" style="margin: 0px auto; margin-top: 15px">
 			<div id="selectTab" style="width: 400px; margin: 0px auto; margin-top: 115px">
 				<div style="border-radius: 7px 7px 0px 0px; padding: 15px 20px; background-color: #0C0C0C; 
 							box-shadow: 0px 0px 15px #666;">
@@ -222,23 +218,23 @@
 				</div>
 			</div>
 			<div id="getDetails"> </div>
-		</div>		
+		</div>
 	</body>
 </html>
-		
+
 <script src="../js/getDetails_hostel.js?v=4"> </script>
 <script src="../js/getDetails_student.js?v=3"> </script>
 
 <script src="../js/navPanel_actions.js"> </script>
 
-<script>
+<script type="text/javascript">
 	window.onload = function()
 	{
-        document.getElementById("has_lgn_1").addEventListener('click', hostel_visible);
-        document.getElementById("has_lgn_2").addEventListener('click', stud_visible);
-    }
+	    document.getElementById("has_lgn_1").addEventListener('click', hostel_visible);
+	    document.getElementById("has_lgn_2").addEventListener('click', stud_visible);
+	}
 
-    function stud_visible()
+	function stud_visible()
 	{
 		document.getElementById("has_lgn_1_x").style.display = "none";
 		document.getElementById("has_lgn_2_x").style.display = "block";
@@ -257,10 +253,10 @@
 		document.getElementById("button2").style.backgroundColor = "#F7F7F7";
 	}
 
-    function handleBackFunc()
-    {
-    	alert("Back");
-    }
+	function handleBackFunc()
+	{
+		alert("Back");
+	}
 
 	function floor()
 	{	

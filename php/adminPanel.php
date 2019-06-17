@@ -8,8 +8,8 @@
 		<style type="text/css">
 			/* Define Style */
 			*{
-				margin: 0;
-				padding: 0;
+				margin: 10;
+				padding: 10;
 			}
 		</style>
 	</head>
@@ -22,3 +22,5 @@
 		</div>
 	</body>
 </html>
+
+<script type="text/javascript" src="../js/markAttendance.js"> </script>
