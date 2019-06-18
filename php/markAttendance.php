@@ -5,61 +5,7 @@
 	<head>
 		<title> Mark Attendance </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<style type="text/css">
-			input::placeholder
-			{
-				color: #ADADAE;
-				font-size: 0.8em;
-				font-style: italic;
-			}
-           #button1,#button2 {
-				transition: transform .2s;
-				border: none;
-				width: 133px;
-				height: 50px;
-			}
-            #button1:hover,#button2:hover{
-				transform: scale(1.1);
-				background-color: #c6c6c6;
-			}
-            #button1:focus,#button2:focus{
-                background-color: darkgray;
-            }
-            .button:hover{
-				background-color: royalblue;
-				color: white;
-				cursor: pointer;
-			}
-            .input{
-				height: 25px;
-				border-radius: 7px;
-				border-style: dotted;
-				border-color: darkgray;
-				font-family: 'Open Sans'
-			}
-			.has_lgn_tl
-			{
-				float: left;
-				text-align: center;
-				padding: 4px 7px;
-				line-height: 22px;
-				font-size: 13px;
-				width: 184px;
-				cursor: pointer;
-				background-color: darkgrey;
-			}
-			.atv
-			{
-				border: 1px solid #999;
-				border-top: 0;
-				padding: 4px 7px;
-				line-height: 22px;
-				width: 186px;
-				background-color: #F7F7F7;
-			}
-        
-		</style>
+		<link rel="stylesheet" type="text/css" href="../css/tabStyle.css">
 	</head>
 	<body>
 		<?php include 'sidebarAdmin.php' ?>
@@ -93,7 +39,7 @@
 					</div>
 
 					<!-- Search By Hostel Details -->
-					<div style="display: block"; class="has_lgn_tl_x" id="has_lgn_1_x">
+					<div style="display: block" id="has_lgn_1_x">
 						<form id="hostel_form" method="post" enctype="multipart/form-data">
 							<div style="padding: 20px; padding-left: 35px;"> 
 								<table style="font-size: 14px" align="center">
@@ -150,7 +96,7 @@
 					</div>
 
 					<!-- Search By Student Details -->
-					<div style="display: none"; class="has_lgn_tl_x" id="has_lgn_2_x">
+					<div style="display: none" id="has_lgn_2_x">
 						<form id="hostel_form" method="post" enctype="multipart/form-data" autocomplete="off">
 							<div style="padding: 20px; padding-left: 35px;"> 
 								<center>

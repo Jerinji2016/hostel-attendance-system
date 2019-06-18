@@ -80,8 +80,8 @@
     <a id="sendSms" href="#" onclick="window.location='';"> 
         Send SMS
     </a>
-	<a id="createAdmin" href="#" onclick="window.location='';"> 
-		Create Co-Admins 
+	<a id="createAdmin" href="#" onclick="window.location='manageAdmin.php'"> 
+		Manage Admins 
 	</a>
 	<a id="markAttend" href="#" onclick="window.location='markAttendance.php'"> 
         Mark Attendance 
@@ -128,6 +128,8 @@
         switch(display)
         {
             case "1":   document.getElementById("attend_option").style.color = "#F1F1F1";
+                        break;
+            case "2":   document.getElementById("createAdmin").style.color = "#F1F1F1";
                         break;
             case "3":   document.getElementById("markAttend").style.color = "#F1F1F1";
                         break;
