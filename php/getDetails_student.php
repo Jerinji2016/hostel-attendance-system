@@ -118,6 +118,7 @@
 							</td>
 						</tr>
 						<?php 
+								$log_count++;
 							}	
 						?>
 					</table>

@@ -5,8 +5,6 @@
 	$result = mysql_query($var_sql);
 	$row = mysql_fetch_array($result);
 
-	echo $_COOKIE["dateCookie"];
-
 	$var_date = "SELECT si_no FROM hostel_date_details WHERE ";
 	$var_date .= "date = '".$_COOKIE["dateCookie"]."'";
 	$result_date = mysql_query($var_date);
@@ -23,9 +21,18 @@
 			mysql_query($var);
 		}
 	}
-?>
 
-<script>
-	console.log("Data Submitted");
-	window.location = '../php/mbc.php';
-</script>
+	session_start();
+	alert();
+	if($_SESSION['user_priority'] == "1")
+		header("Location: markAttendance.php");
+	else
+		header("Location: mbc.php");
+
+	function alert()
+	{
+		echo "<script>";
+		echo "alert('Data Submitted');";
+		echo "</script>";
+	}
+?>

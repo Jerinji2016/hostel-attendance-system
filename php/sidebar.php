@@ -97,7 +97,7 @@
 			Logged in as: <b> 
 			<?php 
 			session_start();
-			echo $_SESSION['userid']; 
+			echo $_SESSION['u_name']; 
 			?> 
 			&nbsp; </b>
 			<button class="logout-button" type="submit" value="logout">Logout</button>

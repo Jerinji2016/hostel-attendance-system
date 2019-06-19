@@ -218,9 +218,7 @@
 		xhr.onreadystatechange = function()
 		{
 			if(xhr.readyState==4 && xhr.status==200)
-			{
 				target.innerHTML=xhr.responseText;
-			}
 		}
 		xhr.send(x);
 	}
@@ -238,9 +236,7 @@
 		xhr.onreadystatechange = function()
 		{
 			if(xhr.readyState==4 && xhr.status==200)
-			{
 				target.innerHTML=xhr.responseText;
-			}
 		}
 		xhr.send(x);
 	}
@@ -250,13 +246,9 @@
 		var check_id = document.getElementById("check"+id);
 		var drop_id = document.getElementById("drop"+id);
 		if(check_id.checked)
-		{
 			drop_id.style.display = "inline";
-		}
 		else
-		{
 			drop_id.style.display = "none";
-		}
 	}
 
 	function getDetails_hide()
@@ -272,9 +264,7 @@
 	{
 		var i;
 		for(i=item.options.length - 1;i>0;i--)
-		{
 			item.remove(i);
-		}
 	}
 
 	function hide_HAS()
