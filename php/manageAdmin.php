@@ -116,61 +116,63 @@
 					</div>
 					<!-- Division - 1 -->
 					<div style="display: none"; class="has_lgn_tl_x" id="has_lgn_1_x">
-						<div style="padding: 20px; padding-left: 35px;">
-							<table>
-								<tr>
-									<td> Name </td>
-									<td> : </td>
-									<td> 
-										<input type="text" id="a_name" placeholder="Full Name" /> 
-									</td>
-								</tr>
-								<tr>
-									<td> User ID </td>
-									<td> : </td>
-									<td> 
-										<input type="text" id="a_userid" placeholder="Username">
-									</td>
-								</tr>
-								<tr>
-									<td> Password </td>
-									<td> : </td>
-									<td>
-										<input type="Password" id="a_password" placeholder="Password" autocomplete="new-password">
-									</td>
-								</tr>
-								<tr>
-									<td> Confirm Password </td>
-									<td> : </td>
-									<td> 
-										<input type="Password" id="a_pass_conf" placeholder="Password Again">
-									</td>
-								</tr>
-								<tr>
-									<td> Incharge </td>
-									<td> : </td>
-									<td>
-										<input type="text" id="a_incharge" placeholder="Incharge Off">
-									</td>
-								</tr>
-								<tr>
-									<td> Priority </td>
-									<td> : </td>
-									<td> 
-										<select id="a_priority">
-											<option value=2> 2 (Warden) </option>
-											<option value=3> 3 (Staff Incharge) </option>
-											<option value=4> 4 (Other Admin) </option>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td align="right" colspan="3"> 
-										<input type="button" class="button" value="Go" onclick="mkAdmin()">
-									</td>
-								</tr>
-							</table>
-						</div>
+						<form action="" method="POST" autocomplete="off">
+							<div style="padding: 20px; padding-left: 35px;">
+								<table>
+									<tr>
+										<td> Name </td>
+										<td> : </td>
+										<td> 
+											<input type="text" id="a_name" placeholder="Full Name" required="on"> 
+										</td>
+									</tr>
+									<tr>
+										<td> User ID </td>
+										<td> : </td>
+										<td> 
+											<input type="text" id="a_userid" placeholder="Username" required>
+										</td>
+									</tr>
+									<tr>
+										<td> Password </td>
+										<td> : </td>
+										<td>
+											<input type="Password" id="a_password" placeholder="Password" autocomplete="new-password" required>
+										</td>
+									</tr>
+									<tr>
+										<td> Confirm Password </td>
+										<td> : </td>
+										<td> 
+											<input type="Password" id="a_pass_conf" placeholder="Password Again" required>
+										</td>
+									</tr>
+									<tr>
+										<td> Incharge </td>
+										<td> : </td>
+										<td>
+											<input type="text" id="a_incharge" placeholder="Incharge Off" required>
+										</td>
+									</tr>
+									<tr>
+										<td> Priority </td>
+										<td> : </td>
+										<td> 
+											<select id="a_priority">
+												<option value=2> 2 (Warden) </option>
+												<option value=3> 3 (Staff Incharge) </option>
+												<option value=4> 4 (Other Admin) </option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td align="right" colspan="3"> 
+											<input type="button" class="button" value="Go" onclick="mkAdmin()">
+										</td>
+									</tr>
+								</table>
+							</div>
+						</form>
 					</div>
 
 					<?php

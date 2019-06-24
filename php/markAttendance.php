@@ -139,7 +139,7 @@
 										<td> Name </td>
 										<td> : </td>
 										<td colspan="4">
-											<input type="text" id="s_name" class="input"placeholder=" Student Name" style="width: 240px; margin-left: 3px;">
+											<input type="text" id="s_name" class="input" placeholder=" Student Name" style="width: 240px; margin-left: 3px;">
 										</td>
 									</tr>
 
