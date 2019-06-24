@@ -229,6 +229,7 @@ include 'session.php';
 					</div>
 				</div>
 			</div>
+			<h2 style="color: black"> Work In Progress... (Redirection)</h2>
 			<div style="height: 5%">
 				<p style="color: white">Send your feedback at: </p>
 			</div>
