@@ -1,4 +1,23 @@
-<?php include 'session.php' ?>
+<script type="text/javascript">
+	var u = ['a'];
+	u.length = 0;
+</script>
+<?php 
+	include 'session.php';
+	include 'dbConnect.php';
+	session_start();
+
+	$var = "SELECT user_id FROM login";
+	$res = mysql_query($var);
+	while ($row = mysql_fetch_array($res)) 
+	{
+	 	?>
+	 		<script type="text/javascript">
+	 			u.push('<?php echo $row[0] ?>');
+	 		</script>
+	 	<?php
+	} 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -21,9 +40,6 @@
 				position: relative;
 			    display: inline-block;
 				cursor: pointer;
-			    border-bottom: 1px dotted black;
-			    padding-left: 20px;
-			    padding-top: 8px;
 			}
 
 			.tooltip .tooltiptext {
@@ -45,48 +61,12 @@
 			    transition-delay: 650ms;
 			    transition-duration: .8s;
 			}
-
-			.modal {
-				display: none; /* Hidden by default */
-				position: fixed; /* Stay in place */
-				z-index: 1; /* Sit on top */
-				padding-top: 100px; /* Location of the box */
-				left: 0;
-				top: 0;
-				width: 100%; /* Full width */
-				height: 100%; /* Full height */
-				overflow: auto; /* Enable scroll if needed */
-				background-color: rgb(0,0,0); /* Fallback color */
-				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-			}
-
-			/* Modal Content */
-			.modal-content {
-				background-color: #fefefe;
-				margin: auto;
-				padding: 20px;
-				border: 1px solid #888;
-				width: 30%;
-			}
-
-			/* The Close Button */
-			.close {
-				color: #aaaaaa;
-				float: right;
-				font-size: 28px;
-				font-weight: bold;
-			}
-
-			.close:hover,.close:focus {
-				color: #000;
-				text-decoration: none;
-				cursor: pointer;
-			}  
 		</style>
 	</head>
 	<body>
 		<?php include 'sidebarAdmin.php' ?>
 
+		<h5><center>Be Carefull when u Delete... It really Works..!!</center></h5>
 		<!-- To HighLight in SideBar -->
 		<input type="text" value="2" id="display" style="display: none">
 		<script type="text/javascript"> focusSidebar(); </script>
@@ -123,14 +103,14 @@
 										<td> Name </td>
 										<td> : </td>
 										<td> 
-											<input type="text" id="a_name" placeholder="Full Name" /> 
+											<input type="text" id="a_name" placeholder="Full Name" />
 										</td>
 									</tr>
 									<tr>
 										<td> User ID </td>
 										<td> : </td>
 										<td> 
-											<input type="text" id="a_userid" placeholder="Username">
+											<input type="text" id="a_userid" placeholder="Username" oninput="checkuid()">
 										</td>
 									</tr>
 									<tr>
@@ -178,6 +158,17 @@
 
 					<!-- Division - 2 -->
 					<div style="display: none; padding: 20px"; class="has_lgn_tl_x" id="has_lgn_2_x">		
+						<!-- 
+							Edit Cheyyunenu Transtion kodukkanam
+							aa cell vellidh aaaki avde oru text box
+
+							Adh poole priority maatanum angane oke cheyya
+
+							actionte seperate column maati avde delete maathram madhi
+
+							priority span ittu pinne change cheydhu matte manaeAdmin_visible call cheydha madhi
+							password usernme nte adi veratte..
+						-->
 					</div>
 				</div>				
 			</div>
@@ -220,6 +211,54 @@
 		document.getElementById("selectTab").style.width = "400px";
 	}
 
+	function mkAdmin()
+	{
+		var name = document.getElementById('a_name').value;
+		var userid = document.getElementById('a_userid').value;
+		var password = document.getElementById('a_password').value;
+		var pass_conf = document.getElementById('a_pass_conf').value;
+		var priority = document.getElementById('a_priority').value;
+		var incharge = document.getElementById('a_incharge').value;
+
+		if(name=="" || userid=="" || password=="" || pass_conf=="" || priority=="" || incharge=="")
+		{
+			alert("Please fill in all fields");
+		}
+		else
+		{
+			if(password == pass_conf)
+			{
+				console.log("da");
+				var x = "&name="+name+"&userid="+userid+"&password="+password+"&priority="+priority+"&incharge="+incharge+"&action=1";
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET','editAdmin.php?'+x,true);
+				xhr.onreadystatechange = function()
+				{
+					if(xhr.readyState==4 && xhr.status==200)
+						alert("Admin Added");
+				}
+				xhr.send(x);
+			}
+			else
+			{
+				alert("Password Mismatch");
+				document.getElementById('a_password').value = "";
+				document.getElementById('a_pass_conf').value = "";
+			}
+		}
+		window.location = 'manageAdmin.php';
+	}
+
+	function checkuid()
+	{
+		for(var i=0;i<u.length;i++)
+			if(u[i] == document.getElementById('a_userid').value)
+			{
+				alert("Username Already Taken");
+				document.getElementById('a_userid').value="";
+			}
+	}
+
 	function deleteConf(uid)
 	{
 		var r = window.confirm("Are you sure to delete "+uid+"'s account?");
@@ -235,41 +274,6 @@
 			}
 			xhr.send(x);
 		}
-		manageAdmin_visible();
+		window.location = 'manageAdmin.php';
 	}
-
-	function mkAdmin()
-	{
-		var name = document.getElementById('a_name').value;
-		var userid = document.getElementById('a_userid').value;
-		var password = document.getElementById('a_password').value;
-		var pass_conf = document.getElementById('a_pass_conf').value;
-		var priority = document.getElementById('a_priority').value;
-		var incharge = document.getElementById('a_incharge').value;
-
-		if(name=="" || userid=="" || password=="" || pass_conf=="" || priority=="" || incharge=="")
-		{
-			alert("something");
-		}
-		if(password == pass_conf)
-		{
-			console.log("da");
-			var x = "&name="+name+"&userid="+userid+"&password="+password+"&priority="+priority+"&incharge="+incharge+"&action=1";
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET','editAdmin.php?'+x,true);
-			xhr.onreadystatechange = function()
-			{
-				if(xhr.readyState==4 && xhr.status==200)
-					alert("Admin Added");
-			}
-			xhr.send(x);
-		}
-		else
-		{
-			alert("Password Mismatch");
-			document.getElementById('a_password').value = "";
-			document.getElementById('a_pass_conf').value = "";
-		}
-	}
-
 </script>

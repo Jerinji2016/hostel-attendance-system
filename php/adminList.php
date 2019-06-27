@@ -4,6 +4,19 @@
 	$varsql = "SELECT name,user_id,admin_priority FROM login";
 	$result = mysql_query($varsql);
 	$sn = 1;
+
+	$var = "SELECT user_id FROM login";
+	$res = mysql_query($var);
+	while ($row = mysql_fetch_array($res)) 
+	{
+		if($row[0] == $_SESSION['userid'])
+			continue;
+	 	?>
+	 		<script type="text/javascript">
+	 			u.push('<?php echo $row[0] ?>');
+	 		</script>
+	 	<?php
+	} 
 ?>
 
 <div style="padding: 0px">
@@ -34,7 +47,7 @@
 							<span class="tooltiptext"> Change Admin Priority </span>
 						</div>
 					</td>
-					<td>
+					<td onclick="editConf('<?php echo $row[1] ?>')">
 						<div class="tooltip">
 							<img src="../images/adminPanel_icons/edit.png" class="iconImg"/>
 							<span class="tooltiptext"> Edit Password </span>
