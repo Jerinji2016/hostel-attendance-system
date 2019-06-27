@@ -13,41 +13,40 @@
 			{
 				color: #ADADAE;
 				font-size: 0.8em;
-				font-style: italic;
 			}
 
 			.alpha td
 			{
 				padding: 10px;
 			}
-			tr
-			{
-				padding: 10px;
-			}
+			
 			button{
-				border: none;
-				background-color: darkgray;
-				width: 60px;
-				height: 30px;
-				border-radius: 5px;
 				outline:none;
-			}
-			button:hover{
-				background-color: royalblue;
-				color: white;
-				cursor: pointer;
-			}
+ 				height: 31px;
+  				text-align: center;
+  				width: 110px;
+  				border-radius:40px;
+ 				background: #fff;
+  				border: 2px solid $green;
+  				letter-spacing:1px;
+  				text-shadow:0;
+  				cursor: pointer;
+  				transition: all 0.25s ease;
+  			}
 			.input{
 				height: 25px;
-				border-radius: 7px;
 				border-style: dotted;
 				border-color: darkgray;
 				font-family: 'Open Sans';
 				outline: none;
+				padding: auto;
+				border-radius: 10px;
+				box-shadow: 0 1px 0 #ccc inset;
+				transition: 25s all ease;
 			}
 			.input:hover
 			{
-				box-shadow: 0 0 10px 5px #CCCCCC;
+				width:155px;
 			}
 			.home_icon{
 				transition: transform .2s;
@@ -115,12 +114,12 @@
 						<form action="php/login.php" method="POST">
 							<center>
 								<div style="padding: 20px">
-									<table class="alpha" style="font-size: 14px; margin-top: 25px">
+									<table class="alpha" style="font-size: 14px; margin-top: 12px">
 										<tr>
 											<td> User ID </td>
 											<td> : </td>
 											<td>
-												<input type="text" name="userid" placeholder=" Username" class="input" autofocus="on" required="on">
+												<input type="text" name="userid" placeholder="Username" class="input" autofocus="on" required="on">
 											</td>
 										</tr>
 
@@ -131,7 +130,8 @@
 												<input type="password" name="password" placeholder=" ********" class="input" required="on">
 											</td>
 										</tr>
-
+										<tr></tr>
+										<tr></tr>
 										<tr>
 											<td> </td>
 											<td> </td>
