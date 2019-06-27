@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 04, 2019 at 04:42 PM
+-- Generation Time: Jun 27, 2019 at 04:57 PM
 -- Server version: 5.7.26
 -- PHP Version: 5.6.40
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `hostel_attendance_details` (
   `entered_by` varchar(20) DEFAULT NULL,
   `remarks` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel_attendance_details`
@@ -123,7 +123,19 @@ INSERT INTO `hostel_attendance_details` (`si_no`, `status`, `date_id`, `adm_no`,
 (6, 1, 23, 4501, NULL, 'jerin', 'bad remark'),
 (7, 1, 27, 4501, NULL, 'abijith', 'study leave'),
 (8, 1, 52, 4512, NULL, 'jerin', ''),
-(9, 1, 52, 4516, NULL, 'jerin', '');
+(9, 1, 52, 4516, NULL, 'jerin', ''),
+(10, 1, NULL, 4501, NULL, 'jerin', ''),
+(11, 1, 80, 4501, NULL, 'jerin', ''),
+(12, 1, 80, 4506, NULL, 'jerin', ''),
+(13, 1, 80, 4501, NULL, 'jerin', ''),
+(14, 1, 80, 4506, NULL, 'jerin', ''),
+(15, 1, 80, 4505, NULL, 'jerin', ''),
+(16, 1, 80, 4507, NULL, 'jerin', ''),
+(17, 1, 80, 4507, NULL, 'jerin', ''),
+(18, 1, 80, 4507, NULL, 'jerin', ''),
+(19, 1, NULL, 4506, NULL, 'jerin', ''),
+(20, 1, NULL, 4501, NULL, 'jerin', ''),
+(21, 1, NULL, 4506, NULL, 'jerin', '');
 
 -- --------------------------------------------------------
 
@@ -358,23 +370,25 @@ INSERT INTO `hostel_details` (`si_no`, `academic_year`, `status`, `fee_status`, 
 DROP TABLE IF EXISTS `login`;
 CREATE TABLE IF NOT EXISTS `login` (
   `si_no` int(5) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
   `user_id` varchar(30) NOT NULL,
   `password` varchar(40) NOT NULL,
+  `incharge` varchar(25) NOT NULL,
   `admin_priority` int(2) NOT NULL,
   PRIMARY KEY (`si_no`),
   UNIQUE KEY `si_no` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`si_no`, `user_id`, `password`, `admin_priority`) VALUES
-(1, 'jerin', '3f7cf81f5056b329e5f02ca04e0efa66', 1),
-(2, 'abijith', 'd76f3d05cc9ac98f1f9160274a39fe33', 2),
-(3, 'aditya', '21232f297a57a5a743894a0e4a801fc3', 2),
-(4, 'divya', '65104f10b780a5c9732549a47d4e3239', 1),
-(5, 'ajay', '29e457082db729fa1059d4294ede3909', 1);
+INSERT INTO `login` (`si_no`, `name`, `user_id`, `password`, `incharge`, `admin_priority`) VALUES
+(1, 'Jerin', 'jerin', '3f7cf81f5056b329e5f02ca04e0efa66', 'Student 1', 1),
+(2, 'Abijith', 'abijith', 'd76f3d05cc9ac98f1f9160274a39fe33', 'Student 2', 2),
+(3, 'Aditya', 'aditya', '21232f297a57a5a743894a0e4a801fc3', 'Student 3', 2),
+(4, 'Divya', 'divya', '65104f10b780a5c9732549a47d4e3239', 'Student 4', 2),
+(9, 'Ajay', 'ajay', '29e457082db729fa1059d4294ede3909', 'Student 5', 2);
 
 -- --------------------------------------------------------
 
@@ -389,7 +403,7 @@ CREATE TABLE IF NOT EXISTS `login_details` (
   `session_in` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `session_out` datetime DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=107 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login_details`
@@ -462,7 +476,46 @@ INSERT INTO `login_details` (`si_no`, `user_id`, `session_in`, `session_out`) VA
 (64, 'jerin', '2019-06-04 21:46:37', '2019-06-04 21:46:46'),
 (65, 'jerin', '2019-06-04 21:46:48', NULL),
 (66, 'aditya', '2019-06-04 21:51:24', '2019-06-04 21:53:06'),
-(67, 'jerin', '2019-06-04 21:57:59', NULL);
+(67, 'jerin', '2019-06-04 21:57:59', NULL),
+(68, 'aditya', '2019-06-04 23:22:08', '2019-06-04 23:28:46'),
+(69, 'aditya', '2019-06-04 23:28:50', '2019-06-04 23:29:01'),
+(70, 'jerin', '2019-06-04 23:29:10', NULL),
+(71, 'aditya', '2019-06-10 22:48:20', '2019-06-10 22:49:21'),
+(72, 'jerin', '2019-06-10 22:49:26', '2019-06-10 23:04:27'),
+(73, 'aditya', '2019-06-10 23:04:31', NULL),
+(74, 'aditya', '2019-06-10 23:56:46', NULL),
+(75, 'aditya', '2019-06-13 12:01:50', '2019-06-16 15:08:11'),
+(76, 'jerin', '2019-06-16 15:08:41', NULL),
+(77, 'jerin', '2019-06-17 18:21:13', '2019-06-17 18:21:19'),
+(78, 'aditya', '2019-06-17 18:21:26', NULL),
+(79, 'aditya', '2019-06-17 18:28:03', NULL),
+(80, 'aditya', '2019-06-17 18:54:46', '2019-06-17 19:13:08'),
+(81, 'aditya', '2019-06-17 19:22:22', '2019-06-17 19:46:26'),
+(82, 'jerin', '2019-06-17 19:46:35', NULL),
+(83, 'aditya', '2019-06-17 19:51:37', NULL),
+(84, 'aditya', '2019-06-17 20:24:55', '2019-06-17 20:25:00'),
+(85, 'jerin', '2019-06-17 20:25:04', '2019-06-18 20:24:19'),
+(86, 'jerin', '2019-06-18 20:24:23', '2019-06-18 20:25:24'),
+(87, 'jerin', '2019-06-18 20:25:27', '2019-06-18 23:06:27'),
+(88, 'jerin', '2019-06-18 23:06:31', NULL),
+(89, 'jerin', '2019-06-19 18:53:08', NULL),
+(90, 'jerin', '2019-06-19 22:07:03', '2019-06-19 22:27:27'),
+(91, 'jerin', '2019-06-19 22:27:29', '2019-06-19 22:28:34'),
+(92, 'jerin', '2019-06-19 22:28:35', '2019-06-19 22:28:55'),
+(93, 'jerin', '2019-06-19 22:28:56', '2019-06-19 22:30:19'),
+(94, 'jerin', '2019-06-19 22:30:21', NULL),
+(95, 'jerin', '2019-06-19 22:34:30', NULL),
+(96, 'jerin', '2019-06-19 22:34:50', NULL),
+(97, 'jerin', '2019-06-19 22:35:07', NULL),
+(98, 'jerin', '2019-06-19 22:35:17', NULL),
+(99, 'jerin', '2019-06-19 22:35:35', '2019-06-19 22:37:29'),
+(100, 'aditya', '2019-06-19 22:37:32', '2019-06-19 22:37:42'),
+(101, 'jerin', '2019-06-19 22:37:45', '2019-06-19 22:41:13'),
+(102, 'aditya', '2019-06-19 22:41:17', '2019-06-19 22:42:14'),
+(103, 'jerin', '2019-06-19 22:42:20', '2019-06-19 22:49:18'),
+(104, 'jerin', '2019-06-19 22:49:20', NULL),
+(105, 'jerin', '2019-06-27 11:10:37', NULL),
+(106, 'jerin', '2019-06-27 22:23:38', NULL);
 
 -- --------------------------------------------------------
 
