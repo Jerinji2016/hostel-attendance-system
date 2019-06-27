@@ -247,6 +247,10 @@
 		var priority = document.getElementById('a_priority').value;
 		var incharge = document.getElementById('a_incharge').value;
 
+		if(name=="" || userid=="" || password=="" || pass_conf=="" || priority=="" || incharge=="")
+		{
+			alert("something");
+		}
 		if(password == pass_conf)
 		{
 			console.log("da");
@@ -267,4 +271,5 @@
 			document.getElementById('a_pass_conf').value = "";
 		}
 	}
+
 </script>
