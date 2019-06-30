@@ -31,9 +31,5 @@
 		$prior = $_GET['priority'];
 		$var_sql = "UPDATE login SET admin_priority=$prior WHERE user_id='$user'";
 	}
-	elseif($action == 5)
-	{
-		//Code for change my Password
-	}
 	mysql_query($var_sql);
 ?>

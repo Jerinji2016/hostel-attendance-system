@@ -86,13 +86,10 @@
 	<a id="markAttend" href="#" onclick="window.location='markAttendance.php'"> 
         Mark Attendance 
     </a>
-    <a id="editAttend" href="#" onclick="window.location='';"> 
+    <a id="editAttend" href="#" onclick="window.location=''"> 
         Edit Attendance Record
     </a>
-    <a id="removeAdmin" href="#" onclick="window.location='';"> 
-        Remove Co-Admins
-    </a>
-    <a id="changePassword" href="#" onclick="window.location='';"> 
+    <a id="changePassword" href="#" onclick="window.location='changePassword.php';"> 
         Change Password 
     </a>
     <a id="hostelReport" href="#" onclick="window.location='';">
@@ -127,11 +124,17 @@
         var display = document.getElementById("display").value;
         switch(display)
         {
-            case "1":   document.getElementById("attend_option").style.color = "#F1F1F1";
+            case "1":   document.getElementById("sendSms").style.color = "#F1F1F1";
                         break;
             case "2":   document.getElementById("createAdmin").style.color = "#F1F1F1";
                         break;
             case "3":   document.getElementById("markAttend").style.color = "#F1F1F1";
+                        break;
+            case "4":   document.getElementById("editAttend").style.color = "#F1F1F1";
+                        break;
+            case "5":   document.getElementById("changePassword").style.color = "#F1F1F1";
+                        break;
+            case "6":   document.getElementById("hostelReport").style.color = "#F1F1F1";
                         break;
         }
     }

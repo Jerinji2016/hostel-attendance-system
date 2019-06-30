@@ -103,12 +103,8 @@
 		</style>
 	</head>
 	<body>
-		<script type="text/javascript">
-			
-		</script>
 		<?php include 'sidebarAdmin.php' ?>
-
-		<h5><center>Be Carefull when u Delete... It really Works..!!</center></h5>
+		
 		<!-- To HighLight in SideBar -->
 		<input type="text" value="2" id="display" style="display: none">
 		<script type="text/javascript"> focusSidebar(); </script>
@@ -200,11 +196,7 @@
 					</div>
 
 					<!-- Division - 2 -->
-					<div style="display: none; padding: 20px"; class="has_lgn_tl_x" id="has_lgn_2_x">		
-						<!-- 
-							priority span ittu pinne change cheydhu matte manaeAdmin_visible call cheydha madhi
-							password usernme nte adi veratte..
-						-->
+					<div style="display: none; padding: 20px"; class="has_lgn_tl_x" id="has_lgn_2_x">
 					</div>
 				</div>				
 			</div>
