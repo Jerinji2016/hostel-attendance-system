@@ -22,5 +22,3 @@
 		</div>
 	</body>
 </html>
-
-<script type="text/javascript" src="../js/markAttendance.js"> </script>

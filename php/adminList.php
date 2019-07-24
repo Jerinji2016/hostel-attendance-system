@@ -21,13 +21,13 @@
 
 <div style="padding: 0px">
 	<center>	
-		<table style="width: 450px" border="1">
+		<table style="width: 450px; text-align: center" class="t2">
 			<tr>
 				<th> Sl No. </th>
 				<th> Name </th>
 				<th> User Id </th>
 				<th> Priority </th>
-				<th colspan="3"> Actions </th>
+				<th> Delete </th>
 			</tr>
 			<?php 
 				while ($row = mysql_fetch_array($result)) 
@@ -38,21 +38,30 @@
 
 					echo "<td>".$sn++."</td>";
 					echo "<td> $row[0] </td>";
-					echo "<td> $row[1] </td>";
-					echo "<td> $row[2] </td>";
 			?>
+					<!-- Password Edit --> 
 					<td> 
-						<div class="tooltip">
-							<img src="../images/adminPanel_icons/admin_priority.png" class="iconImg"/>
-							<span class="tooltiptext"> Change Admin Priority </span>
+						<div style="float: left"> 
+							<?php echo $row[1] ?>
 						</div>
-					</td>
-					<td onclick="editConf('<?php echo $row[1] ?>')">
-						<div class="tooltip">
+						<div id="passChange" class="tooltip" style="float: right" onclick="user[0]='<?php echo $row[1] ?>'; user[1]='<?php echo $row[0] ?>' ;passModalShow()">
 							<img src="../images/adminPanel_icons/edit.png" class="iconImg"/>
-							<span class="tooltiptext"> Edit Password </span>
+							<span class="tooltiptext"> Change Password </span>
+						</div> 
+					</td>
+		
+					<!-- Priority Change -->
+					<td> 
+						<div style="float: left; margin-left: 20px"> 
+							<?php echo $row[2] ?>
+						</div>
+						<div class="tooltip" style="float: right" id="spanIcon">
+							<img src="../images/adminPanel_icons/admin_priority.png" class="iconImg" onclick="user[0]='<?php echo $row[1] ?>'; user[1]='<?php echo $row[0] ?>' ;priorModalShow('<?php echo $row[2] ?>')">
+							<span class="tooltiptext"> Change Priority </span>
 						</div>
 					</td>
+
+					<!-- Delete Admin -->
 					<td onclick="deleteConf('<?php echo $row[1] ?>')">
 						<div class="tooltip">
 							<img src="../images/adminPanel_icons/delete.png" class="iconImg">
@@ -64,5 +73,7 @@
 				}
 			?>
 		</table>
+
+		<input type="button" value="Refresh" onclick="manageAdmin_visible()">
 	</center>
 </div>
