@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 30, 2019 at 07:15 PM
+-- Generation Time: Jul 24, 2019 at 07:29 AM
 -- Server version: 5.7.26
 -- PHP Version: 5.6.40
 
@@ -404,14 +404,18 @@ CREATE TABLE IF NOT EXISTS `login_details` (
   `session_in` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `session_out` datetime DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login_details`
 --
 
 INSERT INTO `login_details` (`si_no`, `user_id`, `session_in`, `session_out`) VALUES
-(1, 'jerin', '2019-07-01 00:44:26', NULL);
+(1, 'jerin', '2019-07-01 00:44:26', NULL),
+(2, 'jerin', '2019-07-01 19:31:31', NULL),
+(3, 'jerin', '2019-07-01 21:52:54', NULL),
+(4, 'jerin', '2019-07-01 22:11:40', NULL),
+(5, 'jerin', '2019-07-24 12:52:09', NULL);
 
 -- --------------------------------------------------------
 
