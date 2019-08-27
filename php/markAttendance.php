@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Mark Attendance </title>
+		<title> Mark Attendance - MBCCCET Peermade </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../css/tabStyle.css">
 	</head>
@@ -105,9 +105,9 @@
 										<td> Course </td>
 										<td> : </td>
 										<td> 
-										<select id="course" class="input" style="width: 100px; margin-left: 3px;" onchange="sem()">
-												<option value='BTECH'> B.Tech </option>
-												<option value='MTECH'> M.Tech </option>
+											<select id="course" class="input" style="width: 100px; margin-left: 3px;" onchange="sem()">
+													<option value='BTECH'> B.Tech </option>
+													<option value='MTECH'> M.Tech </option>
 											</select>
 										</td>
 										<td> Sem </td>

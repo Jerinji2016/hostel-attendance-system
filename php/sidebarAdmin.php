@@ -86,7 +86,7 @@
 	<a id="markAttend" href="#" onclick="window.location='markAttendance.php'"> 
         Mark Attendance 
     </a>
-    <a id="editAttend" href="#" onclick="window.location=''"> 
+    <a id="editAttend" href="#" onclick="window.location='editAttendance.php'"> 
         Edit Attendance Record
     </a>
     <a id="changePassword" href="#" onclick="window.location='changePassword.php';"> 
