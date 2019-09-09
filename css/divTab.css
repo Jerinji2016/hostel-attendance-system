@@ -1,0 +1,72 @@
+body{
+	font-family: 'Open Sans';
+}
+#viewByStudent,#viewByDate,#viewByHostel{
+	transition: transform .2s;
+	border: none;
+	width: 133px;
+	height: 50px;
+	outline: none;
+}
+#viewByStudent:hover,#viewByDate:hover,#viewByHostel:hover{
+	transform: scale(1.1);
+	background-color: #c6c6c6;
+}
+.FormDispArea{
+	color: #666;
+	background-color: #F7F7F7;
+	border-radius: 0px 0px 25px 25px;
+	box-shadow: 0px 0px 15px #999;
+}
+.FormDispArea p{
+	margin: 10px;
+}
+footer{        								 /*DO NOT CHANGE*/
+	position: fixed;                         /*CODE VERIFIED - OK*/
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+.button_go{									/*DO NOT CHANGE*/
+	border: none;							/*CODE VERIFIED - OK*/
+	background-color: darkgray;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	outline: none;
+	transition: .5s;
+}
+.button_go:hover{							/*DO NOT CHANGE*/
+	background-color: royalblue;			/*CODE VERIFIED - OK*/
+	color: white;
+	cursor: pointer;
+}
+.input{
+	height: 25px;
+	border-radius: 7px;
+	border-style: dotted;
+	border-color: darkgray;
+	font-family: 'Open Sans';
+	outline: none;
+}
+.has_lgn_tl_x p{
+	font-family: 'Open Sans';
+	font-weight: lighter;
+}
+.report{
+	border-radius: 7px;
+	border-style: dotted;
+	border-color: darkgray;
+	font-family: 'Open Sans';
+	outline: none;
+	width: 98%;
+}
+@media (max-width: 500px){
+	.main_form{
+		padding-right: 25px;
+		padding-top: 100px;
+	}
+}
