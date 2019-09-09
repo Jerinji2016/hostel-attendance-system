@@ -26,7 +26,7 @@
 				if($row[2] > 1)
 					header("Location: mbc.php");
 				else
-					header("Location: adminPanel.php");
+					header("Location: sendSMS.php");
 			}
 			else
 				header("Location: ../login.html");

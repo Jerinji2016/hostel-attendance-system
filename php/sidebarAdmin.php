@@ -77,7 +77,7 @@
 </div>
 
 <div id="adminBar" class="sidebar">
-    <a id="sendSms" href="#" onclick="window.location='';"> 
+    <a id="sendSms" href="#" onclick="window.location='sendSMS.php';"> 
         Send SMS
     </a>
 	<a id="createAdmin" href="#" onclick="window.location='manageAdmin.php'"> 
