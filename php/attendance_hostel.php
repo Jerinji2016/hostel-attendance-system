@@ -16,23 +16,14 @@
 		{
 			$z = "remark".$varx;
 			$remark = $_POST[$z];
-			$var = "INSERT INTO hostel_attendance_details(status,date_id,adm_no,entered_by,remarks) VALUES (1,".$row_date[0].",".$varx.",'".$row[0]."','".$remark."')";
+			$var = "INSERT INTO hostel_attendance_details(status,date_id,adm_no,entered_by,remarks) VALUES (0,".$row_date[0].",".$varx.",'".$row[0]."','".$remark."')";
 			echo "<br>".$var;
 			mysql_query($var);
 		}
 	}
-
 	session_start();
-	alert();
 	if($_SESSION['user_priority'] == "1")
 		header("Location: markAttendance.php");
 	else
 		header("Location: mbc.php");
-
-	function alert()
-	{
-		echo "<script>";
-		echo "alert('Data Submitted');";
-		echo "</script>";
-	}
 ?>

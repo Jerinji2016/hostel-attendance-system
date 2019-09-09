@@ -111,6 +111,7 @@
 	</a>
 	<a id="view_option" href="#" onclick="window.location='attendanceTab_admin.php';"> View Record </a>
 	<a id="leave_option" href="#"> Leave Request </a>
+	<a id="report_option" href="#" onclick="window.location='reportStudent.php';"> Report a Student </a>
 </div>
 
 <script type="text/javascript">
@@ -138,10 +139,16 @@
 	function focusSidebar()
 	{
 		var display = document.getElementById("display").value;
-		if(display == "1")
-			document.getElementById("attend_option").style.color = "#F1F1F1";
-		else
-			if(display == "2")
-				document.getElementById("view_option").style.color = "#F1F1F1";
+		switch(display)
+        {
+            case "1":   document.getElementById("attend_option").style.color = "#F1F1F1";
+                        break;
+            case "2":   document.getElementById("view_option").style.color = "#F1F1F1";
+                        break;
+            case "3":   document.getElementById("leave_option").style.color = "#F1F1F1";
+                        break;
+            case "4":   document.getElementById("report_option").style.color = "#F1F1F1";
+                        break;
+        }
 	}
 </script>

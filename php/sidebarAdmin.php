@@ -92,7 +92,7 @@
     <a id="changePassword" href="#" onclick="window.location='changePassword.php';"> 
         Change Password 
     </a>
-    <a id="hostelReport" href="#" onclick="window.location='';">
+    <a id="hostelReport" href="#" onclick="window.location='hostelReport.php';">
         Hostel Reports
     </a>
 </div>

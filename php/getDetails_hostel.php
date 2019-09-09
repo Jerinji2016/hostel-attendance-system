@@ -218,7 +218,7 @@
 
 <script type="text/javascript">
 	//The function drop_appear() is defined in mbc.php
-	//I dont know why im doing this
+	//I have no !dea why im doing this
 </script>
 
 

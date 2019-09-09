@@ -14,7 +14,6 @@
 		</style>
 	</head>
 	<body>
-		<h1>Hai</h1>
 		<?php include 'sidebarAdmin.php' ?>
 
 		<!-- To HighLight in SideBar -->
@@ -22,7 +21,7 @@
 		<script type="text/javascript"> focusSidebar(); </script>
 
 		<div id="main">
-		
+			<h1>Hai</h1>
 		</div>
 	</body>
 </html>
