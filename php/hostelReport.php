@@ -1,6 +1,12 @@
 <?php
 	include 'session.php';
 	include 'dbConnect.php';
+
+	if(isset($_POST['submitButton']))
+	{
+		echo $_POST['count'];
+		echo "(".$_COOKIE['month'].")";
+	}
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +21,9 @@
 			td{
 				padding: 10px;
 			}
+			.button_go:hover{
+				background-color: green;
+			}
 		</style>
 	</head>
 
@@ -28,7 +37,15 @@
 			<div style="margin-top: 50px;">
 				<center>
 					<form action="" method="post">
-						<input type="month" class="input" name="month" id="month" value="<?php echo date('Y-m'); ?>">
+						<input type="month" class="input" name="month" id="month" value=
+						<?php 
+							if($_POST['month']=="") 
+								echo date('Y-m'); 
+							else 
+							{
+								echo $_POST['month'];
+							}
+						?> >
 						<input type="submit" name="submitButton" value="GO" class="button_go">
 					</form>
 				</center>
@@ -55,45 +72,49 @@
 						<center>
 							<table style="width: auto; text-align: center">
 								<tr>
-									<th>Sl. No.</th>
-									<th>Date</th>
-									<th>Name</th>
-									<th>Course</th>
-									<th>Report Details</th>
-									<th>Reported By</th>
+									<th> Sl. No. </th>
+									<th> Date </th>
+									<th> Name </th>
+									<th> Course </th>
+									<th> Report Details </th>
+									<th> Reported By </th>
+									<th> Status </th>
 								</tr>
 						<?php 
 							$i=1;
 							while($row = mysql_fetch_array($res))
 							{
-								if($row[5]==1)
-									echo "<tr style='background-color: lightgrey; color: solid black'>";
+								if($row[6]==1)
+									echo "<tr style='background-color: lightgrey'>";
 								else
-									echo "<tr style='background-color: white'>";	
+									echo "<tr style='background-color: white'>";
+										
 									echo "<td>";
 										echo $i;   																				//1. Sl No.
 									echo "</td>";
 									echo "<td>";
-										echo $row[8];																			//2. Date
+										echo $row[9];																			//2. Date
 									echo "</td>";
 									echo "<td>";
 										echo $row[1];																			//3. Name
 									echo "</td>";
 									echo "<td>";
-										echo $row[2]."<br>";																	//4. Course
-										echo $row[4]." - ".$row[3];
+										echo $row[3]."<br>";																	//4. Course
+										echo $row[5]." - ".$row[4];
 									echo "</td>";
 									echo "<td>";
-										echo $row[6];																			//5. Report Details
+										echo $row[7];																			//5. Report Details
 									echo "</td>";
 									echo "<td>";
-										echo $row[7];																			//6. Reported By
+										echo $row[8 ];																			//6. Reported By
 									echo "</td>";	
-									if($row[5]==1)
+									if($row[6]==1)
 									{
 										echo "<td>";
-											echo "<input type='hidden' name='count' value=".count($row).">";
-											echo "<input type='submit' class='button_go' value='Mark Read'>";		//7. Read
+										echo "<form method='post' action=''>";
+											echo "<input type='hidden' name='count' value=$i>";
+											echo "<input type='submit' class='button_go' value='Mark Read' name='submitButton'>";		//7. Read
+										echo "</form>";
 										echo "</td>";	
 									}
 									else

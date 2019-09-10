@@ -8,16 +8,30 @@
 		$name = $_POST['s_name'];
 		$report = $_POST['report'];
 		$d = "date";
+
 		include 'dbConnect.php';
 		session_start();
 
-		$var_sql = "INSERT INTO report_student(name,course,semester,branch,report,".$d.",status,incharge) VALUES('".$name."','".$course."','".$semester."','".$branch."','".$report."','".date('Y-m-d')."',1,'".$_SESSION['u_name']."')"; 
-		
+		$name_fetch = "SELECT adm_no FROM hostel_details WHERE name='$name' AND course='$course' AND branch='$branch' AND semester='$semester'";
+		$res = mysql_query($name_fetch);
+		$row = mysql_fetch_array($res);
+
+		$var_sql = "INSERT INTO report_student(name,course,semester,branch,report,".$d.",status,incharge,adm_no) VALUES('".$name."','".$course."','".$semester."','".$branch."','".$report."','".date('Y-m-d')."',1,'".$_SESSION['u_name']."',$row[0])"; 
+		echo $var_sql;
+
 		if(mysql_query($var_sql))
 		{
 			?> 
 			<script type="text/javascript">
-				alert("Reported!")
+				alert("Reported!");
+			</script>
+			<?php
+		}
+		else
+		{
+			?> 
+			<script type="text/javascript">
+				alert("Report Failed");
 			</script>
 			<?php
 		}
