@@ -1,7 +1,8 @@
 <?php
 	//This file contains all the Actions done by Admin
 
-	$action = $_GET['action'];
+	if(!isset($_POST['submitAll']))
+		$action = $_GET['action'];
 	include 'dbConnect.php';
 
 	if ($action == 1) 
@@ -30,6 +31,10 @@
 		$user = $_GET['user'];
 		$prior = $_GET['priority'];
 		$var_sql = "UPDATE login SET admin_priority=$prior WHERE user_id='$user'";
+	}
+	elseif(isset($_POST['submitAll']))
+	{
+		echo var_dump($_COOKIE['name']);
 	}
 	mysql_query($var_sql);
 ?>

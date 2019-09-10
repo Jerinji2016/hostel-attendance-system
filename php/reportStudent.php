@@ -17,8 +17,7 @@
 		$row = mysql_fetch_array($res);
 
 		$var_sql = "INSERT INTO report_student(name,course,semester,branch,report,".$d.",status,incharge,adm_no) VALUES('".$name."','".$course."','".$semester."','".$branch."','".$report."','".date('Y-m-d')."',1,'".$_SESSION['u_name']."',$row[0])"; 
-		echo $var_sql;
-
+		
 		if(mysql_query($var_sql))
 		{
 			?> 
