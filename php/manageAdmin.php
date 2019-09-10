@@ -24,7 +24,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Manage Admin </title>
+		<title> Manage Admin - MBCCET Peermade </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../css/tabStyle.css?v=1">
 		<style type="text/css">

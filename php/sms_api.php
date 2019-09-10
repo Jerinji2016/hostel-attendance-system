@@ -7,7 +7,7 @@
     $username =$row[0];
     $password =$row[1];
 
-    $mob_number="9947189437";
+    $mob_number="7012788627";
     // Sender ID
     //Add a comment to this line
     $approved_senderid="SMSIND";  //CASH PAY CHEYYUMBOL NAMMAKKU ORU SENDER ID AVAR THARUM, ATHU NAMMAL IVIDE ENTER CHEYYANAM INSTEAD OF "SMSIND"

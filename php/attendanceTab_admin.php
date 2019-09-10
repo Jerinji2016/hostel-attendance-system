@@ -139,7 +139,7 @@ include 'session.php';
 											<td>
 												<span id="sem_change" style="float: right">
 													<select class="input" id="semester" name="semester" class="has_sel_fld">
-														<option class="input">-select-</option>
+														<option class="input" value="">-select-</option>
 													</select>
 												</span>
 											</td>
@@ -174,11 +174,11 @@ include 'session.php';
 												<!--<input class="button" type="submit" value="GO">-->
 											</td>
 										</tr>
-										<script type="text/javascript" src="../js/sem.js"></script>
-										<script type="text/javascript" src="../js/name_Array.js?v=1"></script>
-										<script type="text/javascript" src="../js/autoComplete.js"></script>
+<script type="text/javascript" src="../js/sem.js"></script>
+<script type="text/javascript" src="../js/name_Array.js?v=3"></script>
+<script type="text/javascript" src="../js/autoComplete.js?v=1"></script>
 
-										<script type="text/javascript"> sem(); </script>
+<script type="text/javascript"> sem(); </script>
 									</table>
 								</div>
 							</form>

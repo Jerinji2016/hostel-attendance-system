@@ -77,7 +77,7 @@
 </div>
 
 <div id="adminBar" class="sidebar">
-    <a id="sendSms" href="#" onclick="window.location='';"> 
+    <a id="sendSms" href="#" onclick="window.location='sendSMS.php';"> 
         Send SMS
     </a>
 	<a id="createAdmin" href="#" onclick="window.location='manageAdmin.php'"> 
@@ -86,13 +86,13 @@
 	<a id="markAttend" href="#" onclick="window.location='markAttendance.php'"> 
         Mark Attendance 
     </a>
-    <a id="editAttend" href="#" onclick="window.location=''"> 
+    <a id="editAttend" href="#" onclick="window.location='editAttendance.php'"> 
         Edit Attendance Record
     </a>
     <a id="changePassword" href="#" onclick="window.location='changePassword.php';"> 
         Change Password 
     </a>
-    <a id="hostelReport" href="#" onclick="window.location='';">
+    <a id="hostelReport" href="#" onclick="window.location='hostelReport.php';">
         Hostel Reports
     </a>
 </div>

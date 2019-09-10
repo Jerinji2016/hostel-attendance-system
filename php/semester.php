@@ -4,9 +4,9 @@
 	$mon = date("m");
 
 	if($mon >= 2 && $mon <=7)
-		$i=1;
-	else
 		$i=2;
+	else
+		$i=1;
 
 	echo "<select class='input' id='semester' name='semester' class='has_sel_fld' style='width: 100px; margin-left: 3px; height: 28px' onchange='name_call()'>";
 
