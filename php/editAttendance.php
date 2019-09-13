@@ -30,24 +30,35 @@
 						
 						<div class="has_lgn_tl atv" id="has_lgn_2" style="border:none; padding: 0; width:50%">
 							<button id="button2" name="head2" style="float: right; font-weight: bold; width:100%">
-								Department
+								Hostel
 	                    	</button>
 						</div>
 					</div>
 
 					<!-- Search By Hostel Details -->
-					<div style="display: block" id="has_lgn_1_x">
-						<form id="hostel_form" method="post" enctype="multipart/form-data">
-							<div style="padding: 20px; padding-left: 35px;"> 
-								<center>
+					<div style="display: none" id="has_lgn_1_x">
+						<div style="padding: 20px; padding-left: 35px;"> 
+							<center>
+								<div style="padding: 10px; margin-bottom: 10px; box-shadow: 0px 1px 0px 0px black">
+									<label> Date : </label>
+									<input type="date" name="date" class="input" value="<?php echo date('Y-m-d'); ?>">
+								</div>
+								<div id="adm_div" style="transition: .8s; padding-top: 10px; padding-bottom: 15px; box-shadow: 0 0 15px 3px white inset; border-radius: 25px">
 									<table>
 										<tr>
 											<td colspan="2"> Adm No. : </td>
-											<td colspan="4"> <input type="text" id="admno" placeholder="Admission No." style="width: 100%; text-align: center" class="input"> </td>
+											<td colspan="4"> 
+												<input type="text" id="admno" placeholder="Admission No." style="width: 100%; text-align: center" class="input" autocomplete="off"> 
+											</td>
+											<td>
+												<input type="button" value="Go" class="button" style="width: auto; padding: 5px 15px;border-radius :5px; border: none; margin-left: 15px;" onclick="admGetDetails()">
+											</td>
 										</tr>
-										<tr>
-											<td colspan="6" style="text-align: center;"> ========= OR ======== </td>
-										</tr>
+									</table>
+								</div>			
+								----------------------------------------------------						
+								<div id="stud_div" style="transition: .8s; background-color: darkgrey; opacity: .3; padding-top: 20px; box-shadow: 0 0 15px 3px white inset; border-radius: 25px">
+									<table>
 										<tr height="30">
 											<td> Course </td>
 											<td> : </td>
@@ -86,7 +97,7 @@
 											<td> Name </td>
 											<td> : </td>
 											<td colspan="4">
-												<input type="text" id="s_name" class="input" placeholder=" Student Name" style="width: 240px; margin-left: 3px; text-align: center">
+												<input type="text" id="s_name" class="input" placeholder=" Student Name" style="width: 240px; margin-left: 3px; text-align: center" autocomplete="off">
 											</td>
 										</tr>
 
@@ -98,115 +109,206 @@
 <script type="text/javascript"> sem(); </script>
 									
 										<tr>
-											<td></td>
-											<td colspan="4"></td>
-											<td>
-												<input type="button" value="Go" class="button" style="width:auto; padding:5px 15px;border-radius:5px; border: none" onclick="studDetails()"> 
+											<td colspan="5">
+												<label style="font-size: .55em"> *Leave Name field empty for Department wise Record </label>
+											</td>
+											<td align="right">
+												<input type="button" value="Go" class="button" style="width:auto; padding:5px 15px;border-radius:5px; border: none" onclick="studGetDetails()"> 
 											</td> 
 										</tr>
 									</table>
-								</center>
-							</div>
-						</form>
+								</div>
+							</center>
+						</div>
 					</div>
 
 					<!-- Search By Student Details -->
-					<div style="display: none" id="has_lgn_2_x">
-						<form id="hostel_form" method="post" enctype="multipart/form-data" autocomplete="off">
-							<div style="padding: 20px; padding-left: 35px;"> 
-								<center> <form action='' method="post">
+					<div style="display: block" id="has_lgn_2_x">
+						<div style="padding: 20px; padding-left: 35px;"> 
+							<center> 
+								<div style="padding: 10px; margin-bottom: 10px; box-shadow: 0px 1px 0px 0px black">
+									<label> Date : </label>
+									<input type="date" name="c_date" class="input" value="<?php echo date('Y-m-d'); ?>">
+								</div>
+								<div>
 									<table style="font-size: 14px">
 										<tr>
-											<td> Course </td>
+											<td> Hostel </td>
 											<td> : </td>
 											<td> 
-												<select id="course_x" class="input" style="width: 100px; margin-left: 3px;" onchange="sem_x1()">
-														<option value='BTECH'> B.Tech </option>
-														<option value='MTECH'> M.Tech </option>
+												<select id="hostelno" class="input" style="width: 100px; margin-left: 3px;" onchange="floor()">
+													<option value=""> --select-- </option>
+													<option value='1'> HOSTEL 1 </option>
+													<option value='2'> HOSTEL 2 </option>
 												</select>
 											</td>
-											<td> Sem </td>
-											<td> : </td>
-											<td>
-												<select id="sem_x" class="input"></select>
-											</td>
 										</tr>
+
+										<tr id="floor_change"> </tr>
+										
+										<tr id="room_change"> </tr>
+
 										<tr>
-											<td colspan=6 align="right">
-												<input type="button" onclick="fetchDetails()" class="button" value="Go" style="width:auto; padding:5px 15px;border-radius:5px; border: none">
+											<td colspan="3" align="right">
+												<input type="button" class="button" value="Go" style="width: auto; padding: 5px 15px;border-radius: 5px; border: none" onclick="hostelGetDetails()">
 											</td>
 										</tr>
 									</table>
-								</center> </form>
-							</div>
-						</form>
+								</div>
+							</center>
+						</div>
 					</div>	
 				</div>
 			</div>
 		</div>
-
-		<h1> Redirection or AJAX load details... <br>
-			 fetchDetails() & studDetails()
-		</h1>
+		<div id="get"> </div>
 	</body>
 </html>
 
 <script type="text/javascript">
 	window.onload = function()
 	{
-	    document.getElementById("has_lgn_1").addEventListener('click', department);
-	    document.getElementById("has_lgn_2").addEventListener('click', student);
+	    document.getElementById("has_lgn_1").addEventListener('click', 
+	    	function()
+	    	{
+	    		document.getElementById("has_lgn_2_x").style.display = "none";
+				document.getElementById("has_lgn_1_x").style.display = "block";
+				document.getElementById("button1").style.backgroundColor = "darkgrey";
+				document.getElementById("button2").style.backgroundColor = "#F7F7F7";
+	    	});
+
+	    document.getElementById("has_lgn_2").addEventListener('click', 
+	    	function()
+	    	{
+	    		document.getElementById("has_lgn_1_x").style.display = "none";
+				document.getElementById("has_lgn_2_x").style.display = "block";
+				document.getElementById("button2").style.backgroundColor = "darkgrey";
+				document.getElementById("button1").style.backgroundColor = "#F7F7F7";
+				name_call();
+	    	});
+
+	    document.getElementById("adm_div").addEventListener('click', 
+	    	function()
+		    {
+		    	document.getElementById("adm_div").style.opacity = 1;
+		    	document.getElementById("adm_div").style.backgroundColor = "white";
+		    	document.getElementById("stud_div").style.opacity = .3;
+		    	document.getElementById("stud_div").style.backgroundColor = "darkgrey";
+		    });
+
+	    document.getElementById("stud_div").addEventListener('click', 
+	    	function()
+		    {
+		    	document.getElementById("adm_div").style.opacity = .3;
+		    	document.getElementById("adm_div").style.backgroundColor = "darkgrey";
+		    	document.getElementById("stud_div").style.opacity = 1;
+		    	document.getElementById("stud_div").style.backgroundColor = "white";
+		    });
 	}
 
-	function student()
-	{
-		document.getElementById("has_lgn_1_x").style.display = "none";
-		document.getElementById("has_lgn_2_x").style.display = "block";
-		document.getElementById("button2").style.backgroundColor = "darkgrey";
-		document.getElementById("button1").style.backgroundColor = "#F7F7F7";
-
-		name_call();
-	}
-
-	function department()
-	{
-		document.getElementById("has_lgn_2_x").style.display = "none";
-		document.getElementById("has_lgn_1_x").style.display = "block";
-		document.getElementById("button1").style.backgroundColor = "darkgrey";
-		document.getElementById("button2").style.backgroundColor = "#F7F7F7";
-		sem_x1();
-	}
-	function sem_x1()
+	var c=0;
+	function floor()
 	{	
-		clear();
-		var c = document.getElementById('course_x');
-		var sel = document.getElementById('sem_x');
-		var a;
-		if(c.value=="BTECH")
+		var target=document.getElementById("floor_change");
+		var hostel_code=document.getElementById("hostelno").value;
+		var f = "<td> Floor </td> <td> : </td> <td>";
+		
+		var xhr = new XMLHttpRequest();
+		var x="&hostel_code="+hostel_code;
+		xhr.open('GET','mbcFloor.php?'+x,true);
+		xhr.onreadystatechange = function()
 		{
-			for (var i = 1; i <= 8; i++) 
+			if(xhr.readyState==4 && xhr.status==200)
+				target.innerHTML = f+xhr.responseText+"</td>";
+		}
+		xhr.send(x);
+		c=1;
+	}
+
+	function room()
+	{
+		var target=document.getElementById("room_change");
+		var hostel=document.getElementById("hostelno").value;
+		var floor=document.getElementById("floorno").value;
+		var r = "<td> Room </td> <td> : </td> <td>";
+
+		var xhr=new XMLHttpRequest();
+		var x="&hostel="+hostel+"&floor="+floor;
+		xhr.open('GET','mbcRoom.php?'+x,true);
+		
+		xhr.onreadystatechange = function()
+		{
+			if(xhr.readyState==4 && xhr.status==200)
+				target.innerHTML = r+xhr.responseText+"</td>";
+		}
+		xhr.send(x);
+		c=2;
+	}
+
+	var get = document.getElementById('get');
+
+	function admGetDetails()
+	{
+		var d = document.getElementById('c_date').value; 
+		if(document.getElementById('admno').value != "")
+		{
+			var x = '&action=1&admno='+document.getElementById('admno').value+"&date="+d;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET','editAttendanceAction.php?'+x,true);
+			xhr.onreadystatechange = function()
 			{
-				var opt = document.createElement("option");
-				opt.appendChild(document.createTextNode("S"+i));
-				opt.value="S"+i;
-				sel.appendChild(opt);
+				if(xhr.readyState==4 && xhr.status==200)
+					get.innerHTML = xhr.responseText;
 			}
+			xhr.send(x);
 		}
 		else
 		{
-			for (var i = 1; i <= 4; i++) 
-			{
-				var opt = document.createElement("option");
-				opt.appendChild(document.createTextNode("M"+i));
-				opt.value="M"+i;
-				sel.appendChild(opt);
-			}
+			alert("Enter Admission No.!");
 		}
-	}sem_x1();
-	function clear()
+	}
+
+	function studGetDetails()
 	{
-		var sel = document.getElementById('sem_x');
-		for (var i = sel.length; i >= 0; i--) 
-			sel.remove(i);
+		var course = document.getElementById('course').value;
+		var semester = document.getElementById('semester').value;
+		var branch = document.getElementById('branch').value;
+		var s_name = document.getElementById('s_name').value;
+		var d = document.getElementById('c_date').value; 
+		var x = "&course="+course+"&branch="+branch+"&semester="+semester+"&date="+d+"&action=";
+		if(document.getElementById('s_name').value == "")
+		{
+			x += '3';
+		}
+		else
+			x += '2';
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET','editAttendanceAction.php?'+x,true);
+		xhr.onreadystatechange = function()
+		{
+			if(xhr.readyState==4 && xhr.status==200)
+				get.innerHTML = xhr.responseText;
+		}
+		xhr.send(x);
+	}
+
+	function hostelGetDetails()
+	{
+		var hostel = document.getElementById('hostelno').value;
+		var d = document.getElementById('c_date').value; 
+		var floor=null, room=null;
+		if(c >= 1)
+			floor = document.getElementById('floorno').value;
+		if(c == 2)
+			room = document.getElementById('roomno').value;
+		var x = "&hostel="+hostel+"&floor="+floor+"&room="+room+"&date="+d+"&action=4";
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET','editAttendanceAction.php?'+x,true);
+		xhr.onreadystatechange = function()
+		{
+			if(xhr.readyState==4 && xhr.status==200)
+				get.innerHTML = xhr.responseText;
+		}
+		xhr.send(x);
 	}
 </script>
