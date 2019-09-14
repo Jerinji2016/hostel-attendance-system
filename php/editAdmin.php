@@ -1,5 +1,5 @@
 <?php
-	//This file contains all the Actions done by Admin
+	//This file contains all the Actions done by Admin (manageAdmin.php)
 
 	$action = $_GET['action'];
 	include 'dbConnect.php';

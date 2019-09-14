@@ -1,7 +1,31 @@
 <?php
 	include 'session.php';
 	include 'dbConnect.php';
+
+	if(isset($_POST['submitAll']))
+	{
+		$w = "";
+		$a = $_COOKIE['all'];
+		for($i=0;$i<strlen($a);$i++)
+		{
+			if($a[$i] == '*')
+			{
+				echo $w;
+				$var = "UPDATE report_student SET status = 0 WHERE adm_no = ".$w;
+				mysql_query($var);
+				$w = "";
+			}
+			else
+			{
+				$w = $w.$a[$i]; 
+			}
+		}
+	}
 ?>
+
+<script type="text/javascript">
+	var all="";
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +38,9 @@
 		<style type="text/css">
 			td{
 				padding: 10px;
+			}
+			.button_go:hover{
+				background-color: green;
 			}
 		</style>
 	</head>
@@ -28,7 +55,13 @@
 			<div style="margin-top: 50px;">
 				<center>
 					<form action="" method="post">
-						<input type="month" class="input" name="month" id="month" value="<?php echo date('Y-m'); ?>">
+						<input type="month" class="input" name="month" id="month" value=
+						<?php 
+							if($_POST['month']=="") 
+								echo date('Y-m'); 
+							else 
+								echo $_POST['month'];
+						?> >
 						<input type="submit" name="submitButton" value="GO" class="button_go">
 					</form>
 				</center>
@@ -55,57 +88,66 @@
 						<center>
 							<table style="width: auto; text-align: center">
 								<tr>
-									<th>Sl. No.</th>
-									<th>Date</th>
-									<th>Name</th>
-									<th>Course</th>
-									<th>Report Details</th>
-									<th>Reported By</th>
+									<th> Sl. No. </th>
+									<th> Date </th>
+									<th> Name </th>
+									<th> Course </th>
+									<th> Report Details </th>
+									<th> Reported By </th>
+									<th> Status </th>
 								</tr>
 						<?php 
 							$i=1;
 							while($row = mysql_fetch_array($res))
 							{
-								if($row[5]==1)
-									echo "<tr style='background-color: lightgrey; color: solid black'>";
+								if($row[6]==1)
+									echo "<tr style='background-color: lightgrey'>";
 								else
-									echo "<tr style='background-color: white'>";	
+									echo "<tr style='background-color: white'>";
+
 									echo "<td>";
 										echo $i;   																				//1. Sl No.
 									echo "</td>";
 									echo "<td>";
-										echo $row[8];																			//2. Date
+										echo date('d-m-Y',strtotime($row[9]));													//2. Date
 									echo "</td>";
 									echo "<td>";
 										echo $row[1];																			//3. Name
 									echo "</td>";
 									echo "<td>";
-										echo $row[2]."<br>";																	//4. Course
-										echo $row[4]." - ".$row[3];
+										echo $row[3]."<br>";																	//4. Course
+										echo $row[5]." - ".$row[4];
 									echo "</td>";
 									echo "<td>";
-										echo $row[6];																			//5. Report Details
+										echo $row[7];																			//5. Report Details
 									echo "</td>";
 									echo "<td>";
-										echo $row[7];																			//6. Reported By
+										echo $row[8 ];																			//6. Reported By
 									echo "</td>";	
-									if($row[5]==1)
-									{
-										echo "<td>";
-											echo "<input type='hidden' name='count' value=".count($row).">";
-											echo "<input type='submit' class='button_go' value='Mark Read'>";		//7. Read
-										echo "</td>";	
-									}
-									else
-									{
-										echo "<td>";
+
+									echo "<td>";
+										if($row[6]==1)																			//7. Read
+										{
+										?>
+											<button class='button_go' id='<?php echo $row[2]; ?>' onclick="marked(this,this.id)"> Mark Read </button>
+										<?php
+										}	
+										else
+										{
 											echo "<label style='color: green'> Checked </label>";
-										echo "</td>";
-									}
+										}
+									echo "</td>";
 								echo "</tr>";
 								$i++;
 							}
 						?>
+								<tr>
+									<td colspan="7" style="text-align: right">
+										<form action="" method="post">
+											<input type="submit" name="submitAll" class="button_go" style="">
+										</form>
+									</td>
+								</tr>
 							</table>
 						</center>
 					</div>
@@ -114,3 +156,14 @@
 		</div>
 	</body>
 </html>
+
+<script type="text/javascript">
+	function marked(id,val)
+	{
+		all = all + val + "*";
+		console.log(all);
+		document.cookie = 'all='+all;
+		id.parentNode.parentNode.style.backgroundColor = "lightgreen";
+		id.parentNode.innerHTML = "<b> Marked </b>"; //Put some temporary read notification here
+	}
+</script>
