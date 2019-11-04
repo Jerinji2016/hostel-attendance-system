@@ -1,9 +1,51 @@
+<?php 
+	if(isset($_POST['submitBtn']))
+	{
+		include 'dbConnect.php';
+		$w="";
+		$a = $_COOKIE['all'];
+		for($i=0; $i<strlen($a); $i++)
+		{
+			if($a[$i] == '*')
+			{
+				$d_var = "DELETE FROM hostel_attendance_details WHERE adm_no = $w  AND date_id=".$_POST['date_id'];
+				mysql_query($d_var);
+				$w="";
+			}
+			else
+				$w .= $a[$i];
+		}
+		?> <script type="text/javascript"> alert("Records Cleared")</script> <?php
+	}	
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<title> Edit Attendance - MBCCET Peermade </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../css/tabStyle.css">
+		<link rel="stylesheet" type="text/css" href="../css/divTab.css?v=3">
+		<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+		<style type="text/css">
+			table, td, tr{
+				transition: .5s;
+				text-align: center
+			}
+			.displayTable
+			td{
+				padding: 10px;
+			}
+			.displayTable
+			th{
+				background-color: lightgray;
+			}
+			.displayTable
+			tr{
+				box-shadow: 0px 0px 10px 10px white;
+			}
+		</style>
 	</head>
 	<body>
 		<?php include 'sidebarAdmin.php' ?>
@@ -36,7 +78,7 @@
 					</div>
 
 					<!-- Search By Hostel Details -->
-					<div style="display: none" id="has_lgn_1_x">
+					<div style="display: block" id="has_lgn_1_x">
 						<div style="padding: 20px; padding-left: 35px;"> 
 							<center>
 								<div style="padding: 10px; margin-bottom: 10px; box-shadow: 0px 1px 0px 0px black">
@@ -123,12 +165,12 @@
 					</div>
 
 					<!-- Search By Student Details -->
-					<div style="display: block" id="has_lgn_2_x">
+					<div style="display: none" id="has_lgn_2_x">
 						<div style="padding: 20px; padding-left: 35px;"> 
 							<center> 
 								<div style="padding: 10px; margin-bottom: 10px; box-shadow: 0px 1px 0px 0px black">
 									<label> Date : </label>
-									<input type="date" name="c_date" class="input" value="<?php echo date('Y-m-d'); ?>">
+									<input type="date" id="c_date" class="input" value="<?php echo date('Y-m-d'); ?>">
 								</div>
 								<div>
 									<table style="font-size: 14px">
@@ -162,10 +204,15 @@
 			</div>
 		</div>
 		<div id="get"> </div>
+		<footer>
+			<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
+		</footer>
 	</body>
 </html>
 
 <script type="text/javascript">
+	var all ="";
+	var d;
 	window.onload = function()
 	{
 	    document.getElementById("has_lgn_1").addEventListener('click', 
@@ -250,8 +297,10 @@
 	function admGetDetails()
 	{
 		var d = document.getElementById('c_date').value; 
+		document.cookie = 'date='+d;
 		if(document.getElementById('admno').value != "")
 		{
+			hide_mainDiv();
 			var x = '&action=1&admno='+document.getElementById('admno').value+"&date="+d;
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET','editAttendanceAction.php?'+x,true);
@@ -270,18 +319,19 @@
 
 	function studGetDetails()
 	{
+		hide_mainDiv();
 		var course = document.getElementById('course').value;
 		var semester = document.getElementById('semester').value;
 		var branch = document.getElementById('branch').value;
 		var s_name = document.getElementById('s_name').value;
 		var d = document.getElementById('c_date').value; 
+		document.cookie = 'date='+d;
+
 		var x = "&course="+course+"&branch="+branch+"&semester="+semester+"&date="+d+"&action=";
 		if(document.getElementById('s_name').value == "")
-		{
 			x += '3';
-		}
 		else
-			x += '2';
+			x += '2&sname='+s_name;
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET','editAttendanceAction.php?'+x,true);
 		xhr.onreadystatechange = function()
@@ -294,21 +344,54 @@
 
 	function hostelGetDetails()
 	{
-		var hostel = document.getElementById('hostelno').value;
-		var d = document.getElementById('c_date').value; 
-		var floor=null, room=null;
-		if(c >= 1)
-			floor = document.getElementById('floorno').value;
-		if(c == 2)
-			room = document.getElementById('roomno').value;
-		var x = "&hostel="+hostel+"&floor="+floor+"&room="+room+"&date="+d+"&action=4";
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET','editAttendanceAction.php?'+x,true);
-		xhr.onreadystatechange = function()
+		if(document.getElementById('hostelno').value == "")
 		{
-			if(xhr.readyState==4 && xhr.status==200)
-				get.innerHTML = xhr.responseText;
+			alert("Please Select a Hostel");
 		}
-		xhr.send(x);
+		else
+		{
+			hide_mainDiv();
+			var hostel = document.getElementById('hostelno').value;
+			var d = document.getElementById('c_date').value; 
+			document.cookie = 'date='+d;
+			var floor=null, room=null;
+			if(c >= 1)
+				floor = document.getElementById('floorno').value;
+			if(c == 2)
+				room = document.getElementById('roomno').value;
+			var x = "&hostel="+hostel+"&floor="+floor+"&room="+room+"&date="+d+"&action=4";
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET','editAttendanceAction.php?'+x,true);
+			xhr.onreadystatechange = function()
+			{
+				if(xhr.readyState==4 && xhr.status==200)
+					get.innerHTML = xhr.responseText;
+			}
+			xhr.send(x);
+		}
+	}
+
+	function hide_mainDiv()
+	{
+		document.getElementById('main').style.display = "none";
+		document.getElementById('get').style.display = "block";
+	}
+	function show_mainDiv()
+	{
+		document.getElementById('main').style.display = "block";
+		document.getElementById('get').innerHTML = "";
+		document.getElementById('get').style.display = "none";
+		all = "";
+	}
+
+	function markRecord(id,adm)
+	{
+		if(id.parentNode.parentNode.style.backgroundColor != "rgb(255, 101, 36)")
+		{
+			all += adm + "*"
+			id.parentNode.parentNode.style.backgroundColor = "#FF6524";
+			console.log(all);
+			document.cookie = 'all='+all;
+		}
 	}
 </script>
