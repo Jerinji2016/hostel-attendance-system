@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 24, 2019 at 07:29 AM
--- Server version: 5.7.26
--- PHP Version: 5.6.40
+-- Generation Time: Nov 06, 2019 at 11:44 AM
+-- Server version: 5.7.23
+-- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -108,34 +108,44 @@ CREATE TABLE IF NOT EXISTS `hostel_attendance_details` (
   `entered_by` varchar(20) DEFAULT NULL,
   `remarks` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel_attendance_details`
 --
 
 INSERT INTO `hostel_attendance_details` (`si_no`, `status`, `date_id`, `adm_no`, `absent_id`, `entered_by`, `remarks`) VALUES
-(1, 1, 2, 4501, NULL, 'jerin', 'sick'),
-(2, 1, 3, 4501, NULL, 'aditya', 'home'),
-(3, 1, 6, 4501, NULL, 'jerin', 'kuttikanam'),
-(4, 1, 15, 4501, NULL, 'abijith', 'fest'),
-(5, 1, 18, 4501, NULL, 'jerin', 'sick again'),
-(6, 1, 23, 4501, NULL, 'jerin', 'bad remark'),
-(7, 1, 27, 4501, NULL, 'abijith', 'study leave'),
-(8, 1, 52, 4512, NULL, 'jerin', ''),
-(9, 1, 52, 4516, NULL, 'jerin', ''),
-(10, 1, NULL, 4501, NULL, 'jerin', ''),
-(11, 1, 80, 4501, NULL, 'jerin', ''),
-(12, 1, 80, 4506, NULL, 'jerin', ''),
-(13, 1, 80, 4501, NULL, 'jerin', ''),
-(14, 1, 80, 4506, NULL, 'jerin', ''),
-(15, 1, 80, 4505, NULL, 'jerin', ''),
-(16, 1, 80, 4507, NULL, 'jerin', ''),
-(17, 1, 80, 4507, NULL, 'jerin', ''),
-(18, 1, 80, 4507, NULL, 'jerin', ''),
-(19, 1, NULL, 4506, NULL, 'jerin', ''),
-(20, 1, NULL, 4501, NULL, 'jerin', ''),
-(21, 1, NULL, 4506, NULL, 'jerin', '');
+(1, 0, 2, 4501, NULL, 'jerin', 'sick'),
+(2, 0, 3, 4501, NULL, 'aditya', 'home'),
+(3, 0, 6, 4501, NULL, 'jerin', 'kuttikanam'),
+(4, 0, 15, 4501, NULL, 'abijith', 'fest'),
+(5, 0, 18, 4501, NULL, 'jerin', 'sick again'),
+(6, 0, 23, 4501, NULL, 'jerin', 'bad remark'),
+(7, 0, 27, 4501, NULL, 'abijith', 'study leave'),
+(8, 0, 52, 4512, NULL, 'jerin', ''),
+(9, 0, 52, 4516, NULL, 'jerin', ''),
+(10, 0, NULL, 4501, NULL, 'jerin', ''),
+(11, 0, 80, 4501, NULL, 'jerin', ''),
+(12, 0, 80, 4506, NULL, 'jerin', ''),
+(13, 0, 80, 4501, NULL, 'jerin', ''),
+(14, 0, 80, 4506, NULL, 'jerin', ''),
+(15, 0, 80, 4505, NULL, 'jerin', ''),
+(16, 0, 80, 4507, NULL, 'jerin', ''),
+(17, 0, 80, 4507, NULL, 'jerin', ''),
+(18, 0, 80, 4507, NULL, 'jerin', ''),
+(19, 0, NULL, 4506, NULL, 'jerin', ''),
+(20, 0, NULL, 4501, NULL, 'jerin', ''),
+(21, 0, NULL, 4506, NULL, 'jerin', ''),
+(22, 0, NULL, 4501, NULL, 'jerin', ''),
+(23, 0, NULL, 4506, NULL, 'jerin', ''),
+(24, 0, NULL, 4501, NULL, 'jerin', ''),
+(25, 0, NULL, 4506, NULL, 'jerin', ''),
+(26, 0, NULL, 4507, NULL, 'jerin', ''),
+(27, 0, NULL, 4501, NULL, 'jerin', ''),
+(28, 0, NULL, 4506, NULL, 'jerin', ''),
+(29, 0, NULL, 4506, NULL, 'jerin', ''),
+(30, 0, NULL, 4507, NULL, 'jerin', ''),
+(31, 0, NULL, 4501, NULL, 'jerin', '');
 
 -- --------------------------------------------------------
 
@@ -387,7 +397,7 @@ INSERT INTO `login` (`si_no`, `name`, `user_id`, `password`, `incharge`, `admin_
 (1, 'Jerin', 'jerin', '3f7cf81f5056b329e5f02ca04e0efa66', 'Student 1', 1),
 (2, 'Abijith', 'abijith', 'd76f3d05cc9ac98f1f9160274a39fe33', 'Student 2', 3),
 (3, 'Aditya', 'aditya', '21232f297a57a5a743894a0e4a801fc3', 'Student 3', 2),
-(4, 'Divya', 'divya', '65104f10b780a5c9732549a47d4e3239', 'Student 4', 1),
+(4, 'Divya', 'divya', '65104f10b780a5c9732549a47d4e3239', 'Student 4', 2),
 (9, 'Ajay', 'ajay', '29e457082db729fa1059d4294ede3909', 'Student 5', 3),
 (26, 'Use For Testing', 'test', '098f6bcd4621d373cade4e832627b4f6', 'Testing', 4);
 
@@ -404,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `login_details` (
   `session_in` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `session_out` datetime DEFAULT NULL,
   PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login_details`
@@ -415,7 +425,82 @@ INSERT INTO `login_details` (`si_no`, `user_id`, `session_in`, `session_out`) VA
 (2, 'jerin', '2019-07-01 19:31:31', NULL),
 (3, 'jerin', '2019-07-01 21:52:54', NULL),
 (4, 'jerin', '2019-07-01 22:11:40', NULL),
-(5, 'jerin', '2019-07-24 12:52:09', NULL);
+(5, 'jerin', '2019-07-24 12:52:09', NULL),
+(6, 'jerin', '2019-08-27 22:00:04', '2019-08-27 23:40:52'),
+(7, 'aditya', '2019-08-27 23:40:55', NULL),
+(8, 'aditya', '2019-08-27 23:40:55', '2019-08-27 23:41:34'),
+(9, 'jerin', '2019-08-27 23:41:37', '2019-08-27 23:44:43'),
+(10, 'jerin', '2019-08-27 23:44:51', '2019-08-27 23:48:12'),
+(11, 'jerin', '2019-08-27 23:48:17', '2019-08-27 23:48:19'),
+(12, 'aditya', '2019-08-27 23:48:25', '2019-08-27 23:49:25'),
+(13, 'jerin', '2019-08-27 23:49:32', '2019-09-02 21:16:26'),
+(14, 'jerin', '2019-09-02 21:16:28', '2019-09-02 21:17:55'),
+(15, 'jerin', '2019-09-02 21:22:50', NULL),
+(16, 'jerin', '2019-09-06 15:04:46', NULL),
+(17, 'jerin', '2019-09-09 15:16:50', '2019-09-09 19:00:47'),
+(18, 'aditya', '2019-09-09 19:00:52', '2019-09-09 19:20:41'),
+(19, 'jerin', '2019-09-09 19:20:47', '2019-09-09 20:17:55'),
+(20, 'jerin', '2019-09-09 20:17:59', '2019-09-09 20:19:04'),
+(21, 'aditya', '2019-09-09 20:19:38', NULL),
+(22, 'aditya', '2019-09-09 20:42:55', '2019-09-09 21:01:51'),
+(23, 'aditya', '2019-09-09 21:01:54', '2019-09-09 21:50:49'),
+(24, 'aditya', '2019-09-09 21:50:52', '2019-09-09 22:23:42'),
+(25, 'jerin', '2019-09-09 22:24:33', '2019-09-09 22:26:32'),
+(26, 'aditya', '2019-09-09 22:26:35', '2019-09-09 22:38:18'),
+(27, 'jerin', '2019-09-09 22:38:22', '2019-09-09 22:40:07'),
+(28, 'aditya', '2019-09-09 22:40:10', '2019-09-09 22:44:05'),
+(29, 'divya', '2019-09-09 22:44:16', '2019-09-09 22:44:21'),
+(30, 'divya', '2019-09-09 22:44:56', '2019-09-09 22:45:43'),
+(31, 'jerin', '2019-09-09 22:45:49', NULL),
+(32, 'divya', '2019-09-09 22:47:47', '2019-09-09 23:10:21'),
+(33, 'divya', '2019-09-09 23:10:23', '2019-09-09 23:11:02'),
+(34, 'jerin', '2019-09-09 23:11:06', '2019-09-09 23:22:41'),
+(35, 'jerin', '2019-09-09 23:22:43', NULL),
+(36, 'aditya', '2019-09-09 23:39:14', '2019-09-09 23:49:51'),
+(37, 'jerin', '2019-09-09 23:49:55', NULL),
+(38, 'jerin', '2019-09-10 12:24:39', '2019-09-10 12:29:44'),
+(39, 'aditya', '2019-09-10 12:29:48', NULL),
+(40, 'jerin', '2019-09-10 12:31:23', '2019-09-10 12:40:57'),
+(41, 'jerin', '2019-09-10 12:41:01', NULL),
+(42, 'jerin', '2019-09-10 17:22:31', NULL),
+(43, 'divya', '2019-09-10 17:51:50', NULL),
+(44, 'divya', '2019-09-10 18:05:23', NULL),
+(45, 'divya', '2019-11-04 17:04:12', '2019-11-04 17:09:15'),
+(46, 'jerin', '2019-11-06 17:08:26', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report_student`
+--
+
+DROP TABLE IF EXISTS `report_student`;
+CREATE TABLE IF NOT EXISTS `report_student` (
+  `sl_no` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `adm_no` int(5) NOT NULL,
+  `course` varchar(10) NOT NULL,
+  `semester` varchar(5) NOT NULL,
+  `branch` varchar(10) NOT NULL,
+  `status` int(2) NOT NULL,
+  `report` varchar(300) NOT NULL,
+  `incharge` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`sl_no`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `report_student`
+--
+
+INSERT INTO `report_student` (`sl_no`, `name`, `adm_no`, `course`, `semester`, `branch`, `status`, `report`, `incharge`, `date`) VALUES
+(1, 'Jerin', 4501, 'BTECH', 'S1', 'CSE', 0, 'sdfbhsdfs', 'Divya', '2019-09-09'),
+(2, 'Aditya', 4507, 'BTECH', 'S1', 'CSE', 1, 'bad', 'Divya', '2019-09-09'),
+(3, 'Ajay', 4506, 'BTECH', 'S1', 'CSE', 0, 'badder', 'Divya', '2019-08-02'),
+(4, 'Jerin', 4501, 'BTECH', 'S1', 'CSE', 1, 'august', 'Aditya', '2019-08-09'),
+(5, 'Ajay', 4506, 'BTECH', 'S1', 'CSE', 1, 'julyil veranam', 'Aditya', '2019-07-25'),
+(6, 'Rahul', 4503, 'BTECH', 'S1', 'ME', 1, 'basdjhbskf', 'Aditya', '2019-09-10'),
+(7, 'Brad', 4509, 'BTECH', 'S1', 'EEE', 1, 'kjskdhgpdih', 'Aditya', '2019-09-10');
 
 -- --------------------------------------------------------
 
