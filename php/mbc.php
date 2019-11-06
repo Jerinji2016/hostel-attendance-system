@@ -29,13 +29,13 @@
 				<div style="color: #666; border-radius: 0px 0px 7px 7px; text-align: left; box-shadow: 0px 0px 15px #999;"> 
                     <div class="clear" style="height:50px;">
 						<div class="has_lgn_tl" id="has_lgn_1" style="border: none; padding: 0; width: 50%">
-	                        <button id="button1" name="head1" style="float: left;  font-weight: bold; width:100%; background-color: darkgrey">
+	                        <button id="button1" name="head1" style="float: left;  font-weight: bold; width:100%; background-color: darkgrey; outline:none">
 								Hostel Details
 	                        </button>
 						</div>
 						
 						<div class="has_lgn_tl atv" id="has_lgn_2" style="border:none; padding: 0; width:50%">
-							<button id="button2" name="head2" style="float: right; font-weight: bold; width:100%">
+							<button id="button2" name="head2" style="float: right; font-weight: bold; width:100%; outline:none">
 								Student Details
 	                    	</button>
 						</div>
