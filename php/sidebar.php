@@ -41,11 +41,13 @@
 		border: none;
 		border-radius: 5px;
 		box-shadow: 0px 0px 7px #666;
+		transition: .5s;
 	}
 	.openbtn:hover 
 	{
 		background-color: #444;
 		color: #d6d6d6;
+		border-radius: 25px;
 	}
 	#main 
 	{

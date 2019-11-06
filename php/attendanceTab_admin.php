@@ -114,7 +114,7 @@ include 'session.php';
 								<div style="width: auto">
 									Adm No :
 									<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
-									<button class="button_go" style="margin-left: 5px">GO</button>
+									<button class="button_go" style="margin-left: 5px" onclick="adm_ViewDetails()">GO</button>
 									<!--<input class="button" type="submit" value="GO">-->
 								</div>
 							</form>
@@ -170,7 +170,7 @@ include 'session.php';
 											<td></td>
 											<td></td>
 											<td align="right" colspan="right">
-												<button class="button_go">GO</button>
+												<button class="button_go" onclick="stud_ViewDetails()">GO</button>
 												<!--<input class="button" type="submit" value="GO">-->
 											</td>
 										</tr>
@@ -192,7 +192,7 @@ include 'session.php';
 							<label> &nbsp; &nbsp; Date : </label>
 							<input class="input" type="date" id="myDate" value="<?php echo date('Y-m-d'); ?>">
 							<br> <br>
-							<button class="button_go">GO</button>
+							<button class="button_go" onclick="date_ViewDetails()">GO</button>
 						</center>
 					</div>
 
@@ -219,7 +219,7 @@ include 'session.php';
 										<td> </td>
 										<td> </td>
 										<td>
-											<button class="button_go"> GO </button>
+											<button class="button_go" onclick="hostel_ViewDetails()"> GO </button>
 										</td>
 									</tr>
 
@@ -229,10 +229,7 @@ include 'session.php';
 					</div>
 				</div>
 			</div>
-			<h2 style="color: black"> Work In Progress... (Redirection)</h2>
-			<div style="height: 5%">
-				<p style="color: white">Send your feedback at: </p>
-			</div>
+			
 			<footer>
 				<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
 			</footer>
@@ -355,4 +352,19 @@ include 'session.php';
 		xhr.send(x);
 	}
 
+	function name_ViewDetails() {
+		console.log("Name");
+	}
+
+	function stud_ViewDetails() {
+		console.log("Student");
+	}
+
+	function date_ViewDetails() {
+		console.log("Date");
+	}
+
+	function hostel_ViewDetails() {
+		console.log("Hostel");
+	}
 </script>
