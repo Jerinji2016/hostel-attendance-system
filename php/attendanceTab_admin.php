@@ -115,7 +115,6 @@ include 'session.php';
 									Adm No :
 									<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
 									<button class="button_go" style="margin-left: 5px" onclick="adm_ViewDetails()">GO</button>
-									<!--<input class="button" type="submit" value="GO">-->
 								</div>
 							</form>
 							<div>
@@ -171,7 +170,6 @@ include 'session.php';
 											<td></td>
 											<td align="right" colspan="right">
 												<button class="button_go" onclick="stud_ViewDetails()">GO</button>
-												<!--<input class="button" type="submit" value="GO">-->
 											</td>
 										</tr>
 <script type="text/javascript" src="../js/sem.js"></script>
