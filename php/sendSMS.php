@@ -39,7 +39,11 @@
                 text-align: center;
                 height: 7vh;
                 font-size: 2vw;
-                border: none; 
+                border: solid 1px; 
+            }
+            .date:hover,.selective:hover{
+                transform: scale(1.05);
+                transition: .5s;
             }
             button::onhover{
                 background-color: red;
