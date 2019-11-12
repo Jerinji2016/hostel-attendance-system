@@ -2,9 +2,7 @@
 <?php
 
 	include 'dbConnect.php';
-	//$action = $_GET['action'];
-	$action = 4;
-	$name = 'Ajay';
+	$action = $_GET['action'];
 
 	$var_sql = "SELECT s.name, s.semester, s.branch, s.course, h.remarks, h.entered_by FROM hostel_attendance_details h INNER JOIN hostel_details s ON h.adm_no=s.adm_no WHERE";
 ?>
@@ -21,26 +19,26 @@
 	{
 		if($action == 1) 
 		{
-			$var_sql .= " s.adm_no=4516";   //Add Admission number here after completion
+			$var_sql .= " s.adm_no=".$_GET['adm'];   //Done
 			$res = mysql_query($var_sql);
 		}
 		else 
 		{
-			$var_sql .= " s.course='BTECH' AND s.semester='S1' AND s.branch='CSE'";
+			$var_sql .= " s.course='BTECH' AND s.semester='S1' AND s.branch='CSE'"; //Add course sem branch
 			if(isset($name))
-				$var_sql .= " AND s.name='Ajay'";
+				$var_sql .= " AND s.name='Ajay'";	//Add name
 			$res = mysql_query($var_sql);
 		}
 	}
 	else if($action == 3) 
 	{	
-		$var_sql .= " h.date_id IN (SELECT si_no FROM hostel_date_details WHERE date='2019-04-03')";
+		$var_sql .= " h.date_id IN (SELECT si_no FROM hostel_date_details WHERE date='2019-04-03')"; //add date
 		$res = mysql_query($var_sql);
 		echo $var_sql;
 	}
 	else if($action == 4) 
 	{
-		$var_sql .= " s.hostel_code=1 AND s.floor_no=1 AND s.room_no=10";
+		$var_sql .= " s.hostel_code=1 AND s.floor_no=1 AND s.room_no=10";	// add hostel details
 		$res = mysql_query($var_sql);
 		echo $var_sql;
 	}
@@ -57,4 +55,5 @@
 	}
 ?>
 	</table>
+	<input type="button" value="Close">
 </center>

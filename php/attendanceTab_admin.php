@@ -78,6 +78,12 @@ include 'session.php';
 					padding-top: 100px;
 				}
 			}
+			.fade {
+				opacity :0.5;
+				border-radius : 25px;
+				background-color : lightgray;
+				box-shadow : 0px 0px 10px 10px lightgray;
+			}
 		</style>
 	</head>
 	<body>
@@ -110,20 +116,20 @@ include 'session.php';
 					<!-- Division - 1 -->
 					<div id="div_1" style="clear:both; padding: 20px" class="has_lgn_tl_x">
 						<center>
-							<form action="" method="post">
-								<div style="width: auto">
+						
+								<div style="width: auto; transition: .7s" id="select-adm-div" onclick="divAlter(1)">
 									Adm No :
-									<input class="input" type="text" required="on" autofocus="on" autocomplete="off" style="width: 100px">
+									<input class="input" placeholder="Adm No" type="text" required="on" id="adm_no" autocomplete="off" style="width: 100px">
 									<button class="button_go" style="margin-left: 5px" onclick="adm_ViewDetails()">GO</button>
 								</div>
-							</form>
+						
 							<div>
 								<br>
 								─────────────────────────────
 								<br>
 							</div>
-							<form method="post" action="">
-								<div style="width: auto">
+							<form>
+								<div style="width: auto; transition: .7s" id="select-student-div" onclick="divAlter(2)" class='fade'>
 									<table>
 										<tr>
 											<td><p> Course </p></td>
@@ -160,7 +166,7 @@ include 'session.php';
 											<td><p> Name </p></td>
 											<td><p> : </p></td>
 											<td colspan="3">
-												<input class="input" type="text" id="s_name" name="s_name" placeholder=" Student Name" required style="width: 99%" autocomplete="off">
+												<input class="input" type="text" id="s_name" placeholder=" Student Name" style="width: 99%" autocomplete="off">
 											</td>
 										</tr>
 										<tr>
@@ -220,13 +226,14 @@ include 'session.php';
 											<button class="button_go" onclick="hostel_ViewDetails()"> GO </button>
 										</td>
 									</tr>
-
 								</table>
 							</div>
 						</center>
 					</div>
 				</div>
 			</div>
+
+			<div id="get"></div>
 			
 			<footer>
 				<p style="color: white">Made with <span style="color: red; font-size: 20px">&#x2764;</span> by the Software Development Cell | MBCCET</p>
@@ -266,6 +273,19 @@ include 'session.php';
 		}
 	}
 
+	function divAlter(val) 
+	{
+		if(val == 1) {
+			document.getElementById('select-adm-div').classList.remove('fade');
+			document.getElementById('select-student-div').classList.add('fade');
+		}
+		else
+		{
+			document.getElementById('select-adm-div').classList.add('fade');
+			document.getElementById('select-student-div').classList.remove('fade');
+		}
+	}
+
 	function viewByStudent()
 	{
 		document.getElementById('div_2').style.display = "none";
@@ -278,7 +298,6 @@ include 'session.php';
 		document.getElementById('viewByStudent').style.fontWeight ="bold";
 		document.getElementById('viewByDate').style.fontWeight ="normal";
 		document.getElementById('viewByHostel').style.fontWeight ="normal";
-		console.log("here1");
 	}
 
 	function viewByDate()
@@ -293,8 +312,6 @@ include 'session.php';
 		document.getElementById('viewByDate').style.fontWeight ="bold";
 		document.getElementById('viewByStudent').style.fontWeight ="normal";
 		document.getElementById('viewByHostel').style.fontWeight ="normal";
-
-		console.log("not here 1");
 	}
 
 	function viewByHostel()
@@ -309,7 +326,6 @@ include 'session.php';
 		document.getElementById('viewByHostel').style.fontWeight ="bold";
 		document.getElementById('viewByStudent').style.fontWeight ="normal";
 		document.getElementById('viewByDate').style.fontWeight ="normal";
-		console.log("here3");
 	}
 
 	function floor()
@@ -350,8 +366,20 @@ include 'session.php';
 		xhr.send(x);
 	}
 
-	function name_ViewDetails() {
-		console.log("Name");
+	function adm_ViewDetails() {
+		var xhr = new XMLHttpRequest();
+		let adm = document.getElementById('adm_no').value;
+		var x = '&action=1&adm='+adm;
+		xhr.open('GET','viewAttendance_action.php?'+x, true);
+
+		xhr.onreadystatechange = function() 
+		{
+			if(xhr.readyState==4 && xhr.status==200)
+			{
+				document.getElementById('get').innerHTML = xhr.responseText;
+			}
+		}
+		xhr.send(x);
 	}
 
 	function stud_ViewDetails() {
