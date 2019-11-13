@@ -2,9 +2,9 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 06, 2019 at 11:44 AM
--- Server version: 5.7.23
+-- Host: localhost
+-- Generation Time: Nov 13, 2019 at 10:55 AM
+-- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 -- Stand-in structure for view `hostel`
 -- (See below for the actual view)
 --
-DROP VIEW IF EXISTS `hostel`;
-CREATE TABLE IF NOT EXISTS `hostel` (
+CREATE TABLE `hostel` (
 `si_no` int(10)
 ,`adm_no` int(10)
 ,`name` varchar(20)
@@ -47,8 +46,7 @@ CREATE TABLE IF NOT EXISTS `hostel` (
 -- Table structure for table `hostel_absent_type`
 --
 
-DROP TABLE IF EXISTS `hostel_absent_type`;
-CREATE TABLE IF NOT EXISTS `hostel_absent_type` (
+CREATE TABLE `hostel_absent_type` (
   `si_no` int(10) NOT NULL,
   `status` int(1) NOT NULL,
   `absent_type` int(2) NOT NULL,
@@ -73,17 +71,15 @@ INSERT INTO `hostel_absent_type` (`si_no`, `status`, `absent_type`, `remarks`, `
 -- Table structure for table `hostel_academic_details`
 --
 
-DROP TABLE IF EXISTS `hostel_academic_details`;
-CREATE TABLE IF NOT EXISTS `hostel_academic_details` (
-  `si_no` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `hostel_academic_details` (
+  `si_no` int(5) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `academic_from` int(4) NOT NULL,
   `academic_to` int(4) NOT NULL,
   `entered_by` varchar(20) NOT NULL,
-  `entered_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `entered_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel_academic_details`
@@ -98,54 +94,23 @@ INSERT INTO `hostel_academic_details` (`si_no`, `start_date`, `end_date`, `acade
 -- Table structure for table `hostel_attendance_details`
 --
 
-DROP TABLE IF EXISTS `hostel_attendance_details`;
-CREATE TABLE IF NOT EXISTS `hostel_attendance_details` (
-  `si_no` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `hostel_attendance_details` (
+  `si_no` int(10) NOT NULL,
   `status` int(1) DEFAULT NULL,
   `date_id` int(11) DEFAULT NULL,
   `adm_no` int(20) DEFAULT NULL,
   `absent_id` int(100) DEFAULT NULL,
   `entered_by` varchar(20) DEFAULT NULL,
-  `remarks` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+  `remarks` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel_attendance_details`
 --
 
 INSERT INTO `hostel_attendance_details` (`si_no`, `status`, `date_id`, `adm_no`, `absent_id`, `entered_by`, `remarks`) VALUES
-(1, 0, 2, 4501, NULL, 'jerin', 'sick'),
-(2, 0, 3, 4501, NULL, 'aditya', 'home'),
-(3, 0, 6, 4501, NULL, 'jerin', 'kuttikanam'),
-(4, 0, 15, 4501, NULL, 'abijith', 'fest'),
-(5, 0, 18, 4501, NULL, 'jerin', 'sick again'),
-(6, 0, 23, 4501, NULL, 'jerin', 'bad remark'),
-(7, 0, 27, 4501, NULL, 'abijith', 'study leave'),
-(8, 0, 52, 4512, NULL, 'jerin', ''),
-(9, 0, 52, 4516, NULL, 'jerin', ''),
-(10, 0, NULL, 4501, NULL, 'jerin', ''),
-(11, 0, 80, 4501, NULL, 'jerin', ''),
-(12, 0, 80, 4506, NULL, 'jerin', ''),
-(13, 0, 80, 4501, NULL, 'jerin', ''),
-(14, 0, 80, 4506, NULL, 'jerin', ''),
-(15, 0, 80, 4505, NULL, 'jerin', ''),
-(16, 0, 80, 4507, NULL, 'jerin', ''),
-(17, 0, 80, 4507, NULL, 'jerin', ''),
-(18, 0, 80, 4507, NULL, 'jerin', ''),
-(19, 0, NULL, 4506, NULL, 'jerin', ''),
-(20, 0, NULL, 4501, NULL, 'jerin', ''),
-(21, 0, NULL, 4506, NULL, 'jerin', ''),
-(22, 0, NULL, 4501, NULL, 'jerin', ''),
-(23, 0, NULL, 4506, NULL, 'jerin', ''),
-(24, 0, NULL, 4501, NULL, 'jerin', ''),
-(25, 0, NULL, 4506, NULL, 'jerin', ''),
-(26, 0, NULL, 4507, NULL, 'jerin', ''),
-(27, 0, NULL, 4501, NULL, 'jerin', ''),
-(28, 0, NULL, 4506, NULL, 'jerin', ''),
-(29, 0, NULL, 4506, NULL, 'jerin', ''),
-(30, 0, NULL, 4507, NULL, 'jerin', ''),
-(31, 0, NULL, 4501, NULL, 'jerin', '');
+(1, 0, 13, 4502, NULL, 'aditya', ''),
+(2, 0, 13, 4508, NULL, 'aditya', '');
 
 -- --------------------------------------------------------
 
@@ -153,145 +118,51 @@ INSERT INTO `hostel_attendance_details` (`si_no`, `status`, `date_id`, `adm_no`,
 -- Table structure for table `hostel_date_details`
 --
 
-DROP TABLE IF EXISTS `hostel_date_details`;
-CREATE TABLE IF NOT EXISTS `hostel_date_details` (
-  `si_no` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `hostel_date_details` (
+  `si_no` int(10) NOT NULL,
   `status` int(11) NOT NULL,
   `date` date NOT NULL,
   `day_type` int(3) NOT NULL,
   `remarks` varchar(100) NOT NULL,
   `entered_by` varchar(30) NOT NULL,
-  `entered_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=123 DEFAULT CHARSET=latin1;
+  `entered_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel_date_details`
 --
 
 INSERT INTO `hostel_date_details` (`si_no`, `status`, `date`, `day_type`, `remarks`, `entered_by`, `entered_on`) VALUES
-(1, 1, '2019-04-01', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(2, 1, '2019-04-02', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(3, 1, '2019-04-03', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(4, 1, '2019-04-04', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(5, 1, '2019-04-05', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(6, 1, '2019-04-06', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(7, 0, '2019-04-07', 2, '----', 'jerin', '2019-04-29 21:55:43'),
-(8, 1, '2019-04-08', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(9, 1, '2019-04-09', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(10, 1, '2019-04-10', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(11, 1, '2019-04-11', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(12, 1, '2019-04-12', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(13, 1, '2019-04-13', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(14, 0, '2019-04-14', 2, '----', 'jerin', '2019-04-29 21:55:43'),
-(15, 1, '2019-04-15', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(16, 1, '2019-04-16', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(17, 1, '2019-04-17', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(18, 1, '2019-04-18', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(19, 1, '2019-04-19', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(20, 1, '2019-04-20', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(21, 0, '2019-04-21', 2, '----', 'jerin', '2019-04-29 21:55:43'),
-(22, 1, '2019-04-22', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(23, 1, '2019-04-23', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(24, 1, '2019-04-24', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(25, 1, '2019-04-25', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(26, 1, '2019-04-26', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(27, 1, '2019-04-27', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(28, 1, '2019-04-28', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(29, 1, '2019-04-29', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(30, 1, '2019-04-30', 1, '----', 'jerin', '2019-04-29 21:55:43'),
-(31, 1, '2019-05-01', 1, '---', 'jerin', '2019-05-08 02:28:48'),
-(32, 1, '2019-05-02', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(33, 1, '2019-05-03', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(34, 1, '2019-05-04', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(35, 1, '2019-05-05', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(36, 1, '2019-05-06', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(37, 1, '2019-05-07', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(38, 1, '2019-05-08', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(39, 1, '2019-05-09', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(40, 1, '2019-05-10', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(41, 1, '2019-05-11', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(42, 1, '2019-05-12', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(43, 1, '2019-05-13', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(44, 1, '2019-05-14', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(45, 1, '2019-05-15', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(46, 1, '2019-05-16', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(47, 1, '2019-05-17', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(48, 1, '2019-05-18', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(49, 1, '2019-05-19', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(50, 1, '2019-05-20', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(51, 1, '2019-05-21', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(52, 1, '2019-05-22', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(53, 1, '2019-05-23', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(54, 1, '2019-05-24', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(55, 1, '2019-05-25', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(56, 1, '2019-05-26', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(57, 1, '2019-05-27', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(58, 1, '2019-05-28', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(59, 1, '2019-05-29', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(60, 1, '2019-05-30', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(61, 1, '2019-05-31', 1, '----', 'abijith', '2019-05-22 20:18:39'),
-(62, 1, '2019-06-01', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(63, 1, '2019-06-02', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(64, 1, '2019-06-03', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(65, 1, '2019-06-04', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(66, 1, '2019-06-05', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(67, 1, '2019-06-06', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(68, 1, '2019-06-07', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(69, 1, '2019-06-08', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(70, 1, '2019-06-09', 1, '----', 'aditya', '2019-05-22 20:19:35'),
-(71, 1, '2019-06-10', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(72, 1, '2019-06-11', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(73, 1, '2019-06-12', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(74, 1, '2019-06-13', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(75, 1, '2019-06-14', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(76, 1, '2019-06-15', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(77, 1, '2019-06-16', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(78, 1, '2019-06-17', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(79, 1, '2019-06-18', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(80, 1, '2019-06-19', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(81, 1, '2019-06-20', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(82, 1, '2019-06-21', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(83, 1, '2019-06-22', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(84, 1, '2019-06-23', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(85, 1, '2019-06-24', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(86, 1, '2019-06-25', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(87, 1, '2019-06-26', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(88, 1, '2019-06-27', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(89, 1, '2019-06-28', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(90, 1, '2019-06-29', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(91, 1, '2019-06-30', 1, '----', 'aditya', '2019-05-22 20:19:36'),
-(92, 1, '2019-07-01', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(93, 1, '2019-07-02', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(94, 1, '2019-07-03', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(95, 1, '2019-07-04', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(96, 1, '2019-07-05', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(97, 1, '2019-07-06', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(98, 1, '2019-07-07', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(99, 1, '2019-07-08', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(100, 1, '2019-07-09', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(101, 1, '2019-07-10', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(102, 1, '2019-07-11', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(103, 1, '2019-07-12', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(104, 1, '2019-07-13', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(105, 1, '2019-07-14', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(106, 1, '2019-07-15', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(107, 1, '2019-07-16', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(108, 1, '2019-07-17', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(109, 1, '2019-07-18', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(110, 1, '2019-07-19', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(111, 1, '2019-07-20', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(112, 1, '2019-07-21', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(113, 1, '2019-07-22', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(114, 1, '2019-07-23', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(115, 1, '2019-07-24', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(116, 1, '2019-07-25', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(117, 1, '2019-07-26', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(118, 1, '2019-07-27', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(119, 1, '2019-07-28', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(120, 1, '2019-07-29', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(121, 1, '2019-07-30', 1, '----', 'aditya', '2019-05-22 20:20:34'),
-(122, 1, '2019-07-31', 1, '----', 'aditya', '2019-05-22 20:20:34');
+(1, 1, '2019-11-01', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(2, 1, '2019-11-02', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(3, 1, '2019-11-03', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(4, 1, '2019-11-04', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(5, 1, '2019-11-05', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(6, 1, '2019-11-06', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(7, 1, '2019-11-07', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(8, 1, '2019-11-08', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(9, 1, '2019-11-09', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(10, 1, '2019-11-10', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(11, 1, '2019-11-11', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(12, 1, '2019-11-12', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(13, 1, '2019-11-13', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(14, 1, '2019-11-14', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(15, 1, '2019-11-15', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(16, 1, '2019-11-16', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(17, 1, '2019-11-17', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(18, 1, '2019-11-18', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(19, 1, '2019-11-19', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(20, 1, '2019-11-20', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(21, 1, '2019-11-21', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(22, 1, '2019-11-22', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(23, 1, '2019-11-23', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(24, 1, '2019-11-24', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(25, 1, '2019-11-25', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(26, 1, '2019-11-26', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(27, 1, '2019-11-27', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(28, 1, '2019-11-28', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(29, 1, '2019-11-29', 1, '----', 'aditya', '2019-11-13 14:03:45'),
+(30, 1, '2019-11-30', 1, '----', 'aditya', '2019-11-13 14:03:45');
 
 -- --------------------------------------------------------
 
@@ -299,9 +170,8 @@ INSERT INTO `hostel_date_details` (`si_no`, `status`, `date`, `day_type`, `remar
 -- Table structure for table `hostel_details`
 --
 
-DROP TABLE IF EXISTS `hostel_details`;
-CREATE TABLE IF NOT EXISTS `hostel_details` (
-  `si_no` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `hostel_details` (
+  `si_no` int(10) NOT NULL,
   `academic_year` varchar(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   `fee_status` int(1) DEFAULT NULL,
@@ -322,10 +192,8 @@ CREATE TABLE IF NOT EXISTS `hostel_details` (
   `vct_remarks` varchar(100) DEFAULT NULL,
   `entered_by` varchar(30) DEFAULT NULL,
   `verified_by` varchar(30) DEFAULT NULL,
-  `verification_remarks` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`si_no`),
-  UNIQUE KEY `adm_no` (`adm_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
+  `verification_remarks` varchar(500) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `hostel_details`
@@ -333,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `hostel_details` (
 
 INSERT INTO `hostel_details` (`si_no`, `academic_year`, `status`, `fee_status`, `fee_head_id`, `adm_no`, `name`, `room_no`, `floor_no`, `hostel_code`, `course`, `semester`, `branch`, `phn_no`, `remarks`, `allocated_on`, `reason`, `vacated_on`, `vct_remarks`, `entered_by`, `verified_by`, `verification_remarks`) VALUES
 (1, NULL, 1, NULL, NULL, 4501, 'Jerin', 10, 1, 1, 'BTECH', 'S1', 'CSE', '7012788627', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, NULL, 1, NULL, NULL, 4502, 'Anand', 11, 1, 1, 'BTECH', 'S1', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, 1, NULL, NULL, 4502, 'Anand', 11, 1, 1, 'BTECH', 'S1', 'ECE', '8086146060', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, NULL, 1, NULL, NULL, 4503, 'Rahul', 12, 1, 1, 'BTECH', 'S1', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, NULL, 1, NULL, NULL, 4504, 'Bhim', 13, 1, 1, 'BTECH', 'S1', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, NULL, 1, NULL, NULL, 4505, 'Aju', 14, 1, 1, 'BTECH', 'S1', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -364,7 +232,7 @@ INSERT INTO `hostel_details` (`si_no`, `academic_year`, `status`, `fee_status`, 
 (37, NULL, 1, NULL, NULL, 4915, 'Nikhil A', 225, 3, 2, 'MTECH', 'M3', 'ME', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (38, NULL, 1, NULL, NULL, 4506, 'Ajay', 10, 1, 1, 'BTECH', 'S1', 'CSE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (39, NULL, 1, NULL, NULL, 4507, 'Aditya', 10, 1, 1, 'BTECH', 'S1', 'CSE', '9947189437', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(40, NULL, 1, NULL, NULL, 4508, 'Brian', 11, 1, 1, 'BTECH', 'S1', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, NULL, 1, NULL, NULL, 4508, 'Brian', 11, 1, 1, 'BTECH', 'S1', 'ECE', '9544982304', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (41, NULL, 1, NULL, NULL, 4509, 'Brad', 13, 1, 1, 'BTECH', 'S1', 'EEE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (42, NULL, 1, NULL, NULL, 4510, 'Kriss', 14, 1, 1, 'BTECH', 'S1', 'CE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (43, NULL, 1, NULL, NULL, 4516, 'Drew', 111, 2, 1, 'BTECH', 'S3', 'ECE', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -377,17 +245,14 @@ INSERT INTO `hostel_details` (`si_no`, `academic_year`, `status`, `fee_status`, 
 -- Table structure for table `login`
 --
 
-DROP TABLE IF EXISTS `login`;
-CREATE TABLE IF NOT EXISTS `login` (
-  `si_no` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `login` (
+  `si_no` int(5) NOT NULL,
   `name` varchar(50) NOT NULL,
   `user_id` varchar(30) NOT NULL,
   `password` varchar(40) NOT NULL,
   `incharge` varchar(25) NOT NULL,
-  `admin_priority` int(2) NOT NULL,
-  PRIMARY KEY (`si_no`),
-  UNIQUE KEY `si_no` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+  `admin_priority` int(2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
@@ -407,14 +272,12 @@ INSERT INTO `login` (`si_no`, `name`, `user_id`, `password`, `incharge`, `admin_
 -- Table structure for table `login_details`
 --
 
-DROP TABLE IF EXISTS `login_details`;
-CREATE TABLE IF NOT EXISTS `login_details` (
-  `si_no` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `login_details` (
+  `si_no` int(5) NOT NULL,
   `user_id` varchar(20) NOT NULL,
   `session_in` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `session_out` datetime DEFAULT NULL,
-  PRIMARY KEY (`si_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+  `session_out` datetime DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login_details`
@@ -466,7 +329,9 @@ INSERT INTO `login_details` (`si_no`, `user_id`, `session_in`, `session_out`) VA
 (43, 'divya', '2019-09-10 17:51:50', NULL),
 (44, 'divya', '2019-09-10 18:05:23', NULL),
 (45, 'divya', '2019-11-04 17:04:12', '2019-11-04 17:09:15'),
-(46, 'jerin', '2019-11-06 17:08:26', NULL);
+(46, 'jerin', '2019-11-06 17:08:26', NULL),
+(47, 'aditya', '2019-11-13 13:46:32', NULL),
+(48, 'jerin', '2019-11-13 14:12:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -474,9 +339,8 @@ INSERT INTO `login_details` (`si_no`, `user_id`, `session_in`, `session_out`) VA
 -- Table structure for table `report_student`
 --
 
-DROP TABLE IF EXISTS `report_student`;
-CREATE TABLE IF NOT EXISTS `report_student` (
-  `sl_no` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `report_student` (
+  `sl_no` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `adm_no` int(5) NOT NULL,
   `course` varchar(10) NOT NULL,
@@ -485,9 +349,8 @@ CREATE TABLE IF NOT EXISTS `report_student` (
   `status` int(2) NOT NULL,
   `report` varchar(300) NOT NULL,
   `incharge` varchar(20) NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`sl_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `report_student`
@@ -508,14 +371,12 @@ INSERT INTO `report_student` (`sl_no`, `name`, `adm_no`, `course`, `semester`, `
 -- Table structure for table `sms_auth`
 --
 
-DROP TABLE IF EXISTS `sms_auth`;
-CREATE TABLE IF NOT EXISTS `sms_auth` (
-  `sl_no` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sms_auth` (
+  `sl_no` int(5) NOT NULL,
   `name` varchar(20) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(35) NOT NULL,
-  PRIMARY KEY (`sl_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `password` varchar(35) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sms_auth`
@@ -533,6 +394,112 @@ INSERT INTO `sms_auth` (`sl_no`, `name`, `username`, `password`) VALUES
 DROP TABLE IF EXISTS `hostel`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `hostel`  AS  select `hostel_details`.`si_no` AS `si_no`,`hostel_details`.`adm_no` AS `adm_no`,`hostel_details`.`name` AS `name`,`hostel_details`.`hostel_code` AS `hostel_code`,`hostel_details`.`floor_no` AS `floor_no`,`hostel_details`.`room_no` AS `room_no`,`hostel_details`.`course` AS `course`,`hostel_details`.`branch` AS `branch`,`hostel_details`.`semester` AS `semester` from `hostel_details` ;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `hostel_academic_details`
+--
+ALTER TABLE `hostel_academic_details`
+  ADD PRIMARY KEY (`si_no`);
+
+--
+-- Indexes for table `hostel_attendance_details`
+--
+ALTER TABLE `hostel_attendance_details`
+  ADD PRIMARY KEY (`si_no`);
+
+--
+-- Indexes for table `hostel_date_details`
+--
+ALTER TABLE `hostel_date_details`
+  ADD PRIMARY KEY (`si_no`);
+
+--
+-- Indexes for table `hostel_details`
+--
+ALTER TABLE `hostel_details`
+  ADD PRIMARY KEY (`si_no`),
+  ADD UNIQUE KEY `adm_no` (`adm_no`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`si_no`),
+  ADD UNIQUE KEY `si_no` (`user_id`);
+
+--
+-- Indexes for table `login_details`
+--
+ALTER TABLE `login_details`
+  ADD PRIMARY KEY (`si_no`);
+
+--
+-- Indexes for table `report_student`
+--
+ALTER TABLE `report_student`
+  ADD PRIMARY KEY (`sl_no`);
+
+--
+-- Indexes for table `sms_auth`
+--
+ALTER TABLE `sms_auth`
+  ADD PRIMARY KEY (`sl_no`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `hostel_academic_details`
+--
+ALTER TABLE `hostel_academic_details`
+  MODIFY `si_no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `hostel_attendance_details`
+--
+ALTER TABLE `hostel_attendance_details`
+  MODIFY `si_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `hostel_date_details`
+--
+ALTER TABLE `hostel_date_details`
+  MODIFY `si_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `hostel_details`
+--
+ALTER TABLE `hostel_details`
+  MODIFY `si_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `si_no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `login_details`
+--
+ALTER TABLE `login_details`
+  MODIFY `si_no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `report_student`
+--
+ALTER TABLE `report_student`
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `sms_auth`
+--
+ALTER TABLE `sms_auth`
+  MODIFY `sl_no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

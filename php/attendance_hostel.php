@@ -1,5 +1,5 @@
 <?php
-	include 'dbconnect.php';
+	include 'dbConnect.php';
 
 	$var_sql = "SELECT user_id FROM login_details WHERE si_no = (SELECT max(si_no) FROM login_details)";
 	$result = mysql_query($var_sql);
@@ -22,8 +22,8 @@
 		}
 	}
 	session_start();
-	if($_SESSION['user_priority'] == "1")
-		header("Location: markAttendance.php");
-	else
-		header("Location: mbc.php");
+//	if($_SESSION['user_priority'] == "1")
+//		header("Location: markAttendance.php");
+//	else
+//		header("Location: mbc.php");
 ?>

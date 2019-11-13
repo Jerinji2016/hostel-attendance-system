@@ -86,7 +86,7 @@
                         <div></div>
                     </div>
                 <div class="option" id="options">
-                    <p>Select Date:   <input type="date" name="date" class="input" value="<?php echo date('Y-m-d'); ?>"></p>
+                    <p>Select Date:   <input type="date" id="date" class="input" value="<?php echo date('Y-m-d'); ?>"></p>
                     <button class="button">View Records</button>
                     <button class="button" onclick="loading()">Send Now</button>
                 </div>
