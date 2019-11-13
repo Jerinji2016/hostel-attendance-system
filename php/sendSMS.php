@@ -57,7 +57,7 @@
             .button{
                 font-size: 1.5vw;
                 width: auto;
-                padding: 5px 15px;
+                padding: 5px 55px;
                 border-radius :5px;
                 border: none;
                 margin-left: 15px;
@@ -81,14 +81,21 @@
                     <h3 style="padding: 15px; margin: 0px; color: white; text-align: center">Send SMS</h3>
                 </div>
                 <div class="sub-options">
-                        <button class="date">Date</button>
-                        <button class="selective">Selective SMS</button>
+                        <button class="date" onclick="simpleSendSMS()">Date</button>
+                        <button class="selective" onclick="selectedSendSMS()">Selected SMS</button>
                         <div></div>
+                </div>
+                <div class="simple-send-sms" id="simple-send-sms">
+                    <div class="option" id="options">
+                        <p>Select Date:   <input type="date" id="date" class="input" value="<?php echo date('Y-m-d'); ?>"></p>
+                        <button class="button" onclick="loading()">Send Now</button>
                     </div>
-                <div class="option" id="options">
-                    <p>Select Date:   <input type="date" id="date" class="input" value="<?php echo date('Y-m-d'); ?>"></p>
-                    <button class="button">View Records</button>
-                    <button class="button" onclick="loading()">Send Now</button>
+                </div>
+                <div class="selected-send-sms" id="selected-send-sms" style="display: none;">
+                    <div class="option" id="options">
+                        <p>Select Date:   <input type="date" id="date" class="input" value="<?php echo date('Y-m-d'); ?>"></p>
+                        <button class="button" onclick="">View Records</button>
+                    </div>
                 </div>
                 <div><img id="loader" src="https://media.giphy.com/media/3o85xL92eSa9LoGPYs/giphy.gif"></div>
                 <div id="confirmation" style="text-align: center; color: green; display: none"><h2>SMS Sent Successfully</h2></div>
@@ -109,6 +116,14 @@
                         document.getElementById("options").style.display = "block";
                         document.getElementById("loader").style.display = "none";
                         document.getElementById("confirmation").style.display = "none";
+                    }
+                    function selectedSendSMS(){
+                        document.getElementById("simple-send-sms").style.display = "none";
+                        document.getElementById("selected-send-sms").style.display = "block";
+                    }
+                    function simpleSendSMS(){
+                        document.getElementById("simple-send-sms").style.display = "block";
+                        document.getElementById("selected-send-sms").style.display = "none";
                     }
                 </script>
             </div>
