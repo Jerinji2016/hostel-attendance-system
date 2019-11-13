@@ -54,7 +54,7 @@
 					echo " Course : ".$a['course']."&nbsp; &nbsp; &nbsp; &nbsp;";
 					echo " Branch : ".$a['semester']." - ".$a['branch']."&nbsp; &nbsp; &nbsp; &nbsp;";
 					if($a['name'] != "")	
-						echo "Floor No : ".$a['name'];
+						echo "Name : ".$a['name'];
 				?>
 			</div>
 		</div>
