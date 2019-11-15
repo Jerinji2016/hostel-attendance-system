@@ -92,7 +92,7 @@ include 'session.php';
 		<script type="text/javascript"> focusSidebar(); </script>
 
 		<div id="main">
-			<div class="main_form" style="width: 400px; margin: 0px auto; margin-top: 7%"> <!-- The Whole Box-->
+			<div id="selectBox" class="main_form" style="width: 400px; margin: 0px auto; margin-top: 7%"> <!-- The Whole Box-->
 				<div style="border-radius: 25px 25px 0px 0px; padding: 15px 20px; background-color: #0C0C0C;
 							box-shadow: 0px 0px 15px #666;">
 					<span style="color:#09F; font-size: 18px; font-family: Arial Black">
@@ -366,7 +366,13 @@ include 'session.php';
 		xhr.send(x);
 	}
 
+	function showGetDiv() {
+		document.getElementById('get').style.display = "block";
+		document.getElementById('selectBox').style.display = 'none';
+	}
+
 	function adm_ViewDetails() {
+		showGetDiv();
 		var xhr = new XMLHttpRequest();
 		let adm = document.getElementById('adm_no').value;
 		var x = '&action=1&adm='+adm;

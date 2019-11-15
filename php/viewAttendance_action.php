@@ -55,5 +55,6 @@
 	}
 ?>
 	</table>
-	<input type="button" value="Close">
+	<input type="button" value="Close" onclick=" document.getElementById('selectBox').style.display = 'block';
+												 document.getElementById('get').style.display = 'none'; ">
 </center>
