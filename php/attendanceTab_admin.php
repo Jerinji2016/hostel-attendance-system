@@ -128,64 +128,62 @@ include 'session.php';
 								─────────────────────────────
 								<br>
 							</div>
-							<form>
-								<div style="width: auto; transition: .7s" id="select-student-div" onclick="divAlter(2)" class='fade'>
-									<table>
-										<tr>
-											<td><p> Course </p></td>
-											<td><p> : </p></td>
-											<td>
-												<select class="input" id="course" name="course" onchange="sem()" style="width: 100px; height: 32px">
-													<option value='BTECH'> B.Tech </option>
-													<option value='MTECH'> M.Tech </option>
+							<div style="width: auto; transition: .7s" id="select-student-div" onclick="divAlter(2)" class='fade'>
+								<table>
+									<tr>
+										<td><p> Course </p></td>
+										<td><p> : </p></td>
+										<td>
+											<select class="input" id="course" name="course" onchange="sem()" style="width: 100px; height: 32px">
+												<option value='BTECH'> B.Tech </option>
+												<option value='MTECH'> M.Tech </option>
+											</select>
+										</td>
+										<td><p> &amp; </p></td>
+										<td>
+											<span id="sem_change" style="float: right">
+												<select class="input" id="semester" name="semester" class="has_sel_fld">
+													<option class="input" value="">-select-</option>
 												</select>
-											</td>
-											<td><p> &amp; </p></td>
-											<td>
-												<span id="sem_change" style="float: right">
-													<select class="input" id="semester" name="semester" class="has_sel_fld">
-														<option class="input" value="">-select-</option>
-													</select>
-												</span>
-											</td>
-										</tr>
-										<tr>
-											<td><p> Branch </p></td>
-											<td><p> : </p></td>
-											<td colspan="3">
-												<select class="input" id="branch" name="branch" style="width: 100%; height: 32px" onchange="name_call()">
-													<option value="CSE"> Computer Science & Engg. </option>
-													<option value="ME">  Mechanical Engg. </option>
-													<option value="CE">  Civil Engg. </option>
-													<option value="EEE"> Electrical & Electronics Engg. </option>
-													<option value="ECE"> Electroniics and Communicatioin Engg. </option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td><p> Name </p></td>
-											<td><p> : </p></td>
-											<td colspan="3">
-												<input class="input" type="text" id="s_name" placeholder=" Student Name" style="width: 99%" autocomplete="off">
-											</td>
-										</tr>
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td align="right" colspan="right">
-												<button class="button_go" onclick="stud_ViewDetails()">GO</button>
-											</td>
-										</tr>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td><p> Branch </p></td>
+										<td><p> : </p></td>
+										<td colspan="3">
+											<select class="input" id="branch" name="branch" style="width: 100%; height: 32px" onchange="name_call()">
+												<option value="CSE"> Computer Science & Engg. </option>
+												<option value="ME">  Mechanical Engg. </option>
+												<option value="CE">  Civil Engg. </option>
+												<option value="EEE"> Electrical & Electronics Engg. </option>
+												<option value="ECE"> Electroniics and Communicatioin Engg. </option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td><p> Name </p></td>
+										<td><p> : </p></td>
+										<td colspan="3">
+											<input class="input" type="text" id="s_name" placeholder=" Student Name" style="width: 99%" autocomplete="off">
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td align="right" colspan="right">
+											<button class="button_go" onclick="stud_ViewDetails()">GO</button>
+										</td>
+									</tr>
 <script type="text/javascript" src="../js/sem.js"></script>
 <script type="text/javascript" src="../js/name_Array.js?v=3"></script>
 <script type="text/javascript" src="../js/autoComplete.js?v=1"></script>
 
 <script type="text/javascript"> sem(); </script>
-									</table>
-								</div>
-							</form>
+								</table>
+							</div>
 						</center>
 					</div>
 
@@ -389,14 +387,66 @@ include 'session.php';
 	}
 
 	function stud_ViewDetails() {
-		console.log("Student");
+		var course = document.getElementById('course').value;
+		var branch = document.getElementById('branch').value;
+		var sem = document.getElementById('semester').value;
+		var name = document.getElementById('s_name').value;
+		showGetDiv();
+
+		var x = '&action=2&name='+name+'&course='+course+'&sem='+sem+'&branch='+branch;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET','viewAttendance_action.php?'+x, true);
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState==4 && xhr.status==200)
+			{
+				document.getElementById('get').innerHTML = xhr.responseText;
+			}
+		}
+		xhr.send(x);
 	}
 
 	function date_ViewDetails() {
-		console.log("Date");
+		var date = document.getElementById('myDate').value;
+		showGetDiv();
+		var x = '&action=3&date='+date;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET','viewAttendance_action.php?'+x, true);
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState==4 && xhr.status==200)
+			{
+				document.getElementById('get').innerHTML = xhr.responseText;
+			}
+		}
+		xhr.send(x);
 	}
 
 	function hostel_ViewDetails() {
-		console.log("Hostel");
+		var hostel = '', floor = '', room = '';
+		
+		if(document.getElementById('hostelno').value != '')
+		{
+			showGetDiv();
+			hostel = document.getElementById('hostelno').value;
+			if(document.getElementById('floorno').value != '')
+			{
+				floor = document.getElementById('floorno').value;
+				if(document.getElementById('roomno').value != '')
+				{
+					room = document.getElementById('roomno').value;
+				}
+			}
+			var x = '&action=4&hostel='+hostel+'&floor='+floor+'&room='+room;
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET','viewAttendance_action.php?'+x, true);
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState==4 && xhr.status==200)
+				{
+					document.getElementById('get').innerHTML = xhr.responseText;
+				}
+			}
+			xhr.send(x);
+		}
+		else 
+			alert('Please select a Hostel!');	
 	}
 </script>

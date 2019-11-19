@@ -10,11 +10,11 @@ if(!empty($_POST['course']))
 
 if($adm_no != "")
 {
-	$var_sql = "SELECT name,course,semester,branch,hostel_code,adm_no,room_no FROM hostel_details where adm_no=".$adm_no;
+	$var_sql = "SELECT name,course,semester,branch,hostel_code,adm_no,room_no FROM hostel_details WHERE adm_no=".$adm_no;
 }
 else
 {
-	$var_sql = "SELECT name,course,semester,branch,hostel_code,adm_no,room_no FROM hostel_details where ";
+	$var_sql = "SELECT name,course,semester,branch,hostel_code,adm_no,room_no FROM hostel_details WHERE ";
 	$var_sql .= "course='".$course."'";
 	$var_sql .= " AND semester='".$semester."'";
 	$var_sql .= " AND branch='".$branch."'";
@@ -226,43 +226,9 @@ if(!isset($row[0]))
 							&nbsp; &nbsp; <label class="heading"> &nbsp; &nbsp; Daily Attendance </label>
 						</div>
 
-						<?php 
-						$year = date("y");
-						$sem = $row[2][1];
-
-						$year = "20".$year;
-
-						$year = (int)$year;
-						$sem = (int)$sem;
-
-						if(($sem%2) == 0)
-						{
-							$year = $year - $sem/2;
-						}
-						else
-						{
-							$year = $year - ($sem-1)/2;
-						}
-
-						$var_sql1 = "SELECT start_date,end_date FROM hostel_academic_details WHERE academic_from = ".$year;
-						$result1 = mysql_query($var_sql1);
-						$row1 = mysql_fetch_array($result1);
-
-						$start_date = $row1[0];
-						$end_date = $row1[1];
-
-						$var_att = "SELECT si_no,status,";
-						$var_att .= "date FROM hostel_date_details where date='".$end_date."'";
-						$res_att = mysql_query($var_att);
-						$row_att = mysql_fetch_array($res_att);
-
-						$var_stu = "SELECT date_id,remarks,entered_by FROM hostel_attendance_details WHERE adm_no=".$row[5]." AND status=1 ORDER BY date_id DESC";
-						$res_stu = mysql_query($var_stu);
-						$row_stu = mysql_fetch_array($res_stu);
-
-						$flag = 0;
-						$si_no = $row_att[0];
-						?>
+					<?php 
+						// echo date('l',strtotime($row_att[2])); 		//Conv date to day
+					?>
 
 						<!-- Daily Attendance -->
 						<div id="daily_attend" class="details">
@@ -272,72 +238,8 @@ if(!isset($row[0]))
 									<th> Date </th>
 									<th> Day </th>
 									<th> Class / Holiday </th>
-									<th> Attendance </th>
 									<th> Remark </th>
 								</tr>
-
-								<?php 
-								while($flag==0)
-								{
-								?>
-								<tr>
-									<!-- Date -->
-									<td> <?php echo date("d-m-Y",strtotime($row_att[2])); ?> </td>
-
-									<!-- Day -->
-									<td> 
-										<?php 
-									echo date('l',strtotime($row_att[2]));
-										?>
-									</td>
-
-									<!-- Status(H/C) -->
-									<td> 
-										<?php 
-									if($row_att[1] == 1)
-										echo "<img src='../images/c.png' alt='Class' style='width: 30px; height: 25px;'>";
-									else 
-										echo "<img src='../images/x.png' alt='Holiday' style='width: 20px; height: 20px;'>";
-										?> 
-									</td>
-
-									<!-- Attendance (P/A) -->
-									<td> 
-										<div>
-											<?php
-									if((int)$row_stu[0] == $si_no)
-									{
-										//echo "<b>A</b>";
-										echo "<img src='../images/a.png' alt='Absent' style='width: 20px; height: 20px;'>";
-										echo "</td> <td>";
-										//Remarks
-										echo (string)$row_stu[1];
-										echo "</td>";
-										$row_stu = mysql_fetch_array($res_stu);
-									}
-									else
-									{
-										echo "<img src='../images/p.png' alt='Present' style='width: 20px; height: 20px;'>";
-										echo "</td> <td>";
-										echo "--";;
-										echo "</td>"; 
-									}
-											?>
-										</div>
-									</td>
-								</tr>
-								<?php
-									$si_no--;
-									$var_att = "SELECT si_no,status,";
-									$var_att .= "date FROM hostel_date_details WHERE si_no=".$si_no;
-
-									$res_att = mysql_query($var_att);
-									$row_att = mysql_fetch_array($res_att);
-
-									if($row_att[2] == $start_date)
-										$flag++;
-								}
-								?>
 
 							</table>
 						</div>

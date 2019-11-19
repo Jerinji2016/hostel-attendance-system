@@ -15,30 +15,36 @@
 			<th>Marked By</th>
 		</tr>
 <?php
-	if($action == 1 || $action == 2) 
+	if($action == 1 || $action == 2)
 	{
-		if($action == 1) 
+		if($action == 1)
 		{
-			$var_sql .= " s.adm_no=".$_GET['adm'];   //Done
+			$var_sql .= " s.adm_no=".$_GET['adm'];
 			$res = mysql_query($var_sql);
 		}
-		else 
+		else
 		{
-			$var_sql .= " s.course='BTECH' AND s.semester='S1' AND s.branch='CSE'"; //Add course sem branch
+			$var_sql .= " s.course='".$_GET['course']."' AND s.semester='".$_GET['sem']."' AND s.branch='".$_GET['branch']."'"; 
 			if(isset($name))
-				$var_sql .= " AND s.name='Ajay'";	//Add name
+				$var_sql .= " AND s.name='".$_GET['name']."'";
 			$res = mysql_query($var_sql);
 		}
 	}
 	else if($action == 3) 
 	{	
-		$var_sql .= " h.date_id IN (SELECT si_no FROM hostel_date_details WHERE date='2019-04-03')"; //add date
+		$var_sql .= " h.date_id IN (SELECT si_no FROM hostel_date_details WHERE date='".$_GET['date']."')"; 
 		$res = mysql_query($var_sql);
-		echo $var_sql;
 	}
 	else if($action == 4) 
 	{
-		$var_sql .= " s.hostel_code=1 AND s.floor_no=1 AND s.room_no=10";	// add hostel details
+		$var_sql .= " s.hostel_code=".$_GET['hostel'];
+		if($_GET['floor'] != '')
+		{
+			echo "here";
+			$var_sql .= " AND s.floor_no=".$_GET['floor'];
+			if($_GET['room'] != '')
+				$var_sql .= " AND s.room_no=".$_GET['room'];
+		}
 		$res = mysql_query($var_sql);
 		echo $var_sql;
 	}
@@ -55,6 +61,5 @@
 	}
 ?>
 	</table>
-	<input type="button" value="Close" onclick=" document.getElementById('selectBox').style.display = 'block';
-												 document.getElementById('get').style.display = 'none'; ">
+	<input type="button" value="Close" onclick="document.getElementById('selectBox').style.display = 'block'; document.getElementById('get').style.display = 'none'; ">
 </center>
